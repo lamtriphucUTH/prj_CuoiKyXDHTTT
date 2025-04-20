@@ -120,6 +120,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lnkBack);
             this.Name = "Adminlogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adminlogin";
             this.ResumeLayout(false);
             this.PerformLayout();

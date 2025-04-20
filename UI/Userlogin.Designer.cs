@@ -119,6 +119,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lnkToAdmin);
             this.Name = "Userlogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Userlogin";
             this.ResumeLayout(false);
             this.PerformLayout();
