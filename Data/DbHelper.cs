@@ -10,7 +10,7 @@ namespace prj_CuoiKyXDHTTT.Data
 {
     class DbHelper
     {
-        private static string connStr = "Data Source=.;Initial Catalog=MobileShoppe;Integrated Security=True";
+        private static string connStr = "Data Source=LAPTOP-7OVCLMLM;Initial Catalog=MobileShoppe;Integrated Security=True";
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connStr);
