@@ -8,5 +8,11 @@ namespace prj_CuoiKyXDHTTT.DTO
 {
     class User
     {
+        public string UserName { get; set; }
+        public string PWD { get; set; }
+        public string EmployeeName { get; set; }
+        public string Address { get; set; }
+        public string MobileNumber { get; set; }
+        public string Hint { get; set; }
     }
 }
