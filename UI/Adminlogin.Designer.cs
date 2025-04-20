@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lnkForgotPassword = new System.Windows.Forms.LinkLabel();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.txtUid = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lnkBack = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
-            // linkLabel2
+            // lnkForgotPassword
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(85, 301);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(209, 29);
-            this.linkLabel2.TabIndex = 13;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Forgot Password?";
+            this.lnkForgotPassword.AutoSize = true;
+            this.lnkForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkForgotPassword.Location = new System.Drawing.Point(85, 301);
+            this.lnkForgotPassword.Name = "lnkForgotPassword";
+            this.lnkForgotPassword.Size = new System.Drawing.Size(209, 29);
+            this.lnkForgotPassword.TabIndex = 13;
+            this.lnkForgotPassword.TabStop = true;
+            this.lnkForgotPassword.Text = "Forgot Password?";
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(332, 290);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 40);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnlogin_Click);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(332, 290);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(117, 40);
+            this.btnLogin.TabIndex = 12;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnlogin_Click);
             // 
             // txtPwd
             // 
@@ -95,30 +95,30 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "UserName";
             // 
-            // linkLabel1
+            // lnkBack
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(26, 27);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(66, 29);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Back";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkBack_linkClick);
+            this.lnkBack.AutoSize = true;
+            this.lnkBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkBack.Location = new System.Drawing.Point(26, 27);
+            this.lnkBack.Name = "lnkBack";
+            this.lnkBack.Size = new System.Drawing.Size(66, 29);
+            this.lnkBack.TabIndex = 7;
+            this.lnkBack.TabStop = true;
+            this.lnkBack.Text = "Back";
+            this.lnkBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkBack_linkClick);
             // 
             // Adminlogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 438);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lnkForgotPassword);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.txtUid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.lnkBack);
             this.Name = "Adminlogin";
             this.Text = "Adminlogin";
             this.ResumeLayout(false);
@@ -128,12 +128,12 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel lnkForgotPassword;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.TextBox txtUid;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lnkBack;
     }
 }
