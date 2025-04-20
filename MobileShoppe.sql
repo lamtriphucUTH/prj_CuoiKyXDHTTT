@@ -68,11 +68,6 @@ CREATE TABLE tbl_Sales (
     FOREIGN KEY (CusId) REFERENCES tbl_Customer(CusId)
 );
 
--- Disable all foreign key constraints
-EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT ALL";
-
--- Enable all foreign key constraints
-EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL";
 
 INSERT INTO tbl_User VALUES
 ('user1', '1', 'Nguyen Van A', '123 Le Loi, Q1', '0909123456', 'Tên thú cưng'),
@@ -130,3 +125,151 @@ INSERT INTO tbl_Sales VALUES
 ('S005', 'IMEI0002', '2025-04-14', 15000000, 'CU005');
 GO
 
+ --drop database mobileshoppe;
+
+-- Disable all foreign key constraints
+-- EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT ALL";
+
+-- Enable all foreign key constraints
+-- EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL";
+
+-- PROCEDURES
+CREATE PROCEDURE sp_Login
+    @UserName VARCHAR(20),
+    @PWD VARCHAR(20)
+AS
+BEGIN
+    SELECT * FROM tbl_User 
+    WHERE UserName = @UserName AND PWD = @PWD
+END
+GO
+
+CREATE PROCEDURE sp_AddCompany
+    @ComId VARCHAR(20),
+    @CName VARCHAR(20)
+AS
+BEGIN
+    INSERT INTO tbl_Company (ComId, CName)
+    VALUES (@ComId, @CName)
+END
+GO
+
+CREATE PROCEDURE sp_AddModel
+    @ModelId VARCHAR(20),
+    @ComId VARCHAR(20),
+    @ModelNum VARCHAR(20),
+    @AvailableQty INT
+AS
+BEGIN
+    INSERT INTO tbl_Model (ModelId, ComId, ModelNum, AvailableQty)
+    VALUES (@ModelId, @ComId, @ModelNum, @AvailableQty)
+END
+GO
+
+CREATE PROCEDURE sp_AddMobile
+    @ModelId VARCHAR(20),
+    @IMEINO VARCHAR(50),
+    @Status VARCHAR(20),
+    @Warranty DATE,
+    @Price MONEY
+AS
+BEGIN
+    INSERT INTO tbl_Mobile (ModelId, IMEINO, Status, Warranty, Price)
+    VALUES (@ModelId, @IMEINO, @Status, @Warranty, @Price)
+END
+GO
+
+CREATE PROCEDURE sp_UpdateStock
+    @ModelId VARCHAR(20),
+    @Quantity INT
+AS
+BEGIN
+    UPDATE tbl_Model
+    SET AvailableQty = AvailableQty + @Quantity
+    WHERE ModelId = @ModelId
+END
+GO
+
+CREATE PROCEDURE sp_SalesReport_ByDate
+    @Date DATE
+AS
+BEGIN
+    SELECT * FROM tbl_Sales
+    WHERE CONVERT(DATE, PurchageDate) = @Date
+END
+GO
+
+CREATE PROCEDURE sp_SalesReport_DateToDate
+    @FromDate DATE,
+    @ToDate DATE
+AS
+BEGIN
+    SELECT * FROM tbl_Sales
+    WHERE PurchageDate BETWEEN @FromDate AND @ToDate
+END
+GO
+
+CREATE PROCEDURE sp_AddUser
+    @UserName VARCHAR(20),
+    @PWD VARCHAR(20),
+    @EmployeeName VARCHAR(20),
+    @Address VARCHAR(MAX),
+    @MobileNumber VARCHAR(20),
+    @Hint VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO tbl_User (UserName, PWD, EmployeeName, Address, MobileNumber, Hint)
+    VALUES (@UserName, @PWD, @EmployeeName, @Address, @MobileNumber, @Hint)
+END
+GO
+
+CREATE PROCEDURE sp_AddCustomer
+    @CusId VARCHAR(20),
+    @CustName VARCHAR(20),
+    @MobileNumber VARCHAR(20),
+    @EmailId VARCHAR(20),
+    @Address VARCHAR(MAX)
+AS
+BEGIN
+    INSERT INTO tbl_Customer (CusId, CustName, MobileNumber, EmailId, Address)
+    VALUES (@CusId, @CustName, @MobileNumber, @EmailId, @Address)
+END
+GO
+
+CREATE PROCEDURE sp_SellMobile
+    @SlsId VARCHAR(20),
+    @IMEINO VARCHAR(50),
+    @PurchageDate DATE,
+    @Price MONEY,
+    @CusId VARCHAR(20)
+AS
+BEGIN
+    INSERT INTO tbl_Sales (SlsId, IMEINO, PurchageDate, Price, CusId)
+    VALUES (@SlsId, @IMEINO, @PurchageDate, @Price, @CusId)
+
+    -- Cập nhật trạng thái máy đã bán
+    UPDATE tbl_Mobile
+    SET Status = 'Sold'
+    WHERE IMEINO = @IMEINO
+END
+GO
+
+CREATE PROCEDURE sp_ViewStock
+AS
+BEGIN
+    SELECT m.ModelId, m.ModelNum, c.CName, m.AvailableQty
+    FROM tbl_Model m
+    INNER JOIN tbl_Company c ON m.ComId = c.ComId
+END
+GO
+
+CREATE PROCEDURE sp_SearchCustomerByIMEI
+    @IMEINO VARCHAR(50)
+AS
+BEGIN
+    SELECT c.*
+    FROM tbl_Customer c
+    INNER JOIN tbl_Sales s ON c.CusId = s.CusId
+    WHERE s.IMEINO = @IMEINO
+END
+GO
