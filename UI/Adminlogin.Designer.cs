@@ -31,7 +31,7 @@
             this.lnkForgotPassword = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPwd = new System.Windows.Forms.TextBox();
-            this.txtUid = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lnkBack = new System.Windows.Forms.LinkLabel();
@@ -67,13 +67,13 @@
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 11;
             // 
-            // txtUid
+            // txtUsername
             // 
-            this.txtUid.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUid.Location = new System.Drawing.Point(197, 120);
-            this.txtUid.Name = "txtUid";
-            this.txtUid.Size = new System.Drawing.Size(273, 34);
-            this.txtUid.TabIndex = 10;
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(197, 120);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(273, 34);
+            this.txtUsername.TabIndex = 10;
             // 
             // label2
             // 
@@ -115,13 +115,14 @@
             this.Controls.Add(this.lnkForgotPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPwd);
-            this.Controls.Add(this.txtUid);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lnkBack);
             this.Name = "Adminlogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adminlogin";
+            this.Load += new System.EventHandler(this.Adminlogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +133,7 @@
         private System.Windows.Forms.LinkLabel lnkForgotPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPwd;
-        private System.Windows.Forms.TextBox txtUid;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel lnkBack;
