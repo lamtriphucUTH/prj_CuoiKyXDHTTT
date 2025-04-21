@@ -55,11 +55,17 @@
     <Compile Include="DTO\Sales.cs" />
     <Compile Include="DTO\Transaction.cs" />
     <Compile Include="DTO\User.cs" />
-    <Compile Include="UI\Adminlogin.cs">
+    <Compile Include="UI\AdminHomepage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Adminlogin.Designer.cs">
-      <DependentUpon>Adminlogin.cs</DependentUpon>
+    <Compile Include="UI\AdminHomepage.Designer.cs">
+      <DependentUpon>AdminHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UserHomepage.cs">
       <SubType>Form</SubType>
@@ -67,31 +73,25 @@
     <Compile Include="UI\UserHomepage.Designer.cs">
       <DependentUpon>UserHomepage.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Userlogin.cs">
+    <Compile Include="UI\UserLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Userlogin.Designer.cs">
-      <DependentUpon>Userlogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="UI\UserLogin.Designer.cs">
+      <DependentUpon>UserLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UI\Adminlogin.resx">
-      <DependentUpon>Adminlogin.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AdminHomepage.resx">
+      <DependentUpon>AdminHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserHomepage.resx">
       <DependentUpon>UserHomepage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Userlogin.resx">
-      <DependentUpon>Userlogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="UI\UserLogin.resx">
+      <DependentUpon>UserLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

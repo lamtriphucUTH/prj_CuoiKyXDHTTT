@@ -1,6 +1,6 @@
 ﻿namespace prj_CuoiKyXDHTTT
 {
-    partial class Userlogin
+    partial class UserLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.lnkToAdmin.TabIndex = 0;
             this.lnkToAdmin.TabStop = true;
             this.lnkToAdmin.Text = "Admin";
-            this.lnkToAdmin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklabel_linkClick);
+            this.lnkToAdmin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkToAdmin_LinkClicked);
             // 
             // label1
             // 
@@ -55,9 +55,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(60, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 29);
+            this.label1.Size = new System.Drawing.Size(124, 29);
             this.label1.TabIndex = 1;
-            this.label1.Text = "UserName";
+            this.label1.Text = "Username";
             // 
             // label2
             // 
@@ -76,6 +76,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(273, 34);
             this.txtUsername.TabIndex = 3;
+            this.txtUsername.Text = "user1";
             // 
             // txtPwd
             // 
@@ -84,6 +85,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 4;
+            this.txtPwd.Text = "1";
             // 
             // btnLogin
             // 
@@ -107,7 +109,7 @@
             this.lnkForgotPassword.TabStop = true;
             this.lnkForgotPassword.Text = "Forgot Password?";
             // 
-            // Userlogin
+            // UserLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,10 +121,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lnkToAdmin);
-            this.Name = "Userlogin";
+            this.Name = "UserLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Userlogin";
-            this.Load += new System.EventHandler(this.Userlogin_Load);
+            this.Load += new System.EventHandler(this.UserLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
