@@ -13,25 +13,24 @@ using prj_CuoiKyXDHTTT.UI;
 
 namespace prj_CuoiKyXDHTTT
 {
-    public partial class Userlogin : Form
+    public partial class UserLogin : Form
     {
         UserDAL userDAL = new UserDAL();
 
-        public Userlogin()
+        public UserLogin()
         {
             InitializeComponent();
+        }
+        private void UserLogin_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void linklabel_linkClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Adminlogin objLogin = new Adminlogin();
+            AdminLogin objLogin = new AdminLogin();
             objLogin.Show();
             this.Hide();
-        }
-
-        private void Userlogin_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -43,11 +42,18 @@ namespace prj_CuoiKyXDHTTT
 
             if (user != null)
             {
-                UserHomepage objHomepage = new UserHomepage();
+                UserHomepage userHomepage = new UserHomepage();
                 this.Hide();
-                objHomepage.ShowDialog();
+                userHomepage.ShowDialog();
                 this.Show();
             }
+        }
+
+        private void lnkToAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AdminLogin objLogin = new AdminLogin();
+            objLogin.Show();
+            this.Hide();
         }
     }
 }

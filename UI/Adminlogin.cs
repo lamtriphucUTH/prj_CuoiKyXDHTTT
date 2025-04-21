@@ -12,17 +12,17 @@ using System.Windows.Forms;
 
 namespace prj_CuoiKyXDHTTT.UI
 {
-    public partial class Adminlogin : Form
+    public partial class AdminLogin : Form
     {
         UserDAL userDAL = new UserDAL();
-        public Adminlogin()
+        public AdminLogin()
         {
             InitializeComponent();
         }
 
         private void linkBack_linkClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Userlogin objLogin = new Userlogin();
+            UserLogin objLogin = new UserLogin();
             objLogin.Show();
             this.Hide();
         }
@@ -42,8 +42,10 @@ namespace prj_CuoiKyXDHTTT.UI
 
             if (user != null)
             {
-                MessageBox.
-                    Show(user.EmployeeName, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AdminHomepage adminHomepage = new AdminHomepage();
+                this.Hide();
+                adminHomepage.ShowDialog();
+                this.Show();
             }
         }
 
