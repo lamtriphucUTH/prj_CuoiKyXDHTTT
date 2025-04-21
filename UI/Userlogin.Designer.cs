@@ -31,7 +31,7 @@
             this.lnkToAdmin = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUid = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lnkForgotPassword = new System.Windows.Forms.LinkLabel();
@@ -69,13 +69,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
-            // txtUid
+            // txtUsername
             // 
-            this.txtUid.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUid.Location = new System.Drawing.Point(195, 84);
-            this.txtUid.Name = "txtUid";
-            this.txtUid.Size = new System.Drawing.Size(273, 34);
-            this.txtUid.TabIndex = 3;
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(195, 84);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(273, 34);
+            this.txtUsername.TabIndex = 3;
             // 
             // txtPwd
             // 
@@ -94,6 +94,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lnkForgotPassword
             // 
@@ -114,13 +115,14 @@
             this.Controls.Add(this.lnkForgotPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPwd);
-            this.Controls.Add(this.txtUid);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lnkToAdmin);
             this.Name = "Userlogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Userlogin";
+            this.Load += new System.EventHandler(this.Userlogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,7 +133,7 @@
         private System.Windows.Forms.LinkLabel lnkToAdmin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUid;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel lnkForgotPassword;
