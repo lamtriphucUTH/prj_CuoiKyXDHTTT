@@ -47,6 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DbHelper.cs" />
+    <Compile Include="Data\UserDAL.cs" />
+    <Compile Include="DTO\Company.cs" />
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\Mobile.cs" />
+    <Compile Include="DTO\Model.cs" />
+    <Compile Include="DTO\Sales.cs" />
+    <Compile Include="DTO\Transaction.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="UI\Adminlogin.cs">
       <SubType>Form</SubType>
