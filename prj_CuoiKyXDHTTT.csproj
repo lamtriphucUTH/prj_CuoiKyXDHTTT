@@ -46,15 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CompanyDAL.cs" />
     <Compile Include="Data\DbHelper.cs" />
+    <Compile Include="Data\ModelDAL.cs" />
     <Compile Include="Data\UserDAL.cs" />
-    <Compile Include="DTO\Company.cs" />
-    <Compile Include="DTO\Customer.cs" />
-    <Compile Include="DTO\Mobile.cs" />
-    <Compile Include="DTO\Model.cs" />
-    <Compile Include="DTO\Sales.cs" />
-    <Compile Include="DTO\Transaction.cs" />
-    <Compile Include="DTO\User.cs" />
+    <Compile Include="DTO\CompanyDTO.cs" />
+    <Compile Include="DTO\CustomerDTO.cs" />
+    <Compile Include="DTO\MobileDTO.cs" />
+    <Compile Include="DTO\ModelDTO.cs" />
+    <Compile Include="DTO\SalesDTO.cs" />
+    <Compile Include="DTO\TransactionDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Helpers\IdGenerator.cs" />
     <Compile Include="UI\AdminHomepage.cs">
       <SubType>Form</SubType>
     </Compile>

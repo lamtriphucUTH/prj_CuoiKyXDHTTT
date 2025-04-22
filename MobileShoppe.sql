@@ -157,12 +157,11 @@ GO
 CREATE PROCEDURE sp_AddModel
     @ModelId VARCHAR(20),
     @ComId VARCHAR(20),
-    @ModelNum VARCHAR(20),
-    @AvailableQty INT
+    @ModelNum VARCHAR(20)
 AS
 BEGIN
-    INSERT INTO tbl_Model (ModelId, ComId, ModelNum, AvailableQty)
-    VALUES (@ModelId, @ComId, @ModelNum, @AvailableQty)
+    INSERT INTO tbl_Model (ModelId, ComId, ModelNum)
+    VALUES (@ModelId, @ComId, @ModelNum)
 END
 GO
 

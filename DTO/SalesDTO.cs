@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace prj_CuoiKyXDHTTT.DTO
 {
-    class Mobile
+    class SalesDTO
     {
-        public int ModelId { get; set; }
-        public string IMEINO { get; set; }
-        public string Status { get; set; }
-        public DateTime Warranty { get; set; }
+        public int SlsId { get; set; }  
+        public string IMEINO { get; set; }  
+        public DateTime PurchageDate { get; set; }
         public decimal Price { get; set; }
+        public int CusId { get; set; } 
     }
 }
