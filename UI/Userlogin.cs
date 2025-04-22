@@ -38,7 +38,7 @@ namespace prj_CuoiKyXDHTTT
             string username = txtUsername.Text.Trim();
             string password = txtPwd.Text.Trim();
 
-            User user = userDAL.Login(username, password);
+            UserDTO user = userDAL.Login(username, password);
 
             if (user != null)
             {

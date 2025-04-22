@@ -12,9 +12,9 @@ namespace prj_CuoiKyXDHTTT.Data
 {
     class UserDAL
     {
-        public User Login(string userName, string pwd)
+        public UserDTO Login(string userName, string pwd)
         {
-            User user = null;
+            UserDTO user = null;
 
             using (SqlConnection conn = DbHelper.GetConnection())
             {
@@ -29,7 +29,7 @@ namespace prj_CuoiKyXDHTTT.Data
                     {
                         if (reader.Read())
                         {
-                            user = new User
+                            user = new UserDTO
                             {
                                 UserName = reader["UserName"].ToString(),
                                 PWD = reader["PWD"].ToString(),

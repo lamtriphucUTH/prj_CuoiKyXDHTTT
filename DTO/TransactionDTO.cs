@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace prj_CuoiKyXDHTTT.DTO
 {
-    class Transaction
+    class TransactionDTO
     {
         public int TransId { get; set; }  
-        public int ModelId { get; set; } 
+        public ModelDTO Model { get; set; } 
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
         public decimal Amount { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace prj_CuoiKyXDHTTT.DTO
 {
-    class Company
+    class CompanyDTO
     {
         public int ComId { get; set; }
         public string CName { get; set; }

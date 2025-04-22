@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace prj_CuoiKyXDHTTT.DTO
 {
-    class Model
+    class ModelDTO
     {
-        public int ModelId { get; set; } 
-        public int ComId { get; set; } 
+        public int ModelId { get; set; }
+        public CompanyDTO Company { get; set; }
         public string ModelNum { get; set; }
         public int AvailableQty { get; set; }
     }

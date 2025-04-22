@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabMain = new System.Windows.Forms.TabControl();
+            this.tabAdd = new System.Windows.Forms.TabPage();
+            this.tabControlAdd = new System.Windows.Forms.TabControl();
+            this.tabAddCompany = new System.Windows.Forms.TabPage();
             this.btnAddCom = new System.Windows.Forms.Button();
             this.txtComName = new System.Windows.Forms.TextBox();
             this.txtComId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabAddModel = new System.Windows.Forms.TabPage();
             this.cbComName_Model = new System.Windows.Forms.ComboBox();
             this.btnAddModel = new System.Windows.Forms.Button();
             this.txtModelNum = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabAddMobile = new System.Windows.Forms.TabPage();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtIMEI = new System.Windows.Forms.TextBox();
             this.cbWarranty = new System.Windows.Forms.ComboBox();
@@ -57,7 +57,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabUpdateStock = new System.Windows.Forms.TabPage();
             this.btnUpdateStock = new System.Windows.Forms.Button();
             this.cbModelNum = new System.Windows.Forms.ComboBox();
             this.cbComName = new System.Windows.Forms.ComboBox();
@@ -69,112 +69,113 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabSaleReport = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.dtgvReportByDay = new System.Windows.Forms.DataGridView();
-            this.btnSearchByDay = new System.Windows.Forms.Button();
-            this.dtpSelectDay = new System.Windows.Forms.DateTimePicker();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabReportByDay = new System.Windows.Forms.TabPage();
             this.lblTotalByDay = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.btnSearchDtoD = new System.Windows.Forms.Button();
-            this.dtgvReportDtoD = new System.Windows.Forms.DataGridView();
-            this.lblTotalDtoD = new System.Windows.Forms.Label();
+            this.dtgvReportByDay = new System.Windows.Forms.DataGridView();
             this.SlsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMEINO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSearchByDay = new System.Windows.Forms.Button();
+            this.dtpSelectDay = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tabPeportDtoD = new System.Windows.Forms.TabPage();
+            this.lblTotalDtoD = new System.Windows.Forms.Label();
+            this.dtgvReportDtoD = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txtEployeeName = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtMobile = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPass = new System.Windows.Forms.TextBox();
-            this.txtRetypePass = new System.Windows.Forms.TextBox();
-            this.txtHint = new System.Windows.Forms.TextBox();
+            this.btnSearchDtoD = new System.Windows.Forms.Button();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.tabEmployee = new System.Windows.Forms.TabPage();
             this.btnAddEmployee = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.txtHint = new System.Windows.Forms.TextBox();
+            this.txtRetypePass = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtMobile = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtEployeeName = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.tabMain.SuspendLayout();
+            this.tabAdd.SuspendLayout();
+            this.tabControlAdd.SuspendLayout();
+            this.tabAddCompany.SuspendLayout();
+            this.tabAddModel.SuspendLayout();
+            this.tabAddMobile.SuspendLayout();
+            this.tabUpdateStock.SuspendLayout();
+            this.tabSaleReport.SuspendLayout();
             this.tabControl3.SuspendLayout();
-            this.tabPage8.SuspendLayout();
+            this.tabReportByDay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReportByDay)).BeginInit();
-            this.tabPage9.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tabPeportDtoD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReportDtoD)).BeginInit();
+            this.tabEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabMain
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(-1, -1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(841, 670);
-            this.tabControl1.TabIndex = 0;
+            this.tabMain.Controls.Add(this.tabAdd);
+            this.tabMain.Controls.Add(this.tabUpdateStock);
+            this.tabMain.Controls.Add(this.tabSaleReport);
+            this.tabMain.Controls.Add(this.tabEmployee);
+            this.tabMain.Location = new System.Drawing.Point(-1, -1);
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(841, 670);
+            this.tabMain.TabIndex = 0;
             // 
-            // tabPage1
+            // tabAdd
             // 
-            this.tabPage1.Controls.Add(this.tabControl2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(833, 628);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Add";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabAdd.Controls.Add(this.tabControlAdd);
+            this.tabAdd.Location = new System.Drawing.Point(4, 38);
+            this.tabAdd.Name = "tabAdd";
+            this.tabAdd.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAdd.Size = new System.Drawing.Size(833, 628);
+            this.tabAdd.TabIndex = 0;
+            this.tabAdd.Text = "Add";
+            this.tabAdd.UseVisualStyleBackColor = true;
             // 
-            // tabControl2
+            // tabControlAdd
             // 
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Location = new System.Drawing.Point(0, 0);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(827, 622);
-            this.tabControl2.TabIndex = 0;
+            this.tabControlAdd.Controls.Add(this.tabAddCompany);
+            this.tabControlAdd.Controls.Add(this.tabAddModel);
+            this.tabControlAdd.Controls.Add(this.tabAddMobile);
+            this.tabControlAdd.Location = new System.Drawing.Point(0, 0);
+            this.tabControlAdd.Name = "tabControlAdd";
+            this.tabControlAdd.SelectedIndex = 0;
+            this.tabControlAdd.Size = new System.Drawing.Size(827, 622);
+            this.tabControlAdd.TabIndex = 0;
+            this.tabControlAdd.SelectedIndexChanged += new System.EventHandler(this.tabControlAdd_SelectedIndexChanged);
             // 
-            // tabPage5
+            // tabAddCompany
             // 
-            this.tabPage5.Controls.Add(this.btnAddCom);
-            this.tabPage5.Controls.Add(this.txtComName);
-            this.tabPage5.Controls.Add(this.txtComId);
-            this.tabPage5.Controls.Add(this.label2);
-            this.tabPage5.Controls.Add(this.label1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 38);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage5.Size = new System.Drawing.Size(819, 580);
-            this.tabPage5.TabIndex = 0;
-            this.tabPage5.Text = "Company";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabAddCompany.Controls.Add(this.btnAddCom);
+            this.tabAddCompany.Controls.Add(this.txtComName);
+            this.tabAddCompany.Controls.Add(this.txtComId);
+            this.tabAddCompany.Controls.Add(this.label2);
+            this.tabAddCompany.Controls.Add(this.label1);
+            this.tabAddCompany.Location = new System.Drawing.Point(4, 38);
+            this.tabAddCompany.Name = "tabAddCompany";
+            this.tabAddCompany.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAddCompany.Size = new System.Drawing.Size(819, 580);
+            this.tabAddCompany.TabIndex = 0;
+            this.tabAddCompany.Text = "Company";
+            this.tabAddCompany.UseVisualStyleBackColor = true;
             // 
             // btnAddCom
             // 
@@ -184,6 +185,7 @@
             this.btnAddCom.TabIndex = 2;
             this.btnAddCom.Text = "Add";
             this.btnAddCom.UseVisualStyleBackColor = true;
+            this.btnAddCom.Click += new System.EventHandler(this.btnAddCom_Click);
             // 
             // txtComName
             // 
@@ -217,22 +219,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Company ID:";
             // 
-            // tabPage6
+            // tabAddModel
             // 
-            this.tabPage6.Controls.Add(this.cbComName_Model);
-            this.tabPage6.Controls.Add(this.btnAddModel);
-            this.tabPage6.Controls.Add(this.txtModelNum);
-            this.tabPage6.Controls.Add(this.txtModelId);
-            this.tabPage6.Controls.Add(this.label5);
-            this.tabPage6.Controls.Add(this.label4);
-            this.tabPage6.Controls.Add(this.label3);
-            this.tabPage6.Location = new System.Drawing.Point(4, 38);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage6.Size = new System.Drawing.Size(819, 580);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "Model";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabAddModel.Controls.Add(this.cbComName_Model);
+            this.tabAddModel.Controls.Add(this.btnAddModel);
+            this.tabAddModel.Controls.Add(this.txtModelNum);
+            this.tabAddModel.Controls.Add(this.txtModelId);
+            this.tabAddModel.Controls.Add(this.label5);
+            this.tabAddModel.Controls.Add(this.label4);
+            this.tabAddModel.Controls.Add(this.label3);
+            this.tabAddModel.Location = new System.Drawing.Point(4, 38);
+            this.tabAddModel.Name = "tabAddModel";
+            this.tabAddModel.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAddModel.Size = new System.Drawing.Size(819, 580);
+            this.tabAddModel.TabIndex = 1;
+            this.tabAddModel.Text = "Model";
+            this.tabAddModel.UseVisualStyleBackColor = true;
             // 
             // cbComName_Model
             // 
@@ -250,6 +252,7 @@
             this.btnAddModel.TabIndex = 2;
             this.btnAddModel.Text = "Add";
             this.btnAddModel.UseVisualStyleBackColor = true;
+            this.btnAddModel.Click += new System.EventHandler(this.btnAddModel_Click);
             // 
             // txtModelNum
             // 
@@ -292,25 +295,25 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Model ID:";
             // 
-            // tabPage7
+            // tabAddMobile
             // 
-            this.tabPage7.Controls.Add(this.txtPrice);
-            this.tabPage7.Controls.Add(this.txtIMEI);
-            this.tabPage7.Controls.Add(this.cbWarranty);
-            this.tabPage7.Controls.Add(this.cbModelNum_Mobile);
-            this.tabPage7.Controls.Add(this.cbComName_Mobile);
-            this.tabPage7.Controls.Add(this.btnAddMobile);
-            this.tabPage7.Controls.Add(this.label10);
-            this.tabPage7.Controls.Add(this.label9);
-            this.tabPage7.Controls.Add(this.label8);
-            this.tabPage7.Controls.Add(this.label7);
-            this.tabPage7.Controls.Add(this.label6);
-            this.tabPage7.Location = new System.Drawing.Point(4, 38);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(819, 580);
-            this.tabPage7.TabIndex = 2;
-            this.tabPage7.Text = "Mobile";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tabAddMobile.Controls.Add(this.txtPrice);
+            this.tabAddMobile.Controls.Add(this.txtIMEI);
+            this.tabAddMobile.Controls.Add(this.cbWarranty);
+            this.tabAddMobile.Controls.Add(this.cbModelNum_Mobile);
+            this.tabAddMobile.Controls.Add(this.cbComName_Mobile);
+            this.tabAddMobile.Controls.Add(this.btnAddMobile);
+            this.tabAddMobile.Controls.Add(this.label10);
+            this.tabAddMobile.Controls.Add(this.label9);
+            this.tabAddMobile.Controls.Add(this.label8);
+            this.tabAddMobile.Controls.Add(this.label7);
+            this.tabAddMobile.Controls.Add(this.label6);
+            this.tabAddMobile.Location = new System.Drawing.Point(4, 38);
+            this.tabAddMobile.Name = "tabAddMobile";
+            this.tabAddMobile.Size = new System.Drawing.Size(819, 580);
+            this.tabAddMobile.TabIndex = 2;
+            this.tabAddMobile.Text = "Mobile";
+            this.tabAddMobile.UseVisualStyleBackColor = true;
             // 
             // txtPrice
             // 
@@ -404,26 +407,26 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Company Name:";
             // 
-            // tabPage2
+            // tabUpdateStock
             // 
-            this.tabPage2.Controls.Add(this.btnUpdateStock);
-            this.tabPage2.Controls.Add(this.cbModelNum);
-            this.tabPage2.Controls.Add(this.cbComName);
-            this.tabPage2.Controls.Add(this.txtAmount);
-            this.tabPage2.Controls.Add(this.txtQuantity);
-            this.tabPage2.Controls.Add(this.txtTransId);
-            this.tabPage2.Controls.Add(this.label15);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(833, 628);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Update Stock";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabUpdateStock.Controls.Add(this.btnUpdateStock);
+            this.tabUpdateStock.Controls.Add(this.cbModelNum);
+            this.tabUpdateStock.Controls.Add(this.cbComName);
+            this.tabUpdateStock.Controls.Add(this.txtAmount);
+            this.tabUpdateStock.Controls.Add(this.txtQuantity);
+            this.tabUpdateStock.Controls.Add(this.txtTransId);
+            this.tabUpdateStock.Controls.Add(this.label15);
+            this.tabUpdateStock.Controls.Add(this.label14);
+            this.tabUpdateStock.Controls.Add(this.label13);
+            this.tabUpdateStock.Controls.Add(this.label12);
+            this.tabUpdateStock.Controls.Add(this.label11);
+            this.tabUpdateStock.Location = new System.Drawing.Point(4, 38);
+            this.tabUpdateStock.Name = "tabUpdateStock";
+            this.tabUpdateStock.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUpdateStock.Size = new System.Drawing.Size(833, 628);
+            this.tabUpdateStock.TabIndex = 1;
+            this.tabUpdateStock.Text = "Update Stock";
+            this.tabUpdateStock.UseVisualStyleBackColor = true;
             // 
             // btnUpdateStock
             // 
@@ -516,41 +519,50 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Trans ID:";
             // 
-            // tabPage3
+            // tabSaleReport
             // 
-            this.tabPage3.Controls.Add(this.tabControl3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 38);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(833, 628);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Sale Report";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabSaleReport.Controls.Add(this.tabControl3);
+            this.tabSaleReport.Location = new System.Drawing.Point(4, 38);
+            this.tabSaleReport.Name = "tabSaleReport";
+            this.tabSaleReport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSaleReport.Size = new System.Drawing.Size(833, 628);
+            this.tabSaleReport.TabIndex = 2;
+            this.tabSaleReport.Text = "Sale Report";
+            this.tabSaleReport.UseVisualStyleBackColor = true;
             // 
             // tabControl3
             // 
-            this.tabControl3.Controls.Add(this.tabPage8);
-            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Controls.Add(this.tabReportByDay);
+            this.tabControl3.Controls.Add(this.tabPeportDtoD);
             this.tabControl3.Location = new System.Drawing.Point(0, 0);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
             this.tabControl3.Size = new System.Drawing.Size(832, 625);
             this.tabControl3.TabIndex = 0;
             // 
-            // tabPage8
+            // tabReportByDay
             // 
-            this.tabPage8.Controls.Add(this.lblTotalByDay);
-            this.tabPage8.Controls.Add(this.dtgvReportByDay);
-            this.tabPage8.Controls.Add(this.btnSearchByDay);
-            this.tabPage8.Controls.Add(this.dtpSelectDay);
-            this.tabPage8.Controls.Add(this.label16);
-            this.tabPage8.Location = new System.Drawing.Point(4, 38);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage8.Size = new System.Drawing.Size(824, 583);
-            this.tabPage8.TabIndex = 0;
-            this.tabPage8.Text = "Day";
-            this.tabPage8.UseVisualStyleBackColor = true;
+            this.tabReportByDay.Controls.Add(this.lblTotalByDay);
+            this.tabReportByDay.Controls.Add(this.dtgvReportByDay);
+            this.tabReportByDay.Controls.Add(this.btnSearchByDay);
+            this.tabReportByDay.Controls.Add(this.dtpSelectDay);
+            this.tabReportByDay.Controls.Add(this.label16);
+            this.tabReportByDay.Location = new System.Drawing.Point(4, 38);
+            this.tabReportByDay.Name = "tabReportByDay";
+            this.tabReportByDay.Padding = new System.Windows.Forms.Padding(3);
+            this.tabReportByDay.Size = new System.Drawing.Size(824, 583);
+            this.tabReportByDay.TabIndex = 0;
+            this.tabReportByDay.Text = "Day";
+            this.tabReportByDay.UseVisualStyleBackColor = true;
+            // 
+            // lblTotalByDay
+            // 
+            this.lblTotalByDay.AutoSize = true;
+            this.lblTotalByDay.Location = new System.Drawing.Point(25, 504);
+            this.lblTotalByDay.Name = "lblTotalByDay";
+            this.lblTotalByDay.Size = new System.Drawing.Size(25, 29);
+            this.lblTotalByDay.TabIndex = 4;
+            this.lblTotalByDay.Text = "?";
             // 
             // dtgvReportByDay
             // 
@@ -567,154 +579,6 @@
             this.dtgvReportByDay.RowTemplate.Height = 24;
             this.dtgvReportByDay.Size = new System.Drawing.Size(762, 320);
             this.dtgvReportByDay.TabIndex = 3;
-            // 
-            // btnSearchByDay
-            // 
-            this.btnSearchByDay.Location = new System.Drawing.Point(568, 35);
-            this.btnSearchByDay.Name = "btnSearchByDay";
-            this.btnSearchByDay.Size = new System.Drawing.Size(129, 55);
-            this.btnSearchByDay.TabIndex = 2;
-            this.btnSearchByDay.Text = "Search";
-            this.btnSearchByDay.UseVisualStyleBackColor = true;
-            // 
-            // dtpSelectDay
-            // 
-            this.dtpSelectDay.CustomFormat = "dd-MM-yyyy";
-            this.dtpSelectDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSelectDay.Location = new System.Drawing.Point(251, 49);
-            this.dtpSelectDay.Name = "dtpSelectDay";
-            this.dtpSelectDay.Size = new System.Drawing.Size(189, 34);
-            this.dtpSelectDay.TabIndex = 1;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(99, 49);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(134, 29);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Select Day:";
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.lblTotalDtoD);
-            this.tabPage9.Controls.Add(this.dtgvReportDtoD);
-            this.tabPage9.Controls.Add(this.btnSearchDtoD);
-            this.tabPage9.Controls.Add(this.dtpEnd);
-            this.tabPage9.Controls.Add(this.dtpStart);
-            this.tabPage9.Controls.Add(this.label19);
-            this.tabPage9.Controls.Add(this.label18);
-            this.tabPage9.Location = new System.Drawing.Point(4, 38);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage9.Size = new System.Drawing.Size(824, 583);
-            this.tabPage9.TabIndex = 1;
-            this.tabPage9.Text = "Date to Date";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.btnAddEmployee);
-            this.tabPage4.Controls.Add(this.txtHint);
-            this.tabPage4.Controls.Add(this.txtRetypePass);
-            this.tabPage4.Controls.Add(this.txtPass);
-            this.tabPage4.Controls.Add(this.txtUsername);
-            this.tabPage4.Controls.Add(this.txtMobile);
-            this.tabPage4.Controls.Add(this.txtAddress);
-            this.tabPage4.Controls.Add(this.txtEployeeName);
-            this.tabPage4.Controls.Add(this.label27);
-            this.tabPage4.Controls.Add(this.label26);
-            this.tabPage4.Controls.Add(this.label25);
-            this.tabPage4.Controls.Add(this.label24);
-            this.tabPage4.Controls.Add(this.label23);
-            this.tabPage4.Controls.Add(this.label22);
-            this.tabPage4.Controls.Add(this.label21);
-            this.tabPage4.Location = new System.Drawing.Point(4, 38);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage4.Size = new System.Drawing.Size(833, 628);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Employee";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // lblTotalByDay
-            // 
-            this.lblTotalByDay.AutoSize = true;
-            this.lblTotalByDay.Location = new System.Drawing.Point(25, 504);
-            this.lblTotalByDay.Name = "lblTotalByDay";
-            this.lblTotalByDay.Size = new System.Drawing.Size(25, 29);
-            this.lblTotalByDay.TabIndex = 4;
-            this.lblTotalByDay.Text = "?";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(111, 34);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(157, 29);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Starting Date:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(111, 99);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(151, 29);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Ending Date:";
-            // 
-            // dtpStart
-            // 
-            this.dtpStart.CustomFormat = "dd-MM-yyyy";
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStart.Location = new System.Drawing.Point(285, 34);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(186, 34);
-            this.dtpStart.TabIndex = 1;
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.CustomFormat = "dd-MM-yyyy";
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEnd.Location = new System.Drawing.Point(285, 94);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(186, 34);
-            this.dtpEnd.TabIndex = 1;
-            // 
-            // btnSearchDtoD
-            // 
-            this.btnSearchDtoD.Location = new System.Drawing.Point(565, 54);
-            this.btnSearchDtoD.Name = "btnSearchDtoD";
-            this.btnSearchDtoD.Size = new System.Drawing.Size(114, 52);
-            this.btnSearchDtoD.TabIndex = 2;
-            this.btnSearchDtoD.Text = "Search";
-            this.btnSearchDtoD.UseVisualStyleBackColor = true;
-            // 
-            // dtgvReportDtoD
-            // 
-            this.dtgvReportDtoD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvReportDtoD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.comName,
-            this.model,
-            this.imei,
-            this.prc});
-            this.dtgvReportDtoD.Location = new System.Drawing.Point(28, 184);
-            this.dtgvReportDtoD.Name = "dtgvReportDtoD";
-            this.dtgvReportDtoD.RowHeadersWidth = 51;
-            this.dtgvReportDtoD.RowTemplate.Height = 24;
-            this.dtgvReportDtoD.Size = new System.Drawing.Size(766, 278);
-            this.dtgvReportDtoD.TabIndex = 3;
-            // 
-            // lblTotalDtoD
-            // 
-            this.lblTotalDtoD.AutoSize = true;
-            this.lblTotalDtoD.Location = new System.Drawing.Point(23, 517);
-            this.lblTotalDtoD.Name = "lblTotalDtoD";
-            this.lblTotalDtoD.Size = new System.Drawing.Size(25, 29);
-            this.lblTotalDtoD.TabIndex = 4;
-            this.lblTotalDtoD.Text = "?";
             // 
             // SlsID
             // 
@@ -751,6 +615,75 @@
             this.Price.Name = "Price";
             this.Price.Width = 150;
             // 
+            // btnSearchByDay
+            // 
+            this.btnSearchByDay.Location = new System.Drawing.Point(568, 35);
+            this.btnSearchByDay.Name = "btnSearchByDay";
+            this.btnSearchByDay.Size = new System.Drawing.Size(129, 55);
+            this.btnSearchByDay.TabIndex = 2;
+            this.btnSearchByDay.Text = "Search";
+            this.btnSearchByDay.UseVisualStyleBackColor = true;
+            // 
+            // dtpSelectDay
+            // 
+            this.dtpSelectDay.CustomFormat = "dd-MM-yyyy";
+            this.dtpSelectDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSelectDay.Location = new System.Drawing.Point(251, 49);
+            this.dtpSelectDay.Name = "dtpSelectDay";
+            this.dtpSelectDay.Size = new System.Drawing.Size(189, 34);
+            this.dtpSelectDay.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(99, 49);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(134, 29);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Select Day:";
+            // 
+            // tabPeportDtoD
+            // 
+            this.tabPeportDtoD.Controls.Add(this.lblTotalDtoD);
+            this.tabPeportDtoD.Controls.Add(this.dtgvReportDtoD);
+            this.tabPeportDtoD.Controls.Add(this.btnSearchDtoD);
+            this.tabPeportDtoD.Controls.Add(this.dtpEnd);
+            this.tabPeportDtoD.Controls.Add(this.dtpStart);
+            this.tabPeportDtoD.Controls.Add(this.label19);
+            this.tabPeportDtoD.Controls.Add(this.label18);
+            this.tabPeportDtoD.Location = new System.Drawing.Point(4, 38);
+            this.tabPeportDtoD.Name = "tabPeportDtoD";
+            this.tabPeportDtoD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPeportDtoD.Size = new System.Drawing.Size(824, 583);
+            this.tabPeportDtoD.TabIndex = 1;
+            this.tabPeportDtoD.Text = "Date to Date";
+            this.tabPeportDtoD.UseVisualStyleBackColor = true;
+            // 
+            // lblTotalDtoD
+            // 
+            this.lblTotalDtoD.AutoSize = true;
+            this.lblTotalDtoD.Location = new System.Drawing.Point(23, 517);
+            this.lblTotalDtoD.Name = "lblTotalDtoD";
+            this.lblTotalDtoD.Size = new System.Drawing.Size(25, 29);
+            this.lblTotalDtoD.TabIndex = 4;
+            this.lblTotalDtoD.Text = "?";
+            // 
+            // dtgvReportDtoD
+            // 
+            this.dtgvReportDtoD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvReportDtoD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.comName,
+            this.model,
+            this.imei,
+            this.prc});
+            this.dtgvReportDtoD.Location = new System.Drawing.Point(28, 184);
+            this.dtgvReportDtoD.Name = "dtgvReportDtoD";
+            this.dtgvReportDtoD.RowHeadersWidth = 51;
+            this.dtgvReportDtoD.RowTemplate.Height = 24;
+            this.dtgvReportDtoD.Size = new System.Drawing.Size(766, 278);
+            this.dtgvReportDtoD.TabIndex = 3;
+            // 
             // id
             // 
             this.id.HeaderText = "SlsID";
@@ -786,117 +719,75 @@
             this.prc.Name = "prc";
             this.prc.Width = 125;
             // 
-            // label21
+            // btnSearchDtoD
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(100, 50);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(199, 29);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Employee Name:";
+            this.btnSearchDtoD.Location = new System.Drawing.Point(565, 54);
+            this.btnSearchDtoD.Name = "btnSearchDtoD";
+            this.btnSearchDtoD.Size = new System.Drawing.Size(114, 52);
+            this.btnSearchDtoD.TabIndex = 2;
+            this.btnSearchDtoD.Text = "Search";
+            this.btnSearchDtoD.UseVisualStyleBackColor = true;
             // 
-            // label22
+            // dtpEnd
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(100, 110);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(108, 29);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Address:";
+            this.dtpEnd.CustomFormat = "dd-MM-yyyy";
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEnd.Location = new System.Drawing.Point(285, 94);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(186, 34);
+            this.dtpEnd.TabIndex = 1;
             // 
-            // label23
+            // dtpStart
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(100, 170);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(93, 29);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Mobile:";
+            this.dtpStart.CustomFormat = "dd-MM-yyyy";
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStart.Location = new System.Drawing.Point(285, 34);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(186, 34);
+            this.dtpStart.TabIndex = 1;
             // 
-            // label24
+            // label19
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(100, 230);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(130, 29);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Username:";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(111, 99);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(151, 29);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Ending Date:";
             // 
-            // label25
+            // label18
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(100, 290);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(126, 29);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Password:";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(111, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(157, 29);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Starting Date:";
             // 
-            // label26
+            // tabEmployee
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(100, 350);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(208, 29);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Retype Password:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(100, 410);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(61, 29);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Hint:";
-            // 
-            // txtEployeeName
-            // 
-            this.txtEployeeName.Location = new System.Drawing.Point(365, 50);
-            this.txtEployeeName.Name = "txtEployeeName";
-            this.txtEployeeName.Size = new System.Drawing.Size(320, 34);
-            this.txtEployeeName.TabIndex = 1;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(365, 105);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(320, 34);
-            this.txtAddress.TabIndex = 1;
-            // 
-            // txtMobile
-            // 
-            this.txtMobile.Location = new System.Drawing.Point(365, 165);
-            this.txtMobile.Name = "txtMobile";
-            this.txtMobile.Size = new System.Drawing.Size(320, 34);
-            this.txtMobile.TabIndex = 1;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(365, 225);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(320, 34);
-            this.txtUsername.TabIndex = 1;
-            // 
-            // txtPass
-            // 
-            this.txtPass.Location = new System.Drawing.Point(365, 285);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(320, 34);
-            this.txtPass.TabIndex = 1;
-            // 
-            // txtRetypePass
-            // 
-            this.txtRetypePass.Location = new System.Drawing.Point(365, 345);
-            this.txtRetypePass.Name = "txtRetypePass";
-            this.txtRetypePass.Size = new System.Drawing.Size(320, 34);
-            this.txtRetypePass.TabIndex = 1;
-            // 
-            // txtHint
-            // 
-            this.txtHint.Location = new System.Drawing.Point(365, 405);
-            this.txtHint.Name = "txtHint";
-            this.txtHint.Size = new System.Drawing.Size(320, 34);
-            this.txtHint.TabIndex = 1;
+            this.tabEmployee.Controls.Add(this.btnAddEmployee);
+            this.tabEmployee.Controls.Add(this.txtHint);
+            this.tabEmployee.Controls.Add(this.txtRetypePass);
+            this.tabEmployee.Controls.Add(this.txtPass);
+            this.tabEmployee.Controls.Add(this.txtUsername);
+            this.tabEmployee.Controls.Add(this.txtMobile);
+            this.tabEmployee.Controls.Add(this.txtAddress);
+            this.tabEmployee.Controls.Add(this.txtEployeeName);
+            this.tabEmployee.Controls.Add(this.label27);
+            this.tabEmployee.Controls.Add(this.label26);
+            this.tabEmployee.Controls.Add(this.label25);
+            this.tabEmployee.Controls.Add(this.label24);
+            this.tabEmployee.Controls.Add(this.label23);
+            this.tabEmployee.Controls.Add(this.label22);
+            this.tabEmployee.Controls.Add(this.label21);
+            this.tabEmployee.Location = new System.Drawing.Point(4, 38);
+            this.tabEmployee.Name = "tabEmployee";
+            this.tabEmployee.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEmployee.Size = new System.Drawing.Size(833, 628);
+            this.tabEmployee.TabIndex = 3;
+            this.tabEmployee.Text = "Employee";
+            this.tabEmployee.UseVisualStyleBackColor = true;
             // 
             // btnAddEmployee
             // 
@@ -907,53 +798,166 @@
             this.btnAddEmployee.Text = "Add";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
             // 
+            // txtHint
+            // 
+            this.txtHint.Location = new System.Drawing.Point(365, 405);
+            this.txtHint.Name = "txtHint";
+            this.txtHint.Size = new System.Drawing.Size(320, 34);
+            this.txtHint.TabIndex = 1;
+            // 
+            // txtRetypePass
+            // 
+            this.txtRetypePass.Location = new System.Drawing.Point(365, 345);
+            this.txtRetypePass.Name = "txtRetypePass";
+            this.txtRetypePass.Size = new System.Drawing.Size(320, 34);
+            this.txtRetypePass.TabIndex = 1;
+            // 
+            // txtPass
+            // 
+            this.txtPass.Location = new System.Drawing.Point(365, 285);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(320, 34);
+            this.txtPass.TabIndex = 1;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(365, 225);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(320, 34);
+            this.txtUsername.TabIndex = 1;
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.Location = new System.Drawing.Point(365, 165);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(320, 34);
+            this.txtMobile.TabIndex = 1;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(365, 105);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(320, 34);
+            this.txtAddress.TabIndex = 1;
+            // 
+            // txtEployeeName
+            // 
+            this.txtEployeeName.Location = new System.Drawing.Point(365, 50);
+            this.txtEployeeName.Name = "txtEployeeName";
+            this.txtEployeeName.Size = new System.Drawing.Size(320, 34);
+            this.txtEployeeName.TabIndex = 1;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(100, 410);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(61, 29);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Hint:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(100, 350);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(208, 29);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Retype Password:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(100, 290);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(126, 29);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Password:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(100, 230);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(130, 29);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Username:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(100, 170);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(93, 29);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Mobile:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(100, 110);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(108, 29);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Address:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(100, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(199, 29);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Employee Name:";
+            // 
             // AdminHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 673);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "AdminHomepage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminHomepage";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.AdminHomepage_Load);
+            this.tabMain.ResumeLayout(false);
+            this.tabAdd.ResumeLayout(false);
+            this.tabControlAdd.ResumeLayout(false);
+            this.tabAddCompany.ResumeLayout(false);
+            this.tabAddCompany.PerformLayout();
+            this.tabAddModel.ResumeLayout(false);
+            this.tabAddModel.PerformLayout();
+            this.tabAddMobile.ResumeLayout(false);
+            this.tabAddMobile.PerformLayout();
+            this.tabUpdateStock.ResumeLayout(false);
+            this.tabUpdateStock.PerformLayout();
+            this.tabSaleReport.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
+            this.tabReportByDay.ResumeLayout(false);
+            this.tabReportByDay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReportByDay)).EndInit();
-            this.tabPage9.ResumeLayout(false);
-            this.tabPage9.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.tabPeportDtoD.ResumeLayout(false);
+            this.tabPeportDtoD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReportDtoD)).EndInit();
+            this.tabEmployee.ResumeLayout(false);
+            this.tabEmployee.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabControl tabMain;
+        private System.Windows.Forms.TabPage tabAdd;
+        private System.Windows.Forms.TabControl tabControlAdd;
+        private System.Windows.Forms.TabPage tabAddCompany;
+        private System.Windows.Forms.TabPage tabAddModel;
+        private System.Windows.Forms.TabPage tabAddMobile;
+        private System.Windows.Forms.TabPage tabUpdateStock;
+        private System.Windows.Forms.TabPage tabSaleReport;
+        private System.Windows.Forms.TabPage tabEmployee;
         private System.Windows.Forms.TextBox txtComName;
         private System.Windows.Forms.TextBox txtComId;
         private System.Windows.Forms.Label label2;
@@ -989,8 +993,8 @@
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnUpdateStock;
         private System.Windows.Forms.TabControl tabControl3;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabReportByDay;
+        private System.Windows.Forms.TabPage tabPeportDtoD;
         private System.Windows.Forms.DateTimePicker dtpSelectDay;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dtgvReportByDay;

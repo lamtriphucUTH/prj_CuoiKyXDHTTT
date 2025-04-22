@@ -38,7 +38,7 @@ namespace prj_CuoiKyXDHTTT.UI
                 return;
             }
 
-            User user = userDAL.Login(username, password);
+            UserDTO user = userDAL.Login(username, password);
 
             if (user != null)
             {
