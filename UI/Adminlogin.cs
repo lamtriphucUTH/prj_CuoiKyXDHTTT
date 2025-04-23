@@ -53,5 +53,10 @@ namespace prj_CuoiKyXDHTTT.UI
         {
 
         }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

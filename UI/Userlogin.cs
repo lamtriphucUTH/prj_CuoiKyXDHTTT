@@ -55,5 +55,12 @@ namespace prj_CuoiKyXDHTTT
             objLogin.Show();
             this.Hide();
         }
+
+        private void lnkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassword objLogin = new ForgotPassword();
+            objLogin.Show();
+            this.Hide();
+        }
     }
 }

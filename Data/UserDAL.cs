@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace prj_CuoiKyXDHTTT.Data
 {
@@ -44,6 +43,30 @@ namespace prj_CuoiKyXDHTTT.Data
             }
 
             return user;
+        }
+
+        public string GetPasswordByHint(string username, string hint)
+        {
+            try
+            {
+                using (SqlConnection conn = DbHelper.GetConnection())
+                {
+                    string sql = @"SELECT PWD FROM tbl_user 
+                          WHERE UserName = @username AND Hint = @hint";
+
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@hint", hint);
+
+                    conn.Open();
+                    return cmd.ExecuteScalar()?.ToString();
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Ghi log lỗi
+                throw new Exception("Lỗi database: " + ex.Message);
+            }
         }
     }
 }
