@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Data\CompanyDAL.cs" />
     <Compile Include="Data\DbHelper.cs" />
+    <Compile Include="Data\MobileDAL.cs" />
     <Compile Include="Data\ModelDAL.cs" />
     <Compile Include="Data\UserDAL.cs" />
     <Compile Include="DTO\CompanyDTO.cs" />

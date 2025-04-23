@@ -26,5 +26,40 @@ namespace prj_CuoiKyXDHTTT.Data
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        public List<String> GetModelNumbers()
+        {
+            List<String> modelNumbers = new List<String>();
+            using (SqlConnection conn = DbHelper.GetConnection())
+            {
+                string query = "SELECT ModelNum FROM tbl_Model";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    modelNumbers.Add(reader["ModelNum"].ToString());
+                }
+            }
+            return modelNumbers;
+        }
+        public int? GetModelIdByNumber(string modelNum)
+        {
+            int? modelId = null;
+
+            using (SqlConnection conn = DbHelper.GetConnection())
+            {
+                string query = "SELECT ModelId FROM tbl_Model WHERE ModelNum = @ModelNum";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ModelNum", modelNum);
+
+                conn.Open();
+
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                    modelId = Convert.ToInt32(result);
+                
+            }
+            return modelId;
+        }
     }
 }
