@@ -18,6 +18,7 @@ namespace prj_CuoiKyXDHTTT.UI
     {
         CompanyDAL companyDAL = new CompanyDAL();
         ModelDAL modelDAL = new ModelDAL();
+        MobileDAL mobileDAL = new MobileDAL();
 
         public AdminHomepage()
         {
@@ -36,6 +37,30 @@ namespace prj_CuoiKyXDHTTT.UI
             else if (tabControlAdd.SelectedTab == tabAddModel)
             {
                 LoadAddModelUI();
+            }
+            else if (tabControlAdd.SelectedTab == tabAddMobile)
+            {
+                LoadAddMobileUI();
+            }
+        }
+        private void LoadCompanyNames(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            List<string> companyNames = companyDAL.GetCompanyNames();
+
+            foreach (string name in companyNames)
+            {
+                comboBox.Items.Add(name);
+            }
+        }
+        private void LoadAddModelNames()
+        {
+            cbModelNum_Mobile.Items.Clear();
+            List<string> modelNumbers = modelDAL.GetModelNumbers();
+
+            foreach (string number in modelNumbers)
+            {
+                cbModelNum_Mobile.Items.Add(number);
             }
         }
 
@@ -77,21 +102,11 @@ namespace prj_CuoiKyXDHTTT.UI
         #region Model
         private void LoadAddModelUI()
         {
-            LoadCompanyNames();
+            LoadCompanyNames(cbComName_Model);
             txtModelId.Text = IdGenerator.GenerateNextId("tbl_Model", "ModelId").ToString();
             txtModelId.Enabled = false;
         }
 
-        private void LoadCompanyNames()
-        {
-            cbComName_Model.Items.Clear();
-            List<string> companyNames = companyDAL.GetCompanyNames();
-
-            foreach (string name in companyNames)
-            {
-                cbComName_Model.Items.Add(name);
-            }
-        }
         private void btnAddModel_Click(object sender, EventArgs e)
         {
             if (cbComName_Model.SelectedItem == null)
@@ -133,5 +148,103 @@ namespace prj_CuoiKyXDHTTT.UI
             }
         }
         #endregion
+
+        #region Mobile
+        private void LoadAddMobileUI()
+        {
+            LoadCompanyNames(cbComName_Mobile);
+            LoadAddModelNames();
+        }
+        private void btnAddMobile_Click(object sender, EventArgs e)
+        {
+            if (cbComName_Mobile.SelectedIndex < 0
+                 || cbModelNum_Mobile.SelectedIndex < 0
+                 || string.IsNullOrWhiteSpace(txtIMEINO.Text)
+                 || string.IsNullOrWhiteSpace(txtPrice.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thiếu dữ liệu",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!decimal.TryParse(txtPrice.Text.Trim(), out decimal price))
+            {
+                MessageBox.Show("Giá phải là số hợp lệ.", "Lỗi định dạng",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // Tính thời gian hết hạn bảo hành
+            DateTime warrantyExpiry;
+            try
+            {
+                warrantyExpiry = CalculateWarrantyExpiry(cbWarranty.SelectedItem.ToString());
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int? modelId = modelDAL.GetModelIdByNumber(cbModelNum_Mobile.SelectedItem.ToString());
+            if (modelId == null)
+            {
+                MessageBox.Show("Không tìm thấy mẫu điện thoại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MobileDTO mobile = new MobileDTO
+            {
+                
+                Model = new ModelDTO
+                {
+                    ModelId = modelId.Value,
+                    ModelNum = cbModelNum_Mobile.SelectedItem.ToString()
+                },
+                IMEINO = txtIMEINO.Text.Trim(),
+                Status = "Available",
+                Warranty = warrantyExpiry,
+                Price = price
+            };
+            bool success = mobileDAL.AddMobile(mobile);
+            if (success)
+            {
+                MessageBox.Show("Thêm mobile thành công!", "Thành công",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Reset
+                cbComName.SelectedIndex = -1;
+                cbModelNum.DataSource = null;
+                txtIMEINO.Clear();
+                txtPrice.Clear();
+                btnAddMobile.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại. Kiểm tra lại.", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private DateTime CalculateWarrantyExpiry(string period)
+        {
+            DateTime today = DateTime.Now.Date;
+            switch (period)
+            {
+                case "3 months":
+                    return today.AddMonths(3);
+                case "6 months":
+                    return today.AddMonths(6);
+                case "1 year":
+                    return today.AddYears(1);
+                case "2 years":
+                    return today.AddYears(2);
+                default:
+                    throw new ArgumentException("Warranty period không hợp lệ");
+            }
+        }
+
+
+        #endregion
+
+        private void cbComName_Mobile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
