@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using prj_CuoiKyXDHTTT.UI;
 
 namespace prj_CuoiKyXDHTTT
 {
@@ -16,7 +17,7 @@ namespace prj_CuoiKyXDHTTT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UserLogin());
+            Application.Run(new Page());
         }
     }
 }
