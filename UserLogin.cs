@@ -2,20 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using prj_CuoiKyXDHTTT.Data;
-using prj_CuoiKyXDHTTT.DTO;
-using prj_CuoiKyXDHTTT.UI;
 
 namespace prj_CuoiKyXDHTTT
 {
     public partial class UserLogin : Form
     {
-        UserDAL userDAL = new UserDAL();
+        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=MobileShoppe;Integrated Security=True");
 
         public UserLogin()
         {
@@ -38,28 +36,37 @@ namespace prj_CuoiKyXDHTTT
             string username = txtUsername.Text.Trim();
             string password = txtPwd.Text.Trim();
 
-            UserDTO user = userDAL.Login(username, password);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_User WHERE UserName = @username AND PWD = @password", conn);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+            conn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
 
-            if (user != null)
+            if (reader.Read())
             {
                 UserHomepage userHomepage = new UserHomepage();
                 this.Hide();
                 userHomepage.ShowDialog();
                 this.Show();
             }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu hoặc tài khoản không tồn tại.",
+                                "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lnkToAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             AdminLogin objLogin = new AdminLogin();
-            objLogin.Show();
             this.Hide();
+            objLogin.Show();
         }
 
         private void lnkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ForgotPassword objLogin = new ForgotPassword();
-            objLogin.Show();
+            ForgotPassword objForgotPass = new ForgotPassword();
+            objForgotPass.Show();
             this.Hide();
         }
     }

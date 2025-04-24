@@ -46,74 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\CompanyDAL.cs" />
-    <Compile Include="Data\DbHelper.cs" />
-    <Compile Include="Data\MobileDAL.cs" />
-    <Compile Include="Data\ModelDAL.cs" />
-    <Compile Include="Data\UserDAL.cs" />
-    <Compile Include="DTO\CompanyDTO.cs" />
-    <Compile Include="DTO\CustomerDTO.cs" />
-    <Compile Include="DTO\MobileDTO.cs" />
-    <Compile Include="DTO\ModelDTO.cs" />
-    <Compile Include="DTO\SalesDTO.cs" />
-    <Compile Include="DTO\TransactionDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
-    <Compile Include="Helpers\IdGenerator.cs" />
-    <Compile Include="UI\AdminHomepage.cs">
+    <Compile Include="AdminHomepage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\AdminHomepage.Designer.cs">
+    <Compile Include="AdminHomepage.Designer.cs">
       <DependentUpon>AdminHomepage.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\AdminLogin.cs">
+    <Compile Include="AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\AdminLogin.Designer.cs">
+    <Compile Include="AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ForgotPassword.cs">
+    <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ForgotPassword.Designer.cs">
+    <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Page.cs">
+    <Compile Include="Page.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Page.Designer.cs">
+    <Compile Include="Page.Designer.cs">
       <DependentUpon>Page.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserHomepage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\UserHomepage.Designer.cs">
-      <DependentUpon>UserHomepage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UserLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\UserLogin.Designer.cs">
-      <DependentUpon>UserLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UI\AdminHomepage.resx">
+    <Compile Include="UserHomepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserHomepage.Designer.cs">
+      <DependentUpon>UserHomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLogin.Designer.cs">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminHomepage.resx">
       <DependentUpon>AdminHomepage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\AdminLogin.resx">
+    <EmbeddedResource Include="AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ForgotPassword.resx">
+    <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Page.resx">
+    <EmbeddedResource Include="Page.resx">
       <DependentUpon>Page.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\UserHomepage.resx">
-      <DependentUpon>UserHomepage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\UserLogin.resx">
-      <DependentUpon>UserLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +105,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserHomepage.resx">
+      <DependentUpon>UserHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLogin.resx">
+      <DependentUpon>UserLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
