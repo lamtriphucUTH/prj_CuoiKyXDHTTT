@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +25,8 @@ namespace prj_CuoiKyXDHTTT
             InitCompanyTab();
             InitModelTab();
             InitMobileTab();
+            InitUpdateStock();
+            dtpSelectDay.Value = DateTime.Today;
         }
         private void tabControlAdd_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -196,8 +199,11 @@ namespace prj_CuoiKyXDHTTT
         #region ADD MOBILE
         private void InitMobileTab()
         {
-            // load companies cho mobile
+            cbComName_Mobile.SelectedIndex = -1;
             cbComName_Mobile.Items.Clear();
+            cbModelNum_Mobile.Text = string.Empty;
+
+            // load companies cho mobile
             foreach (var c in GetCompanyNames()) 
                 cbComName_Mobile.Items.Add(c);
 
@@ -291,7 +297,7 @@ namespace prj_CuoiKyXDHTTT
             using (var conn = GetConnection())
             {
                 string query = "INSERT INTO tbl_Mobile (ModelId, IMEINO, Status, Warranty, Price) " +
-                    "VALUES(@mid,@imei,'Available',@w,@p)";
+                    "VALUES(@mid,@imei,'Not Sold',@w,@p)";
                 using (var cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@mid", modelId);
@@ -321,6 +327,310 @@ namespace prj_CuoiKyXDHTTT
                 }
             }
             return modelId;
+        }
+        #endregion
+        #region ADD EMPLOYEE
+        private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            string name = txtEployeeName.Text.Trim();
+            string address = txtAddress.Text.Trim();
+            string phone = txtMobile.Text.Trim();
+            string username = txtUsername.Text.Trim();
+            string password = txtPass.Text;
+            string retype = txtRetypePass.Text;
+            string hint = txtHint.Text.Trim();
+
+            // 1. Kiểm tra required
+            if (string.IsNullOrEmpty(name) ||
+                string.IsNullOrEmpty(address) ||
+                string.IsNullOrEmpty(phone) ||
+                string.IsNullOrEmpty(username) ||
+                string.IsNullOrEmpty(password) ||
+                string.IsNullOrEmpty(retype) ||
+                string.IsNullOrEmpty(hint))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ tất cả các trường.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Kiểm tra độ dài phone
+            if (phone.Length < 10 || phone.Length > 12)
+            {
+                MessageBox.Show("Số điện thoại phải có từ 10 đến 12 chữ số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 3. Username: duy nhất, >=6 ký tự, ít nhất 1 chữ và 1 số
+            if (username.Length < 6 ||
+                !Regex.IsMatch(username, @"[A-Za-z]") ||
+                !Regex.IsMatch(username, @"\d"))
+            {
+                MessageBox.Show("Username phải có ít nhất 6 ký tự, chứa ít nhất 1 chữ cái và 1 chữ số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (UsernameExists(username))
+            {
+                MessageBox.Show("Username này đã tồn tại. Vui lòng chọn tên khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 4. Password: >=8 ký tự, bắt đầu bằng chữ in hoa, ít nhất 1 số, 1 ký tự đặc biệt
+            if (password.Length < 8 ||
+                !Regex.IsMatch(password, @"^[A-Z]") ||
+                !Regex.IsMatch(password, @"\d") ||
+                !Regex.IsMatch(password, @"[\W_]"))
+            {
+                MessageBox.Show("Mật khẩu phải có ít nhất 8 ký tự, bắt đầu bằng chữ in hoa, chứa ít nhất 1 chữ số và 1 ký tự đặc biệt.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 5. Re‑type password
+            if (password != retype)
+            {
+                MessageBox.Show("Mật khẩu nhập lại không khớp.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 6. Hint: >=5 ký tự
+            if (hint.Length < 5)
+            {
+                MessageBox.Show("Hint phải có ít nhất 5 ký tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            const string sql = @"
+                INSERT INTO tbl_User
+                (EmployeeName, Address, MobileNumber, Username, PWD, Hint)
+                VALUES (@name, @address, @phone, @username, @pwd, @hint)";
+            try
+            {
+                // Mình khuyến cáo lưu hash của password, không lưu plain-text
+
+                using (var conn = GetConnection())
+                using (var cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@address", address);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@pwd", password);
+                    cmd.Parameters.AddWithValue("@hint", hint);
+
+                    conn.Open();
+                    int rows = cmd.ExecuteNonQuery();
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("Thêm nhân viên thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa có nhân viên nào được thêm.", "Chưa thêm được", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Lỗi cơ sở dữ liệu:\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+        private bool UsernameExists(string username)
+        {
+            const string sql = "SELECT COUNT(1) FROM tbl_User WHERE Username = @username";
+            using (var conn = GetConnection())
+            using (var cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@username", username);
+                conn.Open();
+                return (int)cmd.ExecuteScalar() > 0;
+            }
+        }
+        private void ClearForm()
+        {
+            txtEployeeName.Clear();
+            txtAddress.Clear();
+            txtMobile.Clear();
+            txtUsername.Clear();
+            txtPass.Clear();
+            txtRetypePass.Clear();
+            txtHint.Clear();
+        }
+        #endregion
+        #region UPDATE STOCK
+        private void InitUpdateStock()
+        {
+            cbComName.SelectedIndex = -1;
+            //cbModelNum.SelectedIndex = -1;
+            cbModelNum.Text = string.Empty;
+
+            txtTransId.Text = GetNextId("tbl_Transaction", "TransId");
+            txtTransId.Enabled = false;
+
+            // load companies cho Update stock
+            cbComName.Items.Clear();
+            foreach (var c in GetCompanyNames())
+                cbComName.Items.Add(c);
+
+            cbModelNum.Items.Clear();
+            cbModelNum.Enabled = false;
+
+            txtQuantity.Clear();
+            txtAmount.Clear();
+
+        }
+        private void cbComName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbComName.SelectedItem == null)
+            {
+                cbModelNum.Items.Clear();
+                cbModelNum.Enabled = false;
+                return;
+            }
+
+            int? cid = GetCompanyIdByName(cbComName.SelectedItem.ToString());
+            if (cid == null) return;
+
+            var models = GetModelNameByCompany(cid.Value);
+            cbModelNum.Items.Clear();
+            foreach (var model in models)
+                cbModelNum.Items.Add(model);
+
+            cbModelNum.Enabled = true;
+            cbModelNum.SelectedIndex = -1;
+        }
+        private void btnUpdateStock_Click(object sender, EventArgs e)
+        {
+            if (cbModelNum.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(txtQuantity.Text) ||
+                string.IsNullOrWhiteSpace(txtAmount.Text))
+            {
+                MessageBox.Show("Nhập đầy đủ thông tin để Cập nhật!");
+                return;
+            }
+            if ((!decimal.TryParse(txtAmount.Text.Trim(), out decimal amount)) ||
+                (!decimal.TryParse(txtQuantity.Text.Trim(), out decimal quantity)))
+            {
+                MessageBox.Show("Giá và số lượng phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int? modelId = GetModelIdByNum(cbModelNum.SelectedItem.ToString());
+            if (modelId == null)
+            {
+                MessageBox.Show("Model không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
+            using (SqlConnection conn = GetConnection())
+            {
+                DateTime now = DateTime.Now.Date;
+                string query = "INSERT INTO tbl_Transaction (TransId, ModelId, Quantity, Date, Amount) " +
+                    "VALUES(@transid,@modelid,@qty,@date,@amt)";
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@transid", txtTransId.Text.Trim());
+                    cmd.Parameters.AddWithValue("@modelid", modelId);
+                    cmd.Parameters.AddWithValue("@qty", quantity);
+                    cmd.Parameters.AddWithValue("@date", now);
+                    cmd.Parameters.AddWithValue("@amt", amount);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                MessageBox.Show("Cập nhật kho thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                InitUpdateStock();
+            }
+        }
+        #endregion
+
+        #region Report By Day
+        private void lblSearchByDay_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dtpSelectDay.Value.Date;
+
+            DataTable dt = new DataTable();
+            decimal total = 0m;
+
+            string sql = @"
+                SELECT 
+                    s.SlsId,
+                    c.CName AS CompanyName,
+                    m.ModelNum,
+                    s.IMEINO,
+                    s.Price
+                FROM tbl_Sales s
+                INNER JOIN tbl_Mobile mo ON s.IMEINO = mo.IMEINO
+                INNER JOIN tbl_Model m  ON mo.ModelId = m.ModelId
+                INNER JOIN tbl_Company c ON m.ComId = c.ComId
+                WHERE s.PurchageDate = @Date
+                ORDER BY s.SlsId;";
+
+            using (SqlConnection conn = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.Add("@Date", SqlDbType.Date).Value = selectedDate;
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
+            }
+            dtgvReportByDay.DataSource = dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["Price"] != DBNull.Value)
+                    total += Convert.ToDecimal(row["Price"]);
+            }
+            lblTotalByDay.Text = $"Total for {selectedDate:dd-MM-yyyy}: {total}";
+        }
+
+        #endregion
+        #region Report Date to Date
+        private void lblSearchDtoD_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpStart.Value.Date;
+            DateTime endDate = dtpEnd.Value.Date;
+
+            DataTable dt = new DataTable();
+            decimal total = 0m;
+
+            string sql = @"
+                SELECT 
+                    s.SlsId,
+                    c.CName,
+                    m.ModelNum,
+                    s.IMEINO,
+                    s.Price
+                FROM tbl_Sales s
+                INNER JOIN tbl_Mobile mo ON s.IMEINO = mo.IMEINO
+                INNER JOIN tbl_Model m  ON mo.ModelId = m.ModelId
+                INNER JOIN tbl_Company c ON m.ComId = c.ComId
+                WHERE s.PurchageDate >= @StartDate AND s.PurchageDate <= @EndDate
+                ORDER BY s.SlsId;";
+
+            using (SqlConnection conn = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.Add("@StartDate", SqlDbType.Date).Value = startDate;
+                cmd.Parameters.Add("@EndDate", SqlDbType.Date).Value = endDate;
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                }
+            }
+            dtgvReportDtoD.DataSource = dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["Price"] != DBNull.Value)
+                    total += Convert.ToDecimal(row["Price"]);
+            }
+            lblTotalDtoD.Text = $"Total from {startDate:dd-MM-yyyy} to {endDate:dd-MM-yyyy}: {total}";
         }
         #endregion
     }

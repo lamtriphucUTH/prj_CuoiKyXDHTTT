@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
             this.tabControlAdd = new System.Windows.Forms.TabControl();
@@ -79,22 +75,12 @@
             this.lblSearchByDay = new System.Windows.Forms.Label();
             this.lblTotalByDay = new System.Windows.Forms.Label();
             this.dtgvReportByDay = new System.Windows.Forms.DataGridView();
-            this.SlsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMEINO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpSelectDay = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPeportDtoD = new System.Windows.Forms.TabPage();
             this.lblSearchDtoD = new System.Windows.Forms.Label();
             this.lblTotalDtoD = new System.Windows.Forms.Label();
             this.dtgvReportDtoD = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
@@ -115,6 +101,16 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SlsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMEINO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabControlAdd.SuspendLayout();
@@ -137,6 +133,7 @@
             this.tabMain.Controls.Add(this.tabUpdateStock);
             this.tabMain.Controls.Add(this.tabSaleReport);
             this.tabMain.Controls.Add(this.tabEmployee);
+            this.tabMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabMain.Location = new System.Drawing.Point(-1, -1);
             this.tabMain.Margin = new System.Windows.Forms.Padding(2);
             this.tabMain.Name = "tabMain";
@@ -147,11 +144,11 @@
             // tabAdd
             // 
             this.tabAdd.Controls.Add(this.tabControlAdd);
-            this.tabAdd.Location = new System.Drawing.Point(4, 25);
+            this.tabAdd.Location = new System.Drawing.Point(4, 29);
             this.tabAdd.Margin = new System.Windows.Forms.Padding(2);
             this.tabAdd.Name = "tabAdd";
             this.tabAdd.Padding = new System.Windows.Forms.Padding(2);
-            this.tabAdd.Size = new System.Drawing.Size(648, 530);
+            this.tabAdd.Size = new System.Drawing.Size(648, 526);
             this.tabAdd.TabIndex = 0;
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
@@ -176,11 +173,11 @@
             this.tabAddCompany.Controls.Add(this.txtComId);
             this.tabAddCompany.Controls.Add(this.label2);
             this.tabAddCompany.Controls.Add(this.label1);
-            this.tabAddCompany.Location = new System.Drawing.Point(4, 25);
+            this.tabAddCompany.Location = new System.Drawing.Point(4, 29);
             this.tabAddCompany.Margin = new System.Windows.Forms.Padding(2);
             this.tabAddCompany.Name = "tabAddCompany";
             this.tabAddCompany.Padding = new System.Windows.Forms.Padding(2);
-            this.tabAddCompany.Size = new System.Drawing.Size(636, 497);
+            this.tabAddCompany.Size = new System.Drawing.Size(636, 493);
             this.tabAddCompany.TabIndex = 0;
             this.tabAddCompany.Text = "Company";
             this.tabAddCompany.UseVisualStyleBackColor = true;
@@ -246,11 +243,11 @@
             this.tabAddModel.Controls.Add(this.label5);
             this.tabAddModel.Controls.Add(this.label4);
             this.tabAddModel.Controls.Add(this.label3);
-            this.tabAddModel.Location = new System.Drawing.Point(4, 25);
+            this.tabAddModel.Location = new System.Drawing.Point(4, 29);
             this.tabAddModel.Margin = new System.Windows.Forms.Padding(2);
             this.tabAddModel.Name = "tabAddModel";
             this.tabAddModel.Padding = new System.Windows.Forms.Padding(2);
-            this.tabAddModel.Size = new System.Drawing.Size(636, 497);
+            this.tabAddModel.Size = new System.Drawing.Size(636, 493);
             this.tabAddModel.TabIndex = 1;
             this.tabAddModel.Text = "Model";
             this.tabAddModel.UseVisualStyleBackColor = true;
@@ -341,10 +338,10 @@
             this.tabAddMobile.Controls.Add(this.label8);
             this.tabAddMobile.Controls.Add(this.label7);
             this.tabAddMobile.Controls.Add(this.label6);
-            this.tabAddMobile.Location = new System.Drawing.Point(4, 25);
+            this.tabAddMobile.Location = new System.Drawing.Point(4, 29);
             this.tabAddMobile.Margin = new System.Windows.Forms.Padding(2);
             this.tabAddMobile.Name = "tabAddMobile";
-            this.tabAddMobile.Size = new System.Drawing.Size(636, 497);
+            this.tabAddMobile.Size = new System.Drawing.Size(636, 493);
             this.tabAddMobile.TabIndex = 2;
             this.tabAddMobile.Text = "Mobile";
             this.tabAddMobile.UseVisualStyleBackColor = true;
@@ -484,11 +481,11 @@
             this.tabUpdateStock.Controls.Add(this.label13);
             this.tabUpdateStock.Controls.Add(this.label12);
             this.tabUpdateStock.Controls.Add(this.label11);
-            this.tabUpdateStock.Location = new System.Drawing.Point(4, 25);
+            this.tabUpdateStock.Location = new System.Drawing.Point(4, 29);
             this.tabUpdateStock.Margin = new System.Windows.Forms.Padding(2);
             this.tabUpdateStock.Name = "tabUpdateStock";
             this.tabUpdateStock.Padding = new System.Windows.Forms.Padding(2);
-            this.tabUpdateStock.Size = new System.Drawing.Size(648, 530);
+            this.tabUpdateStock.Size = new System.Drawing.Size(648, 526);
             this.tabUpdateStock.TabIndex = 1;
             this.tabUpdateStock.Text = "Update Stock";
             this.tabUpdateStock.UseVisualStyleBackColor = true;
@@ -503,6 +500,7 @@
             this.btnUpdateStock.TabIndex = 3;
             this.btnUpdateStock.Text = "Update";
             this.btnUpdateStock.UseVisualStyleBackColor = true;
+            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
             // 
             // cbModelNum
             // 
@@ -523,6 +521,7 @@
             this.cbComName.Name = "cbComName";
             this.cbComName.Size = new System.Drawing.Size(252, 37);
             this.cbComName.TabIndex = 2;
+            this.cbComName.SelectedIndexChanged += new System.EventHandler(this.cbComName_SelectedIndexChanged);
             // 
             // txtAmount
             // 
@@ -609,11 +608,11 @@
             // tabSaleReport
             // 
             this.tabSaleReport.Controls.Add(this.tabControl3);
-            this.tabSaleReport.Location = new System.Drawing.Point(4, 25);
+            this.tabSaleReport.Location = new System.Drawing.Point(4, 29);
             this.tabSaleReport.Margin = new System.Windows.Forms.Padding(2);
             this.tabSaleReport.Name = "tabSaleReport";
             this.tabSaleReport.Padding = new System.Windows.Forms.Padding(2);
-            this.tabSaleReport.Size = new System.Drawing.Size(648, 530);
+            this.tabSaleReport.Size = new System.Drawing.Size(648, 526);
             this.tabSaleReport.TabIndex = 2;
             this.tabSaleReport.Text = "Sale Report";
             this.tabSaleReport.UseVisualStyleBackColor = true;
@@ -636,11 +635,11 @@
             this.tabReportByDay.Controls.Add(this.dtgvReportByDay);
             this.tabReportByDay.Controls.Add(this.dtpSelectDay);
             this.tabReportByDay.Controls.Add(this.label16);
-            this.tabReportByDay.Location = new System.Drawing.Point(4, 25);
+            this.tabReportByDay.Location = new System.Drawing.Point(4, 29);
             this.tabReportByDay.Margin = new System.Windows.Forms.Padding(2);
             this.tabReportByDay.Name = "tabReportByDay";
             this.tabReportByDay.Padding = new System.Windows.Forms.Padding(2);
-            this.tabReportByDay.Size = new System.Drawing.Size(638, 499);
+            this.tabReportByDay.Size = new System.Drawing.Size(638, 495);
             this.tabReportByDay.TabIndex = 0;
             this.tabReportByDay.Text = "Day";
             this.tabReportByDay.UseVisualStyleBackColor = true;
@@ -654,6 +653,7 @@
             this.lblSearchByDay.Size = new System.Drawing.Size(95, 29);
             this.lblSearchByDay.TabIndex = 5;
             this.lblSearchByDay.Text = "Search";
+            this.lblSearchByDay.Click += new System.EventHandler(this.lblSearchByDay_Click);
             // 
             // lblTotalByDay
             // 
@@ -662,20 +662,11 @@
             this.lblTotalByDay.Location = new System.Drawing.Point(14, 419);
             this.lblTotalByDay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalByDay.Name = "lblTotalByDay";
-            this.lblTotalByDay.Size = new System.Drawing.Size(25, 29);
+            this.lblTotalByDay.Size = new System.Drawing.Size(0, 29);
             this.lblTotalByDay.TabIndex = 4;
-            this.lblTotalByDay.Text = "?";
             // 
             // dtgvReportByDay
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvReportByDay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dtgvReportByDay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvReportByDay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SlsID,
@@ -683,14 +674,6 @@
             this.ModelNum,
             this.IMEINO,
             this.Price});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvReportByDay.DefaultCellStyle = dataGridViewCellStyle14;
             this.dtgvReportByDay.Location = new System.Drawing.Point(30, 105);
             this.dtgvReportByDay.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvReportByDay.Name = "dtgvReportByDay";
@@ -698,41 +681,6 @@
             this.dtgvReportByDay.RowTemplate.Height = 24;
             this.dtgvReportByDay.Size = new System.Drawing.Size(584, 283);
             this.dtgvReportByDay.TabIndex = 3;
-            // 
-            // SlsID
-            // 
-            this.SlsID.HeaderText = "SlsId";
-            this.SlsID.MinimumWidth = 6;
-            this.SlsID.Name = "SlsID";
-            this.SlsID.Width = 80;
-            // 
-            // CompanyName
-            // 
-            this.CompanyName.HeaderText = "Company Name";
-            this.CompanyName.MinimumWidth = 6;
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.Width = 220;
-            // 
-            // ModelNum
-            // 
-            this.ModelNum.HeaderText = "Model Num";
-            this.ModelNum.MinimumWidth = 6;
-            this.ModelNum.Name = "ModelNum";
-            this.ModelNum.Width = 180;
-            // 
-            // IMEINO
-            // 
-            this.IMEINO.HeaderText = "IMEINO";
-            this.IMEINO.MinimumWidth = 6;
-            this.IMEINO.Name = "IMEINO";
-            this.IMEINO.Width = 180;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.Width = 150;
             // 
             // dtpSelectDay
             // 
@@ -765,11 +713,11 @@
             this.tabPeportDtoD.Controls.Add(this.dtpStart);
             this.tabPeportDtoD.Controls.Add(this.label19);
             this.tabPeportDtoD.Controls.Add(this.label18);
-            this.tabPeportDtoD.Location = new System.Drawing.Point(4, 25);
+            this.tabPeportDtoD.Location = new System.Drawing.Point(4, 29);
             this.tabPeportDtoD.Margin = new System.Windows.Forms.Padding(2);
             this.tabPeportDtoD.Name = "tabPeportDtoD";
             this.tabPeportDtoD.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPeportDtoD.Size = new System.Drawing.Size(638, 499);
+            this.tabPeportDtoD.Size = new System.Drawing.Size(638, 495);
             this.tabPeportDtoD.TabIndex = 1;
             this.tabPeportDtoD.Text = "Date to Date";
             this.tabPeportDtoD.UseVisualStyleBackColor = true;
@@ -783,6 +731,7 @@
             this.lblSearchDtoD.Size = new System.Drawing.Size(95, 29);
             this.lblSearchDtoD.TabIndex = 5;
             this.lblSearchDtoD.Text = "Search";
+            this.lblSearchDtoD.Click += new System.EventHandler(this.lblSearchDtoD_Click);
             // 
             // lblTotalDtoD
             // 
@@ -797,14 +746,6 @@
             // 
             // dtgvReportDtoD
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvReportDtoD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dtgvReportDtoD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvReportDtoD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -812,14 +753,6 @@
             this.model,
             this.imei,
             this.prc});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvReportDtoD.DefaultCellStyle = dataGridViewCellStyle16;
             this.dtgvReportDtoD.Location = new System.Drawing.Point(19, 122);
             this.dtgvReportDtoD.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvReportDtoD.Name = "dtgvReportDtoD";
@@ -827,41 +760,6 @@
             this.dtgvReportDtoD.RowTemplate.Height = 24;
             this.dtgvReportDtoD.Size = new System.Drawing.Size(602, 301);
             this.dtgvReportDtoD.TabIndex = 3;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "SlsID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 80;
-            // 
-            // comName
-            // 
-            this.comName.HeaderText = "CompanyName";
-            this.comName.MinimumWidth = 6;
-            this.comName.Name = "comName";
-            this.comName.Width = 220;
-            // 
-            // model
-            // 
-            this.model.HeaderText = "Model Num";
-            this.model.MinimumWidth = 6;
-            this.model.Name = "model";
-            this.model.Width = 125;
-            // 
-            // imei
-            // 
-            this.imei.HeaderText = "IMEINO";
-            this.imei.MinimumWidth = 6;
-            this.imei.Name = "imei";
-            this.imei.Width = 125;
-            // 
-            // prc
-            // 
-            this.prc.HeaderText = "Price";
-            this.prc.MinimumWidth = 6;
-            this.prc.Name = "prc";
-            this.prc.Width = 125;
             // 
             // dtpEnd
             // 
@@ -924,11 +822,11 @@
             this.tabEmployee.Controls.Add(this.label23);
             this.tabEmployee.Controls.Add(this.label22);
             this.tabEmployee.Controls.Add(this.label21);
-            this.tabEmployee.Location = new System.Drawing.Point(4, 25);
+            this.tabEmployee.Location = new System.Drawing.Point(4, 29);
             this.tabEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.tabEmployee.Name = "tabEmployee";
             this.tabEmployee.Padding = new System.Windows.Forms.Padding(2);
-            this.tabEmployee.Size = new System.Drawing.Size(648, 530);
+            this.tabEmployee.Size = new System.Drawing.Size(648, 526);
             this.tabEmployee.TabIndex = 3;
             this.tabEmployee.Text = "Employee";
             this.tabEmployee.UseVisualStyleBackColor = true;
@@ -943,6 +841,7 @@
             this.btnAddEmployee.TabIndex = 2;
             this.btnAddEmployee.Text = "Add";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // txtHint
             // 
@@ -988,6 +887,7 @@
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(269, 34);
             this.txtMobile.TabIndex = 1;
+            this.txtMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile_KeyPress);
             // 
             // txtAddress
             // 
@@ -1084,6 +984,86 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "SlsId";
+            this.id.HeaderText = "SlsID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 80;
+            // 
+            // comName
+            // 
+            this.comName.DataPropertyName = "CName";
+            this.comName.HeaderText = "CompanyName";
+            this.comName.MinimumWidth = 6;
+            this.comName.Name = "comName";
+            this.comName.Width = 220;
+            // 
+            // model
+            // 
+            this.model.DataPropertyName = "ModelNum";
+            this.model.HeaderText = "Model Num";
+            this.model.MinimumWidth = 6;
+            this.model.Name = "model";
+            this.model.Width = 125;
+            // 
+            // imei
+            // 
+            this.imei.DataPropertyName = "IMEINO";
+            this.imei.HeaderText = "IMEINO";
+            this.imei.MinimumWidth = 6;
+            this.imei.Name = "imei";
+            this.imei.Width = 125;
+            // 
+            // prc
+            // 
+            this.prc.DataPropertyName = "Price";
+            this.prc.HeaderText = "Price";
+            this.prc.MinimumWidth = 6;
+            this.prc.Name = "prc";
+            this.prc.Width = 125;
+            // 
+            // SlsID
+            // 
+            this.SlsID.DataPropertyName = "SlsId";
+            this.SlsID.HeaderText = "SlsId";
+            this.SlsID.MinimumWidth = 6;
+            this.SlsID.Name = "SlsID";
+            this.SlsID.Width = 80;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "CName";
+            this.CompanyName.HeaderText = "Company Name";
+            this.CompanyName.MinimumWidth = 6;
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.Width = 180;
+            // 
+            // ModelNum
+            // 
+            this.ModelNum.DataPropertyName = "ModelNum";
+            this.ModelNum.HeaderText = "Model Num";
+            this.ModelNum.MinimumWidth = 6;
+            this.ModelNum.Name = "ModelNum";
+            this.ModelNum.Width = 180;
+            // 
+            // IMEINO
+            // 
+            this.IMEINO.DataPropertyName = "IMEINO";
+            this.IMEINO.HeaderText = "IMEINO";
+            this.IMEINO.MinimumWidth = 6;
+            this.IMEINO.Name = "IMEINO";
+            this.IMEINO.Width = 180;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.Width = 150;
+            // 
             // AdminHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1179,16 +1159,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblTotalDtoD;
         private System.Windows.Forms.DataGridView dtgvReportDtoD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SlsID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModelNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMEINO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imei;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prc;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
@@ -1206,5 +1176,15 @@
         private System.Windows.Forms.TextBox txtEployeeName;
         private System.Windows.Forms.Label lblSearchByDay;
         private System.Windows.Forms.Label lblSearchDtoD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SlsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModelNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMEINO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imei;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prc;
     }
 }
