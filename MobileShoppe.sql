@@ -23,7 +23,7 @@ CREATE TABLE tbl_Company (
 CREATE TABLE tbl_Model (
     ModelId VARCHAR(20) PRIMARY KEY,
     ComId VARCHAR(20),
-    ModelNum VARCHAR(20),
+    ModelNum VARCHAR(20) UNIQUE,
     AvailableQty INT,
     FOREIGN KEY (ComId) REFERENCES tbl_Company(ComId)
 );
