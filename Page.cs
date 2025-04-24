@@ -19,8 +19,15 @@ namespace prj_CuoiKyXDHTTT.UI
 
         private void Page_MouseClick(object sender, MouseEventArgs e)
         {
-            UserLogin UserLogin = new UserLogin();
-            UserLogin.Show();
+            //UserLogin UserLogin = new UserLogin();
+            //UserLogin.Show();
+        }
+
+        private void lnkToProgram_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UserLogin userLogin = new UserLogin();
+            this.Hide();
+            userLogin.Show();
         }
     }
 }
