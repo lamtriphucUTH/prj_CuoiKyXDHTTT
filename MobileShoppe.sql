@@ -102,11 +102,11 @@ INSERT INTO tbl_Transaction VALUES
 GO
 
 INSERT INTO tbl_Mobile VALUES
-('1', '00000001', 'In Stock', '2026-04-01', 15000000),
-('2', '00000002', 'In Stock', '2026-04-01', 15000000),
+('1', '00000001', 'Not Sold', '2026-04-01', 15000000),
+('2', '00000002', 'Not Sold', '2026-04-01', 15000000),
 ('3', '00000003', 'Sold', '2026-04-01', 10000000),
 ('4', '00000004', 'Sold', '2026-04-01', 7000000),
-('5', '00000005', 'In Stock', '2026-04-01', 6000000);
+('5', '00000005', 'Not Sold', '2026-04-01', 6000000);
 GO
 
 INSERT INTO tbl_Customer VALUES
@@ -134,141 +134,55 @@ GO
 -- EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL";
 
 -- PROCEDURES
-CREATE PROCEDURE sp_Login
-    @UserName VARCHAR(20),
-    @PWD VARCHAR(20)
-AS
-BEGIN
-    SELECT * FROM tbl_User 
-    WHERE UserName = @UserName AND PWD = @PWD
-END
-GO
-
-CREATE PROCEDURE sp_AddCompany
-    @ComId VARCHAR(20),
-    @CName VARCHAR(20)
-AS
-BEGIN
-    INSERT INTO tbl_Company (ComId, CName)
-    VALUES (@ComId, @CName)
-END
-GO
-
-CREATE PROCEDURE sp_AddModel
-    @ModelId VARCHAR(20),
-    @ComId VARCHAR(20),
-    @ModelNum VARCHAR(20)
-AS
-BEGIN
-    INSERT INTO tbl_Model (ModelId, ComId, ModelNum)
-    VALUES (@ModelId, @ComId, @ModelNum)
-END
-GO
-
-CREATE PROCEDURE sp_AddMobile
-    @ModelId VARCHAR(20),
-    @IMEINO VARCHAR(50),
-    @Status VARCHAR(20),
-    @Warranty DATE,
-    @Price MONEY
-AS
-BEGIN
-    INSERT INTO tbl_Mobile (ModelId, IMEINO, Status, Warranty, Price)
-    VALUES (@ModelId, @IMEINO, @Status, @Warranty, @Price)
-END
-GO
-
-CREATE PROCEDURE sp_UpdateStock
-    @ModelId VARCHAR(20),
-    @Quantity INT
-AS
-BEGIN
-    UPDATE tbl_Model
-    SET AvailableQty = AvailableQty + @Quantity
-    WHERE ModelId = @ModelId
-END
-GO
-
-CREATE PROCEDURE sp_SalesReport_ByDate
-    @Date DATE
-AS
-BEGIN
-    SELECT * FROM tbl_Sales
-    WHERE CONVERT(DATE, PurchageDate) = @Date
-END
-GO
-
-CREATE PROCEDURE sp_SalesReport_DateToDate
-    @FromDate DATE,
-    @ToDate DATE
-AS
-BEGIN
-    SELECT * FROM tbl_Sales
-    WHERE PurchageDate BETWEEN @FromDate AND @ToDate
-END
-GO
-
-CREATE PROCEDURE sp_AddUser
-    @UserName VARCHAR(20),
-    @PWD VARCHAR(20),
-    @EmployeeName VARCHAR(20),
-    @Address VARCHAR(MAX),
-    @MobileNumber VARCHAR(20),
-    @Hint VARCHAR(50)
-AS
-BEGIN
-    INSERT INTO tbl_User (UserName, PWD, EmployeeName, Address, MobileNumber, Hint)
-    VALUES (@UserName, @PWD, @EmployeeName, @Address, @MobileNumber, @Hint)
-END
-GO
-
-CREATE PROCEDURE sp_AddCustomer
-    @CusId VARCHAR(20),
+CREATE PROCEDURE sp_ProcessSale
+	@SaleId VARCHAR(20),
+	@CusId VARCHAR(20),
     @CustName VARCHAR(20),
     @MobileNumber VARCHAR(20),
-    @EmailId VARCHAR(20),
-    @Address VARCHAR(MAX)
-AS
-BEGIN
-    INSERT INTO tbl_Customer (CusId, CustName, MobileNumber, EmailId, Address)
-    VALUES (@CusId, @CustName, @MobileNumber, @EmailId, @Address)
-END
-GO
-
-CREATE PROCEDURE sp_SellMobile
-    @SlsId VARCHAR(20),
-    @IMEINO VARCHAR(50),
-    @PurchageDate DATE,
+    @Email VARCHAR(20),
+    @Address VARCHAR(MAX),
+    @IMEI VARCHAR(50),
     @Price MONEY,
-    @CusId VARCHAR(20)
+    @PurchaseDate DATE
 AS
 BEGIN
-    INSERT INTO tbl_Sales (SlsId, IMEINO, PurchageDate, Price, CusId)
-    VALUES (@SlsId, @IMEINO, @PurchageDate, @Price, @CusId)
+    SET NOCOUNT ON;
 
-    -- Cập nhật trạng thái máy đã bán
-    UPDATE tbl_Mobile
-    SET Status = 'Sold'
-    WHERE IMEINO = @IMEINO
-END
-GO
+    BEGIN TRY
+        BEGIN TRANSACTION;
 
-CREATE PROCEDURE sp_ViewStock
-AS
-BEGIN
-    SELECT m.ModelId, m.ModelNum, c.CName, m.AvailableQty
-    FROM tbl_Model m
-    INNER JOIN tbl_Company c ON m.ComId = c.ComId
-END
-GO
+        DECLARE @CustomerId VARCHAR(20);
+        DECLARE @ModelId VARCHAR(20);
 
-CREATE PROCEDURE sp_SearchCustomerByIMEI
-    @IMEINO VARCHAR(50)
-AS
-BEGIN
-    SELECT c.*
-    FROM tbl_Customer c
-    INNER JOIN tbl_Sales s ON c.CusId = s.CusId
-    WHERE s.IMEINO = @IMEINO
-END
+        -- 1. Kiểm tra khách hàng
+        SELECT @CustomerId = CusId FROM tbl_Customer WHERE MobileNumber = @MobileNumber;
+
+        IF @CustomerId IS NULL
+        BEGIN
+            SET @CusId = CAST(NEWID() AS VARCHAR(20)); -- Tạo ID tự động
+            INSERT INTO tbl_Customer (CusId, CustName, MobileNumber, EmailId, Address)
+            VALUES (@CusId, @CustName, @MobileNumber, @Email, @Address);
+        END
+
+        -- 2. Lấy ModelId từ IMEI
+        SELECT @ModelId = ModelId FROM tbl_Mobile WHERE IMEINO = @IMEI;
+
+        -- 3. Thêm vào bảng Sales
+        DECLARE @SlsId VARCHAR(20) = CAST(NEWID() AS VARCHAR(20));
+        INSERT INTO tbl_Sales (SlsId, IMEINO, PurchageDate, Price, CusId)
+        VALUES (@SlsId, @IMEI, @PurchaseDate, @Price, @CusId);
+
+        -- 4. Cập nhật trạng thái Mobile
+        UPDATE tbl_Mobile SET Status = 'Sold' WHERE IMEINO = @IMEI;
+
+        -- 5. Trừ AvailableQty
+        UPDATE tbl_Model SET AvailableQty = AvailableQty - 1 WHERE ModelId = @ModelId;
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+        THROW;
+    END CATCH
+END;
 GO
