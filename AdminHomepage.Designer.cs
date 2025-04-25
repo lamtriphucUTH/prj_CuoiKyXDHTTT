@@ -75,12 +75,22 @@
             this.lblSearchByDay = new System.Windows.Forms.Label();
             this.lblTotalByDay = new System.Windows.Forms.Label();
             this.dtgvReportByDay = new System.Windows.Forms.DataGridView();
+            this.SlsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMEINO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpSelectDay = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPeportDtoD = new System.Windows.Forms.TabPage();
             this.lblSearchDtoD = new System.Windows.Forms.Label();
             this.lblTotalDtoD = new System.Windows.Forms.Label();
             this.dtgvReportDtoD = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
@@ -101,16 +111,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SlsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModelNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMEINO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabControlAdd.SuspendLayout();
@@ -506,48 +506,48 @@
             // 
             this.cbModelNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbModelNum.FormattingEnabled = true;
-            this.cbModelNum.Location = new System.Drawing.Point(291, 197);
+            this.cbModelNum.Location = new System.Drawing.Point(264, 197);
             this.cbModelNum.Margin = new System.Windows.Forms.Padding(2);
             this.cbModelNum.Name = "cbModelNum";
-            this.cbModelNum.Size = new System.Drawing.Size(252, 37);
+            this.cbModelNum.Size = new System.Drawing.Size(279, 37);
             this.cbModelNum.TabIndex = 2;
             // 
             // cbComName
             // 
             this.cbComName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbComName.FormattingEnabled = true;
-            this.cbComName.Location = new System.Drawing.Point(291, 127);
+            this.cbComName.Location = new System.Drawing.Point(264, 127);
             this.cbComName.Margin = new System.Windows.Forms.Padding(2);
             this.cbComName.Name = "cbComName";
-            this.cbComName.Size = new System.Drawing.Size(252, 37);
+            this.cbComName.Size = new System.Drawing.Size(279, 37);
             this.cbComName.TabIndex = 2;
             this.cbComName.SelectedIndexChanged += new System.EventHandler(this.cbComName_SelectedIndexChanged);
             // 
             // txtAmount
             // 
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(291, 338);
+            this.txtAmount.Location = new System.Drawing.Point(264, 338);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(2);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(252, 34);
+            this.txtAmount.Size = new System.Drawing.Size(279, 34);
             this.txtAmount.TabIndex = 1;
             // 
             // txtQuantity
             // 
             this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(291, 267);
+            this.txtQuantity.Location = new System.Drawing.Point(264, 267);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(252, 34);
+            this.txtQuantity.Size = new System.Drawing.Size(279, 34);
             this.txtQuantity.TabIndex = 1;
             // 
             // txtTransId
             // 
             this.txtTransId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTransId.Location = new System.Drawing.Point(291, 57);
+            this.txtTransId.Location = new System.Drawing.Point(264, 57);
             this.txtTransId.Margin = new System.Windows.Forms.Padding(2);
             this.txtTransId.Name = "txtTransId";
-            this.txtTransId.Size = new System.Drawing.Size(252, 34);
+            this.txtTransId.Size = new System.Drawing.Size(279, 34);
             this.txtTransId.TabIndex = 1;
             // 
             // label15
@@ -682,6 +682,46 @@
             this.dtgvReportByDay.Size = new System.Drawing.Size(584, 283);
             this.dtgvReportByDay.TabIndex = 3;
             // 
+            // SlsID
+            // 
+            this.SlsID.DataPropertyName = "SlsId";
+            this.SlsID.HeaderText = "SlsId";
+            this.SlsID.MinimumWidth = 6;
+            this.SlsID.Name = "SlsID";
+            this.SlsID.Width = 80;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "CName";
+            this.CompanyName.HeaderText = "Company Name";
+            this.CompanyName.MinimumWidth = 6;
+            this.CompanyName.Name = "CompanyName";
+            this.CompanyName.Width = 180;
+            // 
+            // ModelNum
+            // 
+            this.ModelNum.DataPropertyName = "ModelNum";
+            this.ModelNum.HeaderText = "Model Num";
+            this.ModelNum.MinimumWidth = 6;
+            this.ModelNum.Name = "ModelNum";
+            this.ModelNum.Width = 180;
+            // 
+            // IMEINO
+            // 
+            this.IMEINO.DataPropertyName = "IMEINO";
+            this.IMEINO.HeaderText = "IMEINO";
+            this.IMEINO.MinimumWidth = 6;
+            this.IMEINO.Name = "IMEINO";
+            this.IMEINO.Width = 180;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.Width = 150;
+            // 
             // dtpSelectDay
             // 
             this.dtpSelectDay.CustomFormat = "dd-MM-yyyy";
@@ -760,6 +800,46 @@
             this.dtgvReportDtoD.RowTemplate.Height = 24;
             this.dtgvReportDtoD.Size = new System.Drawing.Size(602, 301);
             this.dtgvReportDtoD.TabIndex = 3;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "SlsId";
+            this.id.HeaderText = "SlsID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 80;
+            // 
+            // comName
+            // 
+            this.comName.DataPropertyName = "CName";
+            this.comName.HeaderText = "CompanyName";
+            this.comName.MinimumWidth = 6;
+            this.comName.Name = "comName";
+            this.comName.Width = 220;
+            // 
+            // model
+            // 
+            this.model.DataPropertyName = "ModelNum";
+            this.model.HeaderText = "Model Num";
+            this.model.MinimumWidth = 6;
+            this.model.Name = "model";
+            this.model.Width = 125;
+            // 
+            // imei
+            // 
+            this.imei.DataPropertyName = "IMEINO";
+            this.imei.HeaderText = "IMEINO";
+            this.imei.MinimumWidth = 6;
+            this.imei.Name = "imei";
+            this.imei.Width = 125;
+            // 
+            // prc
+            // 
+            this.prc.DataPropertyName = "Price";
+            this.prc.HeaderText = "Price";
+            this.prc.MinimumWidth = 6;
+            this.prc.Name = "prc";
+            this.prc.Width = 125;
             // 
             // dtpEnd
             // 
@@ -983,86 +1063,6 @@
             this.label21.Size = new System.Drawing.Size(199, 29);
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "SlsId";
-            this.id.HeaderText = "SlsID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 80;
-            // 
-            // comName
-            // 
-            this.comName.DataPropertyName = "CName";
-            this.comName.HeaderText = "CompanyName";
-            this.comName.MinimumWidth = 6;
-            this.comName.Name = "comName";
-            this.comName.Width = 220;
-            // 
-            // model
-            // 
-            this.model.DataPropertyName = "ModelNum";
-            this.model.HeaderText = "Model Num";
-            this.model.MinimumWidth = 6;
-            this.model.Name = "model";
-            this.model.Width = 125;
-            // 
-            // imei
-            // 
-            this.imei.DataPropertyName = "IMEINO";
-            this.imei.HeaderText = "IMEINO";
-            this.imei.MinimumWidth = 6;
-            this.imei.Name = "imei";
-            this.imei.Width = 125;
-            // 
-            // prc
-            // 
-            this.prc.DataPropertyName = "Price";
-            this.prc.HeaderText = "Price";
-            this.prc.MinimumWidth = 6;
-            this.prc.Name = "prc";
-            this.prc.Width = 125;
-            // 
-            // SlsID
-            // 
-            this.SlsID.DataPropertyName = "SlsId";
-            this.SlsID.HeaderText = "SlsId";
-            this.SlsID.MinimumWidth = 6;
-            this.SlsID.Name = "SlsID";
-            this.SlsID.Width = 80;
-            // 
-            // CompanyName
-            // 
-            this.CompanyName.DataPropertyName = "CName";
-            this.CompanyName.HeaderText = "Company Name";
-            this.CompanyName.MinimumWidth = 6;
-            this.CompanyName.Name = "CompanyName";
-            this.CompanyName.Width = 180;
-            // 
-            // ModelNum
-            // 
-            this.ModelNum.DataPropertyName = "ModelNum";
-            this.ModelNum.HeaderText = "Model Num";
-            this.ModelNum.MinimumWidth = 6;
-            this.ModelNum.Name = "ModelNum";
-            this.ModelNum.Width = 180;
-            // 
-            // IMEINO
-            // 
-            this.IMEINO.DataPropertyName = "IMEINO";
-            this.IMEINO.HeaderText = "IMEINO";
-            this.IMEINO.MinimumWidth = 6;
-            this.IMEINO.Name = "IMEINO";
-            this.IMEINO.Width = 180;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.Width = 150;
             // 
             // AdminHomepage
             // 
