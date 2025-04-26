@@ -20,7 +20,7 @@ namespace prj_CuoiKyXDHTTT
         }
         private void Adminlogin_Load(object sender, EventArgs e)
         {
-
+            txtPwd.UseSystemPasswordChar = true;
         }
 
         private void linkBack_linkClick(object sender, LinkLabelLinkClickedEventArgs e)
@@ -64,6 +64,29 @@ namespace prj_CuoiKyXDHTTT
             ForgotPassword objForgotPass = new ForgotPassword();
             objForgotPass.Show();
             this.Hide();
+        }
+
+        private void txtPwd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+        private bool isPasswordShown = false;
+
+        private void btnShowHide_Click(object sender, EventArgs e)
+        {
+            if (isPasswordShown)
+            {
+                txtPwd.UseSystemPasswordChar = true;
+                btnShowHide.Text = "Hiện";
+                isPasswordShown = false;
+            }
+            else
+            {
+                txtPwd.UseSystemPasswordChar = false;
+                btnShowHide.Text = "Ẩn";
+                isPasswordShown = true;
+            }
         }
     }
 }

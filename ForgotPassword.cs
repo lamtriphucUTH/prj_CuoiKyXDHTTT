@@ -30,6 +30,13 @@ namespace prj_CuoiKyXDHTTT
                 MessageBox.Show("Vui lòng nhập tên đăng nhập.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (username.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Không được phép nhập tài khoản admin.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUid.Text = "";
+                txtUid.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(hint))
             {
                 MessageBox.Show("Vui lòng nhập gợi ý.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -39,7 +46,6 @@ namespace prj_CuoiKyXDHTTT
             string password = GetPasswordByHint(username, hint);
             if (password != null)
             {
-                // Hiển thị mật khẩu
                 txtpass.Text = password;
                 txtpass.ForeColor = Color.Green;
             }

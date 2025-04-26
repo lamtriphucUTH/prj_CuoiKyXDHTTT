@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminLogin));
             this.lnkForgotPassword = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPwd = new System.Windows.Forms.TextBox();
@@ -35,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lnkBack = new System.Windows.Forms.LinkLabel();
+            this.btnShowHide = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowHide)).BeginInit();
             this.SuspendLayout();
             // 
             // lnkForgotPassword
@@ -68,6 +71,7 @@
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 11;
             this.txtPwd.Text = "1";
+            this.txtPwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
             // 
             // txtUsername
             // 
@@ -110,11 +114,23 @@
             this.lnkBack.Text = "Back";
             this.lnkBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkBack_linkClick);
             // 
+            // btnShowHide
+            // 
+            this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
+            this.btnShowHide.Location = new System.Drawing.Point(435, 215);
+            this.btnShowHide.Name = "btnShowHide";
+            this.btnShowHide.Size = new System.Drawing.Size(35, 29);
+            this.btnShowHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnShowHide.TabIndex = 14;
+            this.btnShowHide.TabStop = false;
+            this.btnShowHide.Click += new System.EventHandler(this.btnShowHide_Click);
+            // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 438);
+            this.Controls.Add(this.btnShowHide);
             this.Controls.Add(this.lnkForgotPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPwd);
@@ -126,6 +142,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adminlogin";
             this.Load += new System.EventHandler(this.Adminlogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowHide)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +157,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel lnkBack;
+        private System.Windows.Forms.PictureBox btnShowHide;
     }
 }
