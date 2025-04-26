@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace prj_CuoiKyXDHTTT
 {
-    public partial class ConfirmDetails: Form
+    public partial class ConfirmDetails : Form
     {
         private string connStr = "Data Source=.;Initial Catalog=MobileShoppe;Integrated Security=True";
 
@@ -23,6 +17,7 @@ namespace prj_CuoiKyXDHTTT
         {
             return new SqlConnection(connStr);
         }
+
         public ConfirmDetails(string name, string phone, string address, string email,
                              string company, string model, string imei, string price)
         {
@@ -42,23 +37,20 @@ namespace prj_CuoiKyXDHTTT
 
         private void ConfirmDetails_Load(object sender, EventArgs e)
         {
-
         }
+
         private string GetNextId(string tableName, string colName)
         {
-            SqlConnection conn = GetConnection();
-            SqlCommand cmd = new SqlCommand(
-                $"SELECT MAX(CAST({colName} AS INT))+1 FROM {tableName}", conn);
-
-            conn.Open();
-            var obj = cmd.ExecuteScalar();
-            conn.Close();
-
-            if (obj == DBNull.Value || obj == null)
-                return "0";
-            else
+            using (SqlConnection conn = GetConnection())
+            using (SqlCommand cmd = new SqlCommand(
+                $"SELECT ISNULL(MAX(CAST({colName} AS INT)), 0) + 1 FROM {tableName}", conn))
+            {
+                conn.Open();
+                var obj = cmd.ExecuteScalar();
                 return obj.ToString();
+            }
         }
+
         private void txtOK_Click(object sender, EventArgs e)
         {
             string newSaleId = GetNextId("tbl_Sales", "SlsId");
@@ -77,12 +69,15 @@ namespace prj_CuoiKyXDHTTT
                 cmd.Parameters.AddWithValue("@Address", lblAddress.Text.Trim());
                 cmd.Parameters.AddWithValue("@IMEI", lblIMEI.Text.Trim());
                 cmd.Parameters.AddWithValue("@Price", decimal.Parse(lblPrice.Text.Trim()));
-                cmd.Parameters.AddWithValue("@PurchaseDate", DateTime.Parse(lblWarranty.Text));
+                cmd.Parameters.AddWithValue("@PurchaseDate", DateTime.Now);
 
                 try
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
+
+                    UpdateStockAndStatus(lblModelNumber.Text.Trim(), lblIMEI.Text.Trim());
+
                     MessageBox.Show("Giao dịch thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -91,6 +86,47 @@ namespace prj_CuoiKyXDHTTT
                     MessageBox.Show("Lỗi: " + ex.Message, "Giao dịch thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void UpdateStockAndStatus(string modelNum, string imei)
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlTransaction tran = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Trừ số lượng tồn kho
+                        using (SqlCommand cmd1 = new SqlCommand(
+                            "UPDATE tbl_Model SET AvailableQty = AvailableQty - 1 WHERE ModelNum = @modelNum", conn, tran))
+                        {
+                            cmd1.Parameters.AddWithValue("@modelNum", modelNum);
+                            cmd1.ExecuteNonQuery();
+                        }
+
+                        // Cập nhật status điện thoại
+                        using (SqlCommand cmd2 = new SqlCommand(
+                            "UPDATE tbl_Mobile SET Status = 'Sold' WHERE IMEINO = @imei", conn, tran))
+                        {
+                            cmd2.Parameters.AddWithValue("@imei", imei);
+                            cmd2.ExecuteNonQuery();
+                        }
+
+                        tran.Commit();
+                    }
+                    catch
+                    {
+                        tran.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
+        private void txtCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
