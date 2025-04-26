@@ -72,6 +72,7 @@
             this.tabSaleReport = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabReportByDay = new System.Windows.Forms.TabPage();
+            this.btnExcel1 = new System.Windows.Forms.Button();
             this.lblSearchByDay = new System.Windows.Forms.Label();
             this.lblTotalByDay = new System.Windows.Forms.Label();
             this.dtgvReportByDay = new System.Windows.Forms.DataGridView();
@@ -83,6 +84,7 @@
             this.dtpSelectDay = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPeportDtoD = new System.Windows.Forms.TabPage();
+            this.btnExcel2 = new System.Windows.Forms.Button();
             this.lblSearchDtoD = new System.Windows.Forms.Label();
             this.lblTotalDtoD = new System.Windows.Forms.Label();
             this.dtgvReportDtoD = new System.Windows.Forms.DataGridView();
@@ -111,8 +113,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnExcel1 = new System.Windows.Forms.Button();
-            this.btnExcel2 = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabControlAdd.SuspendLayout();
@@ -487,7 +487,7 @@
             this.tabUpdateStock.Margin = new System.Windows.Forms.Padding(2);
             this.tabUpdateStock.Name = "tabUpdateStock";
             this.tabUpdateStock.Padding = new System.Windows.Forms.Padding(2);
-            this.tabUpdateStock.Size = new System.Drawing.Size(670, 563);
+            this.tabUpdateStock.Size = new System.Drawing.Size(648, 563);
             this.tabUpdateStock.TabIndex = 1;
             this.tabUpdateStock.Text = "Update Stock";
             this.tabUpdateStock.UseVisualStyleBackColor = true;
@@ -647,6 +647,17 @@
             this.tabReportByDay.Text = "Day";
             this.tabReportByDay.UseVisualStyleBackColor = true;
             // 
+            // btnExcel1
+            // 
+            this.btnExcel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel1.Location = new System.Drawing.Point(421, 438);
+            this.btnExcel1.Name = "btnExcel1";
+            this.btnExcel1.Size = new System.Drawing.Size(193, 40);
+            this.btnExcel1.TabIndex = 6;
+            this.btnExcel1.Text = "Export to Excel";
+            this.btnExcel1.UseVisualStyleBackColor = true;
+            this.btnExcel1.Click += new System.EventHandler(this.btnExcel1_Click);
+            // 
             // lblSearchByDay
             // 
             this.lblSearchByDay.AutoSize = true;
@@ -765,6 +776,17 @@
             this.tabPeportDtoD.TabIndex = 1;
             this.tabPeportDtoD.Text = "Date to Date";
             this.tabPeportDtoD.UseVisualStyleBackColor = true;
+            // 
+            // btnExcel2
+            // 
+            this.btnExcel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel2.Location = new System.Drawing.Point(428, 489);
+            this.btnExcel2.Name = "btnExcel2";
+            this.btnExcel2.Size = new System.Drawing.Size(193, 40);
+            this.btnExcel2.TabIndex = 7;
+            this.btnExcel2.Text = "Export to Excel";
+            this.btnExcel2.UseVisualStyleBackColor = true;
+            this.btnExcel2.Click += new System.EventHandler(this.btnExcel2_Click);
             // 
             // lblSearchDtoD
             // 
@@ -1067,26 +1089,6 @@
             this.label21.Size = new System.Drawing.Size(199, 29);
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
-            // 
-            // btnExcel1
-            // 
-            this.btnExcel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel1.Location = new System.Drawing.Point(421, 438);
-            this.btnExcel1.Name = "btnExcel1";
-            this.btnExcel1.Size = new System.Drawing.Size(193, 40);
-            this.btnExcel1.TabIndex = 6;
-            this.btnExcel1.Text = "Export to Excel";
-            this.btnExcel1.UseVisualStyleBackColor = true;
-            // 
-            // btnExcel2
-            // 
-            this.btnExcel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel2.Location = new System.Drawing.Point(428, 489);
-            this.btnExcel2.Name = "btnExcel2";
-            this.btnExcel2.Size = new System.Drawing.Size(193, 40);
-            this.btnExcel2.TabIndex = 7;
-            this.btnExcel2.Text = "Export to Excel";
-            this.btnExcel2.UseVisualStyleBackColor = true;
             // 
             // AdminHomepage
             // 
