@@ -111,6 +111,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.btnExcel1 = new System.Windows.Forms.Button();
+            this.btnExcel2 = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabControlAdd.SuspendLayout();
@@ -138,7 +140,7 @@
             this.tabMain.Margin = new System.Windows.Forms.Padding(2);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(656, 559);
+            this.tabMain.Size = new System.Drawing.Size(656, 596);
             this.tabMain.TabIndex = 0;
             // 
             // tabAdd
@@ -148,7 +150,7 @@
             this.tabAdd.Margin = new System.Windows.Forms.Padding(2);
             this.tabAdd.Name = "tabAdd";
             this.tabAdd.Padding = new System.Windows.Forms.Padding(2);
-            this.tabAdd.Size = new System.Drawing.Size(648, 526);
+            this.tabAdd.Size = new System.Drawing.Size(648, 563);
             this.tabAdd.TabIndex = 0;
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
@@ -485,7 +487,7 @@
             this.tabUpdateStock.Margin = new System.Windows.Forms.Padding(2);
             this.tabUpdateStock.Name = "tabUpdateStock";
             this.tabUpdateStock.Padding = new System.Windows.Forms.Padding(2);
-            this.tabUpdateStock.Size = new System.Drawing.Size(648, 526);
+            this.tabUpdateStock.Size = new System.Drawing.Size(670, 563);
             this.tabUpdateStock.TabIndex = 1;
             this.tabUpdateStock.Text = "Update Stock";
             this.tabUpdateStock.UseVisualStyleBackColor = true;
@@ -612,7 +614,7 @@
             this.tabSaleReport.Margin = new System.Windows.Forms.Padding(2);
             this.tabSaleReport.Name = "tabSaleReport";
             this.tabSaleReport.Padding = new System.Windows.Forms.Padding(2);
-            this.tabSaleReport.Size = new System.Drawing.Size(648, 526);
+            this.tabSaleReport.Size = new System.Drawing.Size(648, 563);
             this.tabSaleReport.TabIndex = 2;
             this.tabSaleReport.Text = "Sale Report";
             this.tabSaleReport.UseVisualStyleBackColor = true;
@@ -625,11 +627,12 @@
             this.tabControl3.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(646, 528);
+            this.tabControl3.Size = new System.Drawing.Size(646, 567);
             this.tabControl3.TabIndex = 0;
             // 
             // tabReportByDay
             // 
+            this.tabReportByDay.Controls.Add(this.btnExcel1);
             this.tabReportByDay.Controls.Add(this.lblSearchByDay);
             this.tabReportByDay.Controls.Add(this.lblTotalByDay);
             this.tabReportByDay.Controls.Add(this.dtgvReportByDay);
@@ -639,7 +642,7 @@
             this.tabReportByDay.Margin = new System.Windows.Forms.Padding(2);
             this.tabReportByDay.Name = "tabReportByDay";
             this.tabReportByDay.Padding = new System.Windows.Forms.Padding(2);
-            this.tabReportByDay.Size = new System.Drawing.Size(638, 495);
+            this.tabReportByDay.Size = new System.Drawing.Size(638, 534);
             this.tabReportByDay.TabIndex = 0;
             this.tabReportByDay.Text = "Day";
             this.tabReportByDay.UseVisualStyleBackColor = true;
@@ -746,6 +749,7 @@
             // 
             // tabPeportDtoD
             // 
+            this.tabPeportDtoD.Controls.Add(this.btnExcel2);
             this.tabPeportDtoD.Controls.Add(this.lblSearchDtoD);
             this.tabPeportDtoD.Controls.Add(this.lblTotalDtoD);
             this.tabPeportDtoD.Controls.Add(this.dtgvReportDtoD);
@@ -757,7 +761,7 @@
             this.tabPeportDtoD.Margin = new System.Windows.Forms.Padding(2);
             this.tabPeportDtoD.Name = "tabPeportDtoD";
             this.tabPeportDtoD.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPeportDtoD.Size = new System.Drawing.Size(638, 495);
+            this.tabPeportDtoD.Size = new System.Drawing.Size(638, 534);
             this.tabPeportDtoD.TabIndex = 1;
             this.tabPeportDtoD.Text = "Date to Date";
             this.tabPeportDtoD.UseVisualStyleBackColor = true;
@@ -906,7 +910,7 @@
             this.tabEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.tabEmployee.Name = "tabEmployee";
             this.tabEmployee.Padding = new System.Windows.Forms.Padding(2);
-            this.tabEmployee.Size = new System.Drawing.Size(648, 526);
+            this.tabEmployee.Size = new System.Drawing.Size(648, 563);
             this.tabEmployee.TabIndex = 3;
             this.tabEmployee.Text = "Employee";
             this.tabEmployee.UseVisualStyleBackColor = true;
@@ -1064,11 +1068,31 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
             // 
+            // btnExcel1
+            // 
+            this.btnExcel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel1.Location = new System.Drawing.Point(421, 438);
+            this.btnExcel1.Name = "btnExcel1";
+            this.btnExcel1.Size = new System.Drawing.Size(193, 40);
+            this.btnExcel1.TabIndex = 6;
+            this.btnExcel1.Text = "Export to Excel";
+            this.btnExcel1.UseVisualStyleBackColor = true;
+            // 
+            // btnExcel2
+            // 
+            this.btnExcel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel2.Location = new System.Drawing.Point(428, 489);
+            this.btnExcel2.Name = "btnExcel2";
+            this.btnExcel2.Size = new System.Drawing.Size(193, 40);
+            this.btnExcel2.TabIndex = 7;
+            this.btnExcel2.Text = "Export to Excel";
+            this.btnExcel2.UseVisualStyleBackColor = true;
+            // 
             // AdminHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 559);
+            this.ClientSize = new System.Drawing.Size(653, 606);
             this.Controls.Add(this.tabMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1186,5 +1210,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn model;
         private System.Windows.Forms.DataGridViewTextBoxColumn imei;
         private System.Windows.Forms.DataGridViewTextBoxColumn prc;
+        private System.Windows.Forms.Button btnExcel1;
+        private System.Windows.Forms.Button btnExcel2;
     }
 }

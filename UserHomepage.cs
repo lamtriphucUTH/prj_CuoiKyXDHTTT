@@ -89,37 +89,43 @@ namespace prj_CuoiKyXDHTTT
         {
             using (var conn = GetConnection())
             {
-                string query = "SELECT ModelNum FROM tbl_Model WHERE ComId=@cid";
+                string query = "SELECT ModelNum FROM tbl_Model WHERE ComId = @cid";
                 using (var cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@cid", comId);
                     conn.Open();
-                    SqlDataReader rd = cmd.ExecuteReader();
-                    while (rd.Read())
-                        comboBox.Items.Add(rd["ModelNum"].ToString());
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            comboBox.Items.Add(reader["ModelNum"].ToString());
+                        }
+                    }
                 }
             }
         }
 
         private void cbCompanyName_ViewStock_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbModelNumber_ViewStock.Text = string.Empty;
+            cbModelNumber_ViewStock.Items.Clear();
+
             if (cbCompanyName_ViewStock.SelectedItem == null)
             {
-                cbModelNumber_ViewStock.Items.Clear();
                 cbModelNumber_ViewStock.Enabled = false;
                 return;
             }
+
             int? cid = GetCompanyIdByName(cbCompanyName_ViewStock.SelectedItem.ToString());
-            if (cid == null) return;
+            if (cid == null)
+            {
+                cbModelNumber_ViewStock.Enabled = false;
+                return;
+            }
 
             GetModelNameByCompany(cid.Value, cbModelNumber_ViewStock);
-            cbModelNumber_ViewStock.Items.Clear();
 
             cbModelNumber_ViewStock.Enabled = true;
             cbModelNumber_ViewStock.SelectedIndex = -1;
-
-            
         }
         private void LoadStockAvailable(string modelNum)
         {
