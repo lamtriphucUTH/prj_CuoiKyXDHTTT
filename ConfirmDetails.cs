@@ -60,9 +60,9 @@ namespace prj_CuoiKyXDHTTT
             using (SqlCommand cmd = new SqlCommand("sp_ProcessSale", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add(new SqlParameter("@SaleId", SqlDbType.NVarChar, 50) { Value = newSaleId });
-                cmd.Parameters.Add(new SqlParameter("@CusId", SqlDbType.NVarChar, 50) { Value = newCusId });
+                
+                cmd.Parameters.AddWithValue("SaleId", newSaleId);
+                cmd.Parameters.AddWithValue("CusId", newCusId);
                 cmd.Parameters.AddWithValue("@CustName", lblCustomerName.Text.Trim());
                 cmd.Parameters.AddWithValue("@MobileNumber", lblMobileNumber.Text.Trim());
                 cmd.Parameters.AddWithValue("@Email", lblEmail.Text.Trim());
@@ -76,7 +76,7 @@ namespace prj_CuoiKyXDHTTT
                     conn.Open();
                     cmd.ExecuteNonQuery();
 
-                    UpdateStockAndStatus(lblModelNumber.Text.Trim(), lblIMEI.Text.Trim());
+                    //UpdateStockAndStatus(lblModelNumber.Text.Trim(), lblIMEI.Text.Trim());
 
                     MessageBox.Show("Giao dịch thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
