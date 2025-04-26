@@ -70,11 +70,11 @@ CREATE TABLE tbl_Sales (
 
 
 INSERT INTO tbl_User VALUES
-('admin', '1', 'Le Van C', '789 Cach Mang Thang 8, Q3', '0933123456', 'Trường cấp 1'),
-('user1', '1', 'Nguyen Van A', '123 Le Loi, Q1', '0909123456', 'Tên thú cưng'),
-('user2', '1', 'Tran Thi B', '456 Tran Hung Dao, Q5', '0911123456', 'Món ăn yêu thích'),
-('user3', '1', 'Pham Duy D', '321 Nguyen Thi Minh Khai, Q10', '0944123456', 'Số yêu thích'),
-('user4', '1', 'Doan Thi E', '654 Hai Ba Trung, Q1', '0955123456', 'Động vật yêu thích');
+('admin', '1', 'Le Van C', '789 Cach Mang Thang 8, Q3', '0933123456', 'Truong cap 1'),
+('user1', '1', 'Nguyen Van A', '123 Le Loi, Q1', '0909123456', 'Ten thu cung'),
+('user2', '1', 'Tran Thi B', '456 Tran Hung Dao, Q5', '0911123456', 'Mon an yeu thich'),
+('user3', '1', 'Pham Duy D', '321 Nguyen Thi Minh Khai, Q10', '0944123456', 'So yeu thich'),
+('user4', '1', 'Doan Thi E', '654 Hai Ba Trung, Q1', '0955123456', 'Dong vat yeu thich');
 GO
 
 INSERT INTO tbl_Company VALUES
