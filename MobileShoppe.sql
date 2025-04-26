@@ -186,3 +186,59 @@ BEGIN
     END CATCH
 END;
 GO
+
+ALTER PROCEDURE sp_ProcessSale
+	@SaleId VARCHAR(20),
+	@CusId VARCHAR(20),
+    @CustName VARCHAR(20),
+    @MobileNumber VARCHAR(20),
+    @Email VARCHAR(20),
+    @Address VARCHAR(MAX),
+    @IMEI VARCHAR(50),
+    @Price MONEY,
+    @PurchaseDate DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        DECLARE @CustomerId VARCHAR(20);
+        DECLARE @ModelId VARCHAR(20);
+
+        -- 1. Kiểm tra khách hàng
+        SELECT @CustomerId = CusId FROM tbl_Customer WHERE MobileNumber = @MobileNumber;
+
+        IF @CustomerId IS NULL
+        BEGIN
+            -- Dùng @CusId từ phía C# truyền vào
+            INSERT INTO tbl_Customer (CusId, CustName, MobileNumber, EmailId, Address)
+            VALUES (@CusId, @CustName, @MobileNumber, @Email, @Address);
+        END
+        ELSE
+        BEGIN
+            SET @CusId = @CustomerId;
+        END
+
+        -- 2. Lấy ModelId từ IMEI
+        SELECT @ModelId = ModelId FROM tbl_Mobile WHERE IMEINO = @IMEI;
+
+        -- 3. Ghi vào bảng Sales
+        INSERT INTO tbl_Sales (SlsId, IMEINO, PurchageDate, Price, CusId)
+        VALUES (@SaleId, @IMEI, @PurchaseDate, @Price, @CusId);
+
+        -- 4. Đánh dấu máy đã bán
+        UPDATE tbl_Mobile SET Status = 'Sold' WHERE IMEINO = @IMEI;
+
+        -- 5. Trừ số lượng tồn kho
+        UPDATE tbl_Model SET AvailableQty = AvailableQty - 1 WHERE ModelId = @ModelId;
+
+        COMMIT;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK;
+        THROW;
+    END CATCH
+END;
+GO
