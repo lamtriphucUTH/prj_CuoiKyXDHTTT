@@ -70,11 +70,11 @@ CREATE TABLE tbl_Sales (
 
 
 INSERT INTO tbl_User VALUES
-('admin', '1', 'Le Van C', '789 Cach Mang Thang 8, Q3', '0933123456', 'Truong cap 1'),
-('user1', '1', 'Nguyen Van A', '123 Le Loi, Q1', '0909123456', 'Ten thu cung'),
-('user2', '1', 'Tran Thi B', '456 Tran Hung Dao, Q5', '0911123456', 'Mon an yeu thich'),
-('user3', '1', 'Pham Duy D', '321 Nguyen Thi Minh Khai, Q10', '0944123456', 'So yeu thich'),
-('user4', '1', 'Doan Thi E', '654 Hai Ba Trung, Q1', '0955123456', 'Dong vat yeu thich');
+('admin', 'admin', 'Le Van C', '789 Cach Mang Thang 8, Q3', '0933123456', 'Truong cap 1'),
+('lamtriphuc00', 'P@ssw0rd', 'Lam Tri Phuc', '123 Le Loi, Q1', '0909123456', 'Ten thu cung'),
+('nguyenhongminh00', 'P@ssw0rd', 'Nguyen Hong Minh', '456 Tran Hung Dao, Q5', '0911123456', 'Mon an yeu thich'),
+('nguyenhongton00', 'P@ssw0rd', 'Nguyen Hong Ton', '321 Nguyen Thi Minh Khai, Q10', '0944123456', 'So yeu thich'),
+('user8386', 'P@ssw0rd', 'May Thi Man', '654 Hai Ba Trung, Q1', '0955123456', 'Dong vat yeu thich');
 GO
 
 INSERT INTO tbl_Company VALUES
@@ -86,43 +86,54 @@ INSERT INTO tbl_Company VALUES
 GO
 
 INSERT INTO tbl_Model VALUES
-('1', '1', 'iPhone 13', 10),
-('2', '2', 'Galaxy S22', 15),
-('3', '3', 'Redmi Note 11', 20),
-('4', '4', 'OPPO Reno 8', 12),
-('5', '5', 'Nokia G20', 8);
+('1', '1', 'iPhone 13', 2),
+('2', '2', 'Galaxy S22', 2),
+('3', '3', 'Redmi Note 11', 2),
+('4', '4', 'OPPO Reno 8', 1),
+('5', '5', 'Nokia G20', 2);
 GO
 
-INSERT INTO tbl_Transaction VALUES
-('1', '1', 2, '2025-04-01', 30000000),
-('2', '2', 3, '2025-04-02', 45000000),
-('3', '3', 5, '2025-04-03', 25000000),
-('4', '4', 4, '2025-04-04', 28000000),
-('5', '5', 1, '2025-04-05', 6000000);
-GO
+--INSERT INTO tbl_Transaction VALUES
+--('1', '1', 2, '2025-04-01', 30000000),
+--('2', '2', 3, '2025-04-02', 45000000),
+--('3', '3', 5, '2025-04-03', 25000000),
+--('4', '4', 4, '2025-04-04', 28000000),
+--('5', '5', 1, '2025-04-05', 6000000);
+--GO
 
 INSERT INTO tbl_Mobile VALUES
 ('1', '00000001', 'Not Sold', '2026-04-01', 15000000),
 ('2', '00000002', 'Not Sold', '2026-04-01', 15000000),
-('3', '00000003', 'Sold', '2026-04-01', 10000000),
-('4', '00000004', 'Sold', '2026-04-01', 7000000),
-('5', '00000005', 'Not Sold', '2026-04-01', 6000000);
+('3', '00000003', 'Not Sold', '2026-04-01', 10000000),
+('4', '00000004', 'Not Sold', '2026-04-01', 7000000),
+('5', '00000005', 'Not Sold', '2026-04-01', 7000000),
+('1', '00000006', 'Not Sold', '2026-04-01', 6000000),
+('2', '00000007', 'Not Sold', '2026-04-01', 6000000),
+('3', '00000008', 'Not Sold', '2026-04-01', 6000000),
+('4', '00000009', 'Not Sold', '2026-04-01', 6000000),
+('5', '00000010', 'Not Sold', '2026-04-01', 6000000),
+('3', '00000011', 'Not Sold', '2026-04-01', 6000000),
+('1', '99999991', 'Sold', '2026-04-01', 6000000),
+('2', '99999992', 'Sold', '2026-04-01', 6000000),
+('3', '99999993', 'Sold', '2026-04-01', 6000000),
+('4', '99999994', 'Sold', '2026-04-01', 6000000),
+('5', '99999995', 'Sold', '2026-04-01', 6000000);
 GO
 
 INSERT INTO tbl_Customer VALUES
-('1', 'Nguyen Thanh', '0981123456', 'thanh@example.com', '123 D1, Binh Thanh'),
-('2', 'Le Mai', '0982123456', 'mai@example.com', '456 D2, Go Vap'),
-('3', 'Tran Hieu', '0983123456', 'hieu@example.com', '789 D3, Tan Binh'),
-('4', 'Pham Linh', '0984123456', 'linh@example.com', '321 D4, Q10'),
-('5', 'Do Quang', '0985123456', 'quang@example.com', '654 D5, Thu Duc');
+('1', 'Nguyen Thanh', '0981123456', 'thanh@gmail.com', '123 D1, Binh Thanh'),
+('2', 'Le Mai', '0982123456', 'mai@gmail.com', '456 D2, Go Vap'),
+('3', 'Tran Hieu', '0983123456', 'hieu@gmail.com', '789 D3, Tan Binh'),
+('4', 'Pham Linh', '0984123456', 'linh@gmail.com', '321 D4, Q10'),
+('5', 'Do Quang', '0985123456', 'quang@gmail.com', '654 D5, Thu Duc');
 GO
 
 INSERT INTO tbl_Sales VALUES
-('1', '00000003', '2025-04-10', 10000000, '1'),
-('2', '00000004', '2025-04-11', 7000000, '2'),
-('3', '00000005', '2025-04-12', 6000000, '3'),
-('4', '00000001', '2025-04-13', 15000000, '4'),
-('5', '00000002', '2025-04-14', 15000000, '5');
+('1', '99999991', '2025-04-10', 10000000, '1'),
+('2', '99999992', '2025-04-11', 7000000, '2'),
+('3', '99999993', '2025-04-12', 6000000, '3'),
+('4', '99999994', '2025-04-13', 15000000, '4'),
+('5', '99999995', '2025-04-14', 15000000, '5');
 GO
 
  --drop database mobileshoppe;
@@ -136,7 +147,7 @@ GO
 -- PROCEDURES
 
 
-ALTER PROCEDURE sp_ProcessSale
+CREATE PROCEDURE sp_ProcessSale
 	@SaleId VARCHAR(20),
 	@CusId VARCHAR(20),
     @CustName VARCHAR(20),

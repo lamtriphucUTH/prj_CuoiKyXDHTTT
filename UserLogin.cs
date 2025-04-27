@@ -54,6 +54,7 @@ namespace prj_CuoiKyXDHTTT
                 MessageBox.Show("Sai mật khẩu hoặc tài khoản không tồn tại.",
                                 "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            conn.Close();
         }
 
         private void lnkToAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

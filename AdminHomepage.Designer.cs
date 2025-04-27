@@ -88,11 +88,6 @@
             this.lblSearchDtoD = new System.Windows.Forms.Label();
             this.lblTotalDtoD = new System.Windows.Forms.Label();
             this.dtgvReportDtoD = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
@@ -113,6 +108,11 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabControlAdd.SuspendLayout();
@@ -746,6 +746,7 @@
             this.dtpSelectDay.Name = "dtpSelectDay";
             this.dtpSelectDay.Size = new System.Drawing.Size(172, 34);
             this.dtpSelectDay.TabIndex = 1;
+            this.dtpSelectDay.ValueChanged += new System.EventHandler(this.dtpSelectDay_ValueChanged);
             // 
             // label16
             // 
@@ -827,46 +828,6 @@
             this.dtgvReportDtoD.Size = new System.Drawing.Size(602, 301);
             this.dtgvReportDtoD.TabIndex = 3;
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "SlsId";
-            this.id.HeaderText = "SlsID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 80;
-            // 
-            // comName
-            // 
-            this.comName.DataPropertyName = "CName";
-            this.comName.HeaderText = "CompanyName";
-            this.comName.MinimumWidth = 6;
-            this.comName.Name = "comName";
-            this.comName.Width = 220;
-            // 
-            // model
-            // 
-            this.model.DataPropertyName = "ModelNum";
-            this.model.HeaderText = "Model Num";
-            this.model.MinimumWidth = 6;
-            this.model.Name = "model";
-            this.model.Width = 125;
-            // 
-            // imei
-            // 
-            this.imei.DataPropertyName = "IMEINO";
-            this.imei.HeaderText = "IMEINO";
-            this.imei.MinimumWidth = 6;
-            this.imei.Name = "imei";
-            this.imei.Width = 125;
-            // 
-            // prc
-            // 
-            this.prc.DataPropertyName = "Price";
-            this.prc.HeaderText = "Price";
-            this.prc.MinimumWidth = 6;
-            this.prc.Name = "prc";
-            this.prc.Width = 125;
-            // 
             // dtpEnd
             // 
             this.dtpEnd.CustomFormat = "dd-MM-yyyy";
@@ -877,6 +838,7 @@
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(188, 34);
             this.dtpEnd.TabIndex = 1;
+            this.dtpEnd.ValueChanged += new System.EventHandler(this.dtpEnd_ValueChanged);
             // 
             // dtpStart
             // 
@@ -888,6 +850,7 @@
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(188, 34);
             this.dtpStart.TabIndex = 1;
+            this.dtpStart.ValueChanged += new System.EventHandler(this.dtpStart_ValueChanged);
             // 
             // label19
             // 
@@ -1090,6 +1053,46 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "SlsId";
+            this.id.HeaderText = "SlsID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 80;
+            // 
+            // comName
+            // 
+            this.comName.DataPropertyName = "CName";
+            this.comName.HeaderText = "Company Name";
+            this.comName.MinimumWidth = 6;
+            this.comName.Name = "comName";
+            this.comName.Width = 220;
+            // 
+            // model
+            // 
+            this.model.DataPropertyName = "ModelNum";
+            this.model.HeaderText = "Model Num";
+            this.model.MinimumWidth = 6;
+            this.model.Name = "model";
+            this.model.Width = 125;
+            // 
+            // imei
+            // 
+            this.imei.DataPropertyName = "IMEINO";
+            this.imei.HeaderText = "IMEINO";
+            this.imei.MinimumWidth = 6;
+            this.imei.Name = "imei";
+            this.imei.Width = 125;
+            // 
+            // prc
+            // 
+            this.prc.DataPropertyName = "Price";
+            this.prc.HeaderText = "Price";
+            this.prc.MinimumWidth = 6;
+            this.prc.Name = "prc";
+            this.prc.Width = 125;
+            // 
             // AdminHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1207,12 +1210,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ModelNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMEINO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.Button btnExcel1;
+        private System.Windows.Forms.Button btnExcel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn comName;
         private System.Windows.Forms.DataGridViewTextBoxColumn model;
         private System.Windows.Forms.DataGridViewTextBoxColumn imei;
         private System.Windows.Forms.DataGridViewTextBoxColumn prc;
-        private System.Windows.Forms.Button btnExcel1;
-        private System.Windows.Forms.Button btnExcel2;
     }
 }
