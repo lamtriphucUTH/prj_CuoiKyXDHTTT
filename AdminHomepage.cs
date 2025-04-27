@@ -550,6 +550,18 @@ namespace prj_CuoiKyXDHTTT
         #endregion
 
         #region Report By Day
+        private void dtpSelectDay_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dtpSelectDay.Value.Date;
+
+            if (selectedDate > DateTime.Now.Date)
+            {
+                MessageBox.Show("Không được chọ ngày trong tương lai!", "Cảnh báo",
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpSelectDay.Value = DateTime.Now;
+                return;
+            }
+        }
         private void lblSearchByDay_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = dtpSelectDay.Value.Date;
@@ -560,7 +572,7 @@ namespace prj_CuoiKyXDHTTT
             string sql = @"
                 SELECT 
                     s.SlsId,
-                    c.CName AS CompanyName,
+                    c.CName,
                     m.ModelNum,
                     s.IMEINO,
                     s.Price
@@ -592,6 +604,31 @@ namespace prj_CuoiKyXDHTTT
 
         #endregion
         #region Report Date to Date
+        private void dtpStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime startDate = dtpStart.Value.Date;
+
+            if (startDate > DateTime.Now.Date)
+            {
+                MessageBox.Show("Không được chọ ngày trong tương lai!", "Cảnh báo",
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpStart.Value = DateTime.Now;
+                return;
+            }
+        }
+
+        private void dtpEnd_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime endDate = dtpEnd.Value.Date;
+
+            if (endDate > DateTime.Now.Date)
+            {
+                MessageBox.Show("Không được chọ ngày trong tương lai!", "Cảnh báo",
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpEnd.Value = DateTime.Now;
+                return;
+            }
+        }
         private void lblSearchDtoD_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtpStart.Value.Date;
@@ -649,25 +686,44 @@ namespace prj_CuoiKyXDHTTT
                 {
                     try
                     {
-                        using (var workbook = new XLWorkbook())
+                        using (var workbook = new ClosedXML.Excel.XLWorkbook())
                         {
                             var worksheet = workbook.Worksheets.Add("Report");
 
-                            for (int i = 0; i < dtgvReportByDay.Columns.Count; i++)
+                            // Write header
+                            for (int col = 0; col < dtgvReportByDay.Columns.Count; col++)
                             {
-                                worksheet.Cell(1, i + 1).Value = dtgvReportByDay.Columns[i].HeaderText;
+                                var headerCell = worksheet.Cell(1, col + 1);
+                                headerCell.Value = dtgvReportByDay.Columns[col].HeaderText;
+                                headerCell.Style.Font.Bold = true;
+                                headerCell.Style.Font.FontSize = 14;
+                                headerCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                                headerCell.Style.Fill.BackgroundColor = XLColor.LightGray;
                             }
 
-                            for (int i = 0; i < dtgvReportByDay.Rows.Count; i++)
+                            // Write data
+                            int currentRow = 2;
+                            foreach (DataGridViewRow row in dtgvReportByDay.Rows)
                             {
-                                for (int j = 0; j < dtgvReportByDay.Columns.Count; j++)
+                                if (row.IsNewRow) continue; // Bỏ qua dòng trống cuối
+
+                                for (int col = 0; col < dtgvReportByDay.Columns.Count; col++)
                                 {
-                                    worksheet.Cell(i + 2, j + 1).Value = dtgvReportByDay.Rows[i].Cells[j].Value?.ToString();
+                                    var dataCell = worksheet.Cell(currentRow, col + 1);
+                                    dataCell.Value = row.Cells[col].Value?.ToString();
+
+                                    // Set font size to 14 for each data cell
+                                    dataCell.Style.Font.FontSize = 14;
                                 }
+                                currentRow++;
                             }
+
+                            // Auto adjust column width
+                            worksheet.Columns().AdjustToContents();
 
                             workbook.SaveAs(sfd.FileName);
                         }
+
                         MessageBox.Show("Xuất file Excel thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -680,9 +736,9 @@ namespace prj_CuoiKyXDHTTT
 
         private void btnExcel2_Click(object sender, EventArgs e)
         {
-            if (dtgvReportByDay.Rows.Count == 0)
+            if (dtpStart.Value.Date > dtpEnd.Value.Date)
             {
-                MessageBox.Show("Không có dữ liệu để xuất Excel.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -692,26 +748,62 @@ namespace prj_CuoiKyXDHTTT
                 {
                     try
                     {
-                        using (var workbook = new XLWorkbook())
+                        // 1. Query dữ liệu từ bảng tbl_Sales theo khoảng ngày
+                        string sql = "SELECT * FROM tbl_Sales WHERE PurchageDate BETWEEN @fromDate AND @toDate";
+
+                        using (SqlConnection conn = GetConnection())
+                        using (SqlCommand cmd = new SqlCommand(sql, conn))
                         {
-                            var worksheet = workbook.Worksheets.Add("Report");
+                            cmd.Parameters.AddWithValue("@fromDate", dtpStart.Value.Date);
+                            cmd.Parameters.AddWithValue("@toDate", dtpEnd.Value.Date);
 
-                            for (int i = 0; i < dtgvReportByDay.Columns.Count; i++)
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            if (dt.Rows.Count == 0)
                             {
-                                worksheet.Cell(1, i + 1).Value = dtgvReportByDay.Columns[i].HeaderText;
+                                MessageBox.Show("Không có dữ liệu để xuất Excel.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
                             }
 
-                            for (int i = 0; i < dtgvReportByDay.Rows.Count; i++)
+                            // 2. Xuất dữ liệu ra Excel
+                            using (var workbook = new ClosedXML.Excel.XLWorkbook())
                             {
-                                for (int j = 0; j < dtgvReportByDay.Columns.Count; j++)
+                                var worksheet = workbook.Worksheets.Add("Report");
+
+                                // Ghi Header
+                                for (int col = 0; col < dtgvReportByDay.Columns.Count; col++)
                                 {
-                                    worksheet.Cell(i + 2, j + 1).Value = dtgvReportByDay.Rows[i].Cells[j].Value?.ToString();
+                                    var headerCell = worksheet.Cell(1, col + 1);
+                                    headerCell.Value = dtgvReportByDay.Columns[col].HeaderText;
+                                    headerCell.Style.Font.Bold = true;
+                                    headerCell.Style.Font.FontSize = 14;
+                                    headerCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                                    headerCell.Style.Fill.BackgroundColor = XLColor.LightGray;
                                 }
+
+                                // Ghi dữ liệu
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    for (int j = 0; j < dt.Columns.Count; j++)
+                                    {
+                                        var dataCell = worksheet.Cell(i + 2, j + 1);
+                                        dataCell.Value = dt.Rows[i][j]?.ToString();
+                                        dataCell.Style.Font.FontSize = 14;
+                                    }
+                                }
+
+                                workbook.SaveAs(sfd.FileName);
+
+                                // Auto adjust column width
+                                worksheet.Columns().AdjustToContents();
+
+                                workbook.SaveAs(sfd.FileName);
                             }
 
-                            workbook.SaveAs(sfd.FileName);
+                            MessageBox.Show("Xuất file Excel thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        MessageBox.Show("Xuất file Excel thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -720,5 +812,7 @@ namespace prj_CuoiKyXDHTTT
                 }
             }
         }
+
+        
     }
 }

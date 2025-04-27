@@ -70,8 +70,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 11;
-            this.txtPwd.Text = "1";
-            this.txtPwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
+            this.txtPwd.Text = "admin";
             // 
             // txtUsername
             // 
@@ -117,9 +116,9 @@
             // btnShowHide
             // 
             this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
-            this.btnShowHide.Location = new System.Drawing.Point(435, 215);
+            this.btnShowHide.Location = new System.Drawing.Point(434, 210);
             this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.Size = new System.Drawing.Size(35, 29);
+            this.btnShowHide.Size = new System.Drawing.Size(36, 34);
             this.btnShowHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnShowHide.TabIndex = 14;
             this.btnShowHide.TabStop = false;
