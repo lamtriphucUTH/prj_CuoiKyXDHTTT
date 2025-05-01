@@ -7,6 +7,7 @@ namespace prj_CuoiKyXDHTTT
 {
     public partial class ConfirmDetails : Form
     {
+
         private string connStr = "Data Source=.;Initial Catalog=MobileShoppe;Integrated Security=True";
 
         private string customerName, mobileNumber, address, email;
@@ -79,6 +80,7 @@ namespace prj_CuoiKyXDHTTT
                     //UpdateStockAndStatus(lblModelNumber.Text.Trim(), lblIMEI.Text.Trim());
 
                     MessageBox.Show("Giao dịch thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.Close();
                 }
                 catch (Exception ex)

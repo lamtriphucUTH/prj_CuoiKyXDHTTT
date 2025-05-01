@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office.Word;
 
 namespace prj_CuoiKyXDHTTT
 {
@@ -294,6 +295,23 @@ namespace prj_CuoiKyXDHTTT
             }
 
             int? modelId = GetModelIdByNum(cbModelNum_Mobile.SelectedItem.ToString());
+            // 1. Kiểm tra modelId có hợp lệ không
+            if (modelId == null)
+            {
+                MessageBox.Show("Model không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 2. Kiểm tra model đã nhập kho chưa
+            int importedQty = GetImportedQuantity(modelId.Value);
+            int existingMobiles = GetNotSoldMobilesCount(modelId.Value);
+
+            if (importedQty <= existingMobiles)
+            {
+                MessageBox.Show("Model này chưa được nhập sản phẩm mới! Vui lòng nhập kho trước.",
+                                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             using (var conn = GetConnection())
             {
@@ -329,6 +347,40 @@ namespace prj_CuoiKyXDHTTT
             }
             return modelId;
         }
+        private int GetImportedQuantity(int modelId)
+        {
+            int total = 0;
+            using (var conn = GetConnection())
+            {
+                string query = "SELECT SUM(AvailableQty) FROM tbl_Model WHERE ModelId = @mid";
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@mid", modelId);
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value && result != null)
+                        total = Convert.ToInt32(result);
+                }
+            }
+            return total;
+        }
+        private int GetNotSoldMobilesCount(int modelId)
+        {
+            int count = 0;
+            using (var conn = GetConnection())
+            {
+                string query = "SELECT COUNT(*) FROM tbl_Mobile WHERE ModelId = @mid AND Status = 'Not Sold'";
+                using (var cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@mid", modelId);
+                    conn.Open();
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+            return count;
+        }
+
+
         #endregion
         #region ADD EMPLOYEE
         private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
@@ -543,6 +595,16 @@ namespace prj_CuoiKyXDHTTT
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
+                // Sau khi thêm transaction
+                // Cập nhật AvailableQty trong tbl_Model
+                string updateQtyQuery = "UPDATE tbl_Model SET AvailableQty = ISNULL(AvailableQty, 0) + @qty WHERE ModelId = @modelid";
+                using (SqlCommand updateCmd = new SqlCommand(updateQtyQuery, conn))
+                {
+                    updateCmd.Parameters.AddWithValue("@qty", quantity);
+                    updateCmd.Parameters.AddWithValue("@modelid", modelId);
+                    updateCmd.ExecuteNonQuery();
+                }
+
                 MessageBox.Show("Cập nhật kho thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 InitUpdateStock();
             }
@@ -671,7 +733,7 @@ namespace prj_CuoiKyXDHTTT
             lblTotalDtoD.Text = $"Total from {startDate:dd-MM-yyyy} to {endDate:dd-MM-yyyy}: {total}";
         }
         #endregion
-
+        #region Export to Excel
         private void btnExcel1_Click(object sender, EventArgs e)
         {
             if (dtgvReportByDay.Rows.Count == 0)
@@ -812,7 +874,6 @@ namespace prj_CuoiKyXDHTTT
                 }
             }
         }
-
-        
+        #endregion
     }
 }
