@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminLogin));
             this.lnkForgotPassword = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPwd = new System.Windows.Forms.TextBox();
@@ -36,8 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lnkBack = new System.Windows.Forms.LinkLabel();
-            this.btnShowHide = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.btnShowHide)).BeginInit();
+            this.picShowHide = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowHide)).BeginInit();
             this.SuspendLayout();
             // 
             // lnkForgotPassword
@@ -70,7 +69,6 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 11;
-            this.txtPwd.Text = "admin";
             // 
             // txtUsername
             // 
@@ -79,7 +77,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(273, 34);
             this.txtUsername.TabIndex = 10;
-            this.txtUsername.Text = "admin";
             // 
             // label2
             // 
@@ -97,9 +94,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(62, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 29);
+            this.label1.Size = new System.Drawing.Size(124, 29);
             this.label1.TabIndex = 8;
-            this.label1.Text = "UserName";
+            this.label1.Text = "Username";
             // 
             // lnkBack
             // 
@@ -113,23 +110,24 @@
             this.lnkBack.Text = "Back";
             this.lnkBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkBack_linkClick);
             // 
-            // btnShowHide
+            // picShowHide
             // 
-            this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
-            this.btnShowHide.Location = new System.Drawing.Point(434, 210);
-            this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.Size = new System.Drawing.Size(36, 34);
-            this.btnShowHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnShowHide.TabIndex = 14;
-            this.btnShowHide.TabStop = false;
-            this.btnShowHide.Click += new System.EventHandler(this.btnShowHide_Click);
+            this.picShowHide.BackColor = System.Drawing.SystemColors.Window;
+            this.picShowHide.Image = global::prj_CuoiKyXDHTTT.Properties.Resources.eye_closed;
+            this.picShowHide.Location = new System.Drawing.Point(440, 215);
+            this.picShowHide.Name = "picShowHide";
+            this.picShowHide.Size = new System.Drawing.Size(25, 25);
+            this.picShowHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picShowHide.TabIndex = 14;
+            this.picShowHide.TabStop = false;
+            this.picShowHide.Click += new System.EventHandler(this.picShowHide_Click);
             // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 438);
-            this.Controls.Add(this.btnShowHide);
+            this.Controls.Add(this.picShowHide);
             this.Controls.Add(this.lnkForgotPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPwd);
@@ -141,7 +139,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adminlogin";
             this.Load += new System.EventHandler(this.Adminlogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btnShowHide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowHide)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +154,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel lnkBack;
-        private System.Windows.Forms.PictureBox btnShowHide;
+        private System.Windows.Forms.PictureBox picShowHide;
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserLogin));
             this.lnkToAdmin = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,8 +35,8 @@
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lnkForgotPassword = new System.Windows.Forms.LinkLabel();
-            this.btnShowHide = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.btnShowHide)).BeginInit();
+            this.picShowHide = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowHide)).BeginInit();
             this.SuspendLayout();
             // 
             // lnkToAdmin
@@ -74,21 +73,21 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.BackColor = System.Drawing.Color.White;
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(195, 84);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(273, 34);
             this.txtUsername.TabIndex = 3;
-            this.txtUsername.Text = "lamtriphuc00";
             // 
             // txtPwd
             // 
+            this.txtPwd.BackColor = System.Drawing.Color.White;
             this.txtPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPwd.Location = new System.Drawing.Point(195, 174);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 4;
-            this.txtPwd.Text = "P@ssw0rd";
             // 
             // btnLogin
             // 
@@ -113,23 +112,25 @@
             this.lnkForgotPassword.Text = "Forgot Password?";
             this.lnkForgotPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkForgotPassword_LinkClicked);
             // 
-            // btnShowHide
+            // picShowHide
             // 
-            this.btnShowHide.Image = ((System.Drawing.Image)(resources.GetObject("btnShowHide.Image")));
-            this.btnShowHide.Location = new System.Drawing.Point(438, 174);
-            this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.Size = new System.Drawing.Size(28, 29);
-            this.btnShowHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnShowHide.TabIndex = 7;
-            this.btnShowHide.TabStop = false;
-            this.btnShowHide.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picShowHide.BackColor = System.Drawing.SystemColors.Window;
+            this.picShowHide.Image = global::prj_CuoiKyXDHTTT.Properties.Resources.eye_closed;
+            this.picShowHide.Location = new System.Drawing.Point(438, 178);
+            this.picShowHide.Name = "picShowHide";
+            this.picShowHide.Size = new System.Drawing.Size(25, 25);
+            this.picShowHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picShowHide.TabIndex = 9;
+            this.picShowHide.TabStop = false;
+            this.picShowHide.Click += new System.EventHandler(this.picShowHide_Click);
             // 
             // UserLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(566, 393);
-            this.Controls.Add(this.btnShowHide);
+            this.Controls.Add(this.picShowHide);
             this.Controls.Add(this.lnkForgotPassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPwd);
@@ -139,9 +140,9 @@
             this.Controls.Add(this.lnkToAdmin);
             this.Name = "UserLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Userlogin";
+            this.Text = "User Login";
             this.Load += new System.EventHandler(this.UserLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btnShowHide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowHide)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +157,6 @@
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel lnkForgotPassword;
-        private System.Windows.Forms.PictureBox btnShowHide;
+        private System.Windows.Forms.PictureBox picShowHide;
     }
 }

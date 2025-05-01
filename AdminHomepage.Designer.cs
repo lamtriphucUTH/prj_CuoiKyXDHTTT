@@ -88,6 +88,11 @@
             this.lblSearchDtoD = new System.Windows.Forms.Label();
             this.lblTotalDtoD = new System.Windows.Forms.Label();
             this.dtgvReportDtoD = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.label19 = new System.Windows.Forms.Label();
@@ -108,11 +113,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMain.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabControlAdd.SuspendLayout();
@@ -828,6 +828,46 @@
             this.dtgvReportDtoD.Size = new System.Drawing.Size(602, 301);
             this.dtgvReportDtoD.TabIndex = 3;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "SlsId";
+            this.id.HeaderText = "SlsID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 80;
+            // 
+            // comName
+            // 
+            this.comName.DataPropertyName = "CName";
+            this.comName.HeaderText = "Company Name";
+            this.comName.MinimumWidth = 6;
+            this.comName.Name = "comName";
+            this.comName.Width = 220;
+            // 
+            // model
+            // 
+            this.model.DataPropertyName = "ModelNum";
+            this.model.HeaderText = "Model Num";
+            this.model.MinimumWidth = 6;
+            this.model.Name = "model";
+            this.model.Width = 125;
+            // 
+            // imei
+            // 
+            this.imei.DataPropertyName = "IMEINO";
+            this.imei.HeaderText = "IMEINO";
+            this.imei.MinimumWidth = 6;
+            this.imei.Name = "imei";
+            this.imei.Width = 125;
+            // 
+            // prc
+            // 
+            this.prc.DataPropertyName = "Price";
+            this.prc.HeaderText = "Price";
+            this.prc.MinimumWidth = 6;
+            this.prc.Name = "prc";
+            this.prc.Width = 125;
+            // 
             // dtpEnd
             // 
             this.dtpEnd.CustomFormat = "dd-MM-yyyy";
@@ -1052,46 +1092,6 @@
             this.label21.Size = new System.Drawing.Size(199, 29);
             this.label21.TabIndex = 0;
             this.label21.Text = "Employee Name:";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "SlsId";
-            this.id.HeaderText = "SlsID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 80;
-            // 
-            // comName
-            // 
-            this.comName.DataPropertyName = "CName";
-            this.comName.HeaderText = "Company Name";
-            this.comName.MinimumWidth = 6;
-            this.comName.Name = "comName";
-            this.comName.Width = 220;
-            // 
-            // model
-            // 
-            this.model.DataPropertyName = "ModelNum";
-            this.model.HeaderText = "Model Num";
-            this.model.MinimumWidth = 6;
-            this.model.Name = "model";
-            this.model.Width = 125;
-            // 
-            // imei
-            // 
-            this.imei.DataPropertyName = "IMEINO";
-            this.imei.HeaderText = "IMEINO";
-            this.imei.MinimumWidth = 6;
-            this.imei.Name = "imei";
-            this.imei.Width = 125;
-            // 
-            // prc
-            // 
-            this.prc.DataPropertyName = "Price";
-            this.prc.HeaderText = "Price";
-            this.prc.MinimumWidth = 6;
-            this.prc.Name = "prc";
-            this.prc.Width = 125;
             // 
             // AdminHomepage
             // 

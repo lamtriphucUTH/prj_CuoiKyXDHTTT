@@ -185,12 +185,20 @@ namespace prj_CuoiKyXDHTTT
         }
         #endregion
         #region Sale
-        private void LoadSales()
+        public void LoadSales()
         {
             GetCompanyNames(cbCompanyName);
             cbModelNumber.Enabled = false;
             cbIMEINumber.Enabled = false;
-            txtPricePerPiece.ReadOnly = true;
+
+            txtCustomerName.Clear();
+            txtMobileNumber.Clear();
+            txtAddress.Clear();
+            txtEmail.Clear();
+            txtPricePerPiece.Clear();
+            cbCompanyName.SelectedIndex = -1;
+            cbModelNumber.SelectedIndex = -1;
+            cbIMEINumber.SelectedIndex = -1;
         }
         private void cbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -276,8 +284,9 @@ namespace prj_CuoiKyXDHTTT
                 cbIMEINumber.Text,
                 txtPricePerPiece.Text
             );
-
+            
             confirmForm.ShowDialog();
+            LoadSales();
         }
         private bool ValidateCustomerInfo()
         {

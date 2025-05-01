@@ -88,8 +88,8 @@ GO
 INSERT INTO tbl_Model VALUES
 ('1', '1', 'iPhone 13', 2),
 ('2', '2', 'Galaxy S22', 2),
-('3', '3', 'Redmi Note 11', 2),
-('4', '4', 'OPPO Reno 8', 1),
+('3', '3', 'Redmi Note 11', 3),
+('4', '4', 'OPPO Reno 8', 2),
 ('5', '5', 'Nokia G20', 2);
 GO
 
