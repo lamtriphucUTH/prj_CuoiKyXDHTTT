@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 
 namespace prj_CuoiKyXDHTTT
 {
@@ -633,5 +634,95 @@ namespace prj_CuoiKyXDHTTT
             lblTotalDtoD.Text = $"Total from {startDate:dd-MM-yyyy} to {endDate:dd-MM-yyyy}: {total}";
         }
         #endregion
+
+        private void btnExcel1_Click(object sender, EventArgs e)
+        {
+            if (dtgvReportByDay.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất Excel.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (var workbook = new XLWorkbook())
+                        {
+                            var worksheet = workbook.Worksheets.Add("Report");
+
+                            // Ghi tiêu đề cột
+                            for (int i = 0; i < dtgvReportByDay.Columns.Count; i++)
+                            {
+                                worksheet.Cell(1, i + 1).Value = dtgvReportByDay.Columns[i].HeaderText;
+                            }
+
+                            // Ghi dữ liệu từng dòng
+                            for (int i = 0; i < dtgvReportByDay.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < dtgvReportByDay.Columns.Count; j++)
+                                {
+                                    worksheet.Cell(i + 2, j + 1).Value = dtgvReportByDay.Rows[i].Cells[j].Value?.ToString();
+                                }
+                            }
+
+                            workbook.SaveAs(sfd.FileName);
+                        }
+                        MessageBox.Show("Xuất file Excel thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnExcel2_Click(object sender, EventArgs e)
+        {
+            if (dtgvReportByDay.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất Excel.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xlsx" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (var workbook = new XLWorkbook())
+                        {
+                            var worksheet = workbook.Worksheets.Add("Report");
+
+                            // Ghi tiêu đề cột
+                            for (int i = 0; i < dtgvReportByDay.Columns.Count; i++)
+                            {
+                                worksheet.Cell(1, i + 1).Value = dtgvReportByDay.Columns[i].HeaderText;
+                            }
+
+                            // Ghi dữ liệu từng dòng
+                            for (int i = 0; i < dtgvReportByDay.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < dtgvReportByDay.Columns.Count; j++)
+                                {
+                                    worksheet.Cell(i + 2, j + 1).Value = dtgvReportByDay.Rows[i].Cells[j].Value?.ToString();
+                                }
+                            }
+
+                            workbook.SaveAs(sfd.FileName);
+                        }
+                        MessageBox.Show("Xuất file Excel thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
