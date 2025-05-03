@@ -309,6 +309,12 @@ namespace prj_CuoiKyXDHTTT
         {
             if (!ValidateCustomerInfo()) return;
 
+            if (!decimal.TryParse(txtPricePerPiece.Text.Trim(), out decimal price) || price <= 0)
+            {
+                MessageBox.Show("Đơn giá không hợp lệ. Phải là số dương!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             ConfirmDetails confirmForm = new ConfirmDetails(
                 txtCustomerName.Text,
                 txtMobileNumber.Text,
