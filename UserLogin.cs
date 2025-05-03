@@ -36,25 +36,44 @@ namespace prj_CuoiKyXDHTTT
             string username = txtUsername.Text.Trim();
             string password = txtPwd.Text.Trim();
 
+            // Kiểm tra nếu username chứa "admin" (không phân biệt hoa thường)
+            if (username.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Vui lòng sử dụng trang đăng nhập Admin để đăng nhập tài khoản admin.",
+                              "Không thể đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Dừng xử lý tiếp
+            }
+
             SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_User WHERE UserName = @username AND PWD = @password", conn);
             cmd.Parameters.AddWithValue("@username", username);
             cmd.Parameters.AddWithValue("@password", password);
-            conn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
 
-            if (reader.Read())
+            try
             {
-                UserHomepage userHomepage = new UserHomepage();
-                this.Hide();
-                userHomepage.ShowDialog();
-                this.Show();
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    UserHomepage userHomepage = new UserHomepage();
+                    this.Hide();
+                    userHomepage.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Sai mật khẩu hoặc tài khoản không tồn tại.",
+                                  "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sai mật khẩu hoặc tài khoản không tồn tại.",
-                                "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi đăng nhập: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            conn.Close();
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void lnkToAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -79,11 +98,13 @@ namespace prj_CuoiKyXDHTTT
 
             if (!isHiden)
             {
-                picShowHide.Image = Image.FromFile("eye_closed.png");
+                //picShowHide.Image = Image.FromFile("eye_closed.png");
+                picShowHide.Image = Properties.Resources.eye_closed;
             }
             else
             {
-                picShowHide.Image = Image.FromFile("eye_open.png");
+                //picShowHide.Image = Image.FromFile("eye_open.png");
+                picShowHide.Image = Properties.Resources.eye_open;
             }
         }
     }
