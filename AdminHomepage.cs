@@ -30,18 +30,6 @@ namespace prj_CuoiKyXDHTTT
             InitUpdateStock();
             dtpSelectDay.Value = DateTime.Today;
         }
-        private void tabControlAdd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControlAdd.SelectedTab == tabAddCompany)
-            {
-            }
-            else if (tabControlAdd.SelectedTab == tabAddModel)
-            {
-            }
-            else if (tabControlAdd.SelectedTab == tabAddMobile)
-            {
-            }
-        }
         #region COMMON
         private SqlConnection GetConnection()
         {
@@ -236,6 +224,8 @@ namespace prj_CuoiKyXDHTTT
         }
         private void cbComName_Mobile_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbModelNum_Mobile.Items.Clear();
+            cbModelNum_Mobile.Text = string.Empty;
             if (cbComName_Mobile.SelectedItem == null)
             {
                 cbModelNum_Mobile.Items.Clear();
@@ -610,7 +600,6 @@ namespace prj_CuoiKyXDHTTT
             }
         }
         #endregion
-
         #region Report By Day
         private void dtpSelectDay_ValueChanged(object sender, EventArgs e)
         {
@@ -618,7 +607,7 @@ namespace prj_CuoiKyXDHTTT
 
             if (selectedDate > DateTime.Now.Date)
             {
-                MessageBox.Show("Không được chọ ngày trong tương lai!", "Cảnh báo",
+                MessageBox.Show("Không được chọn ngày trong tương lai!", "Cảnh báo",
                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpSelectDay.Value = DateTime.Now;
                 return;
@@ -666,31 +655,63 @@ namespace prj_CuoiKyXDHTTT
 
         #endregion
         #region Report Date to Date
+
+        private bool isUpdatingStart = false;
+        private bool isUpdatingEnd = false;
         private void dtpStart_ValueChanged(object sender, EventArgs e)
         {
+            if (isUpdatingStart) return;
+
             DateTime startDate = dtpStart.Value.Date;
+            DateTime endDate = dtpEnd.Value.Date;
 
             if (startDate > DateTime.Now.Date)
             {
-                MessageBox.Show("Không được chọ ngày trong tương lai!", "Cảnh báo",
-                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dtpStart.Value = DateTime.Now;
+                MessageBox.Show("Không được chọn ngày bắt đầu trong tương lai!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                isUpdatingStart = true;
+                dtpStart.Value = DateTime.Now.Date;
+                isUpdatingStart = false;
                 return;
+            }
+
+            if (startDate > endDate)
+            {
+                MessageBox.Show("Ngày bắt đầu không được sau ngày kết thúc!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                isUpdatingStart = true;
+                dtpStart.Value = endDate;
+                isUpdatingStart = false;
             }
         }
 
         private void dtpEnd_ValueChanged(object sender, EventArgs e)
         {
+            if (isUpdatingEnd) return;
+
             DateTime endDate = dtpEnd.Value.Date;
+            DateTime startDate = dtpStart.Value.Date;
 
             if (endDate > DateTime.Now.Date)
             {
-                MessageBox.Show("Không được chọ ngày trong tương lai!", "Cảnh báo",
-                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dtpEnd.Value = DateTime.Now;
+                MessageBox.Show("Không được chọn ngày kết thúc trong tương lai!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                isUpdatingEnd = true;
+                dtpEnd.Value = DateTime.Now.Date;
+                isUpdatingEnd = false;
                 return;
             }
+
+            if (endDate < startDate)
+            {
+                MessageBox.Show("Ngày kết thúc không được trước ngày bắt đầu!", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                isUpdatingEnd = true;
+                dtpEnd.Value = startDate;
+                isUpdatingEnd = false;
+            }
         }
+
         private void lblSearchDtoD_Click(object sender, EventArgs e)
         {
             DateTime startDate = dtpStart.Value.Date;

@@ -79,6 +79,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(273, 34);
             this.txtUsername.TabIndex = 3;
+            this.txtUsername.Text = "lamtriphuc00";
             // 
             // txtPwd
             // 
@@ -88,6 +89,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 4;
+            this.txtPwd.Text = "P@ssw0rd";
             // 
             // btnLogin
             // 
