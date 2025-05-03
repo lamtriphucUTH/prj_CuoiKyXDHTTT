@@ -77,10 +77,9 @@ namespace prj_CuoiKyXDHTTT
                     conn.Open();
                     cmd.ExecuteNonQuery();
 
-                    //UpdateStockAndStatus(lblModelNumber.Text.Trim(), lblIMEI.Text.Trim());
-
                     MessageBox.Show("Giao dịch thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 catch (Exception ex)
@@ -90,44 +89,9 @@ namespace prj_CuoiKyXDHTTT
             }
         }
 
-        private void UpdateStockAndStatus(string modelNum, string imei)
-        {
-            using (SqlConnection conn = GetConnection())
-            {
-                conn.Open();
-                using (SqlTransaction tran = conn.BeginTransaction())
-                {
-                    try
-                    {
-                        // Trừ số lượng tồn kho
-                        using (SqlCommand cmd1 = new SqlCommand(
-                            "UPDATE tbl_Model SET AvailableQty = AvailableQty - 1 WHERE ModelNum = @modelNum", conn, tran))
-                        {
-                            cmd1.Parameters.AddWithValue("@modelNum", modelNum);
-                            cmd1.ExecuteNonQuery();
-                        }
-
-                        // Cập nhật status điện thoại
-                        using (SqlCommand cmd2 = new SqlCommand(
-                            "UPDATE tbl_Mobile SET Status = 'Sold' WHERE IMEINO = @imei", conn, tran))
-                        {
-                            cmd2.Parameters.AddWithValue("@imei", imei);
-                            cmd2.ExecuteNonQuery();
-                        }
-
-                        tran.Commit();
-                    }
-                    catch
-                    {
-                        tran.Rollback();
-                        throw;
-                    }
-                }
-            }
-        }
-
         private void txtCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

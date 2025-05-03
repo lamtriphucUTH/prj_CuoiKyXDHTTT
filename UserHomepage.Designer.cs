@@ -58,13 +58,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tabSearchCustomer = new System.Windows.Forms.TabPage();
             this.dtgvSearchResult = new System.Windows.Forms.DataGridView();
-            this.lnkSearch = new System.Windows.Forms.LinkLabel();
-            this.txtIMEINumber = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MobileNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmailId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lnkSearch = new System.Windows.Forms.LinkLabel();
+            this.txtIMEINumber = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabCtrl.SuspendLayout();
             this.tabSales.SuspendLayout();
             this.tabViewStock.SuspendLayout();
@@ -399,36 +399,6 @@
             this.dtgvSearchResult.Size = new System.Drawing.Size(658, 213);
             this.dtgvSearchResult.TabIndex = 31;
             // 
-            // lnkSearch
-            // 
-            this.lnkSearch.AutoSize = true;
-            this.lnkSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkSearch.Location = new System.Drawing.Point(289, 165);
-            this.lnkSearch.Name = "lnkSearch";
-            this.lnkSearch.Size = new System.Drawing.Size(89, 29);
-            this.lnkSearch.TabIndex = 30;
-            this.lnkSearch.TabStop = true;
-            this.lnkSearch.Text = "Search";
-            this.lnkSearch.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSearch_LinkClicked);
-            // 
-            // txtIMEINumber
-            // 
-            this.txtIMEINumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIMEINumber.Location = new System.Drawing.Point(294, 79);
-            this.txtIMEINumber.Name = "txtIMEINumber";
-            this.txtIMEINumber.Size = new System.Drawing.Size(331, 34);
-            this.txtIMEINumber.TabIndex = 29;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(59, 82);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(217, 29);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Enter IMEI Number";
-            // 
             // CustomerName
             // 
             this.CustomerName.DataPropertyName = "CustName";
@@ -460,6 +430,37 @@
             this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.Width = 125;
+            // 
+            // lnkSearch
+            // 
+            this.lnkSearch.AutoSize = true;
+            this.lnkSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkSearch.Location = new System.Drawing.Point(289, 165);
+            this.lnkSearch.Name = "lnkSearch";
+            this.lnkSearch.Size = new System.Drawing.Size(89, 29);
+            this.lnkSearch.TabIndex = 30;
+            this.lnkSearch.TabStop = true;
+            this.lnkSearch.Text = "Search";
+            this.lnkSearch.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkSearch_LinkClicked);
+            // 
+            // txtIMEINumber
+            // 
+            this.txtIMEINumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIMEINumber.Location = new System.Drawing.Point(294, 79);
+            this.txtIMEINumber.Name = "txtIMEINumber";
+            this.txtIMEINumber.Size = new System.Drawing.Size(331, 34);
+            this.txtIMEINumber.TabIndex = 29;
+            this.txtIMEINumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIMEINumber_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(59, 82);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(217, 29);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Enter IMEI Number";
             // 
             // UserHomepage
             // 

@@ -69,6 +69,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(273, 34);
             this.txtPwd.TabIndex = 11;
+            this.txtPwd.Text = "admin";
             // 
             // txtUsername
             // 
@@ -77,6 +78,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(273, 34);
             this.txtUsername.TabIndex = 10;
+            this.txtUsername.Text = "admin";
             // 
             // label2
             // 

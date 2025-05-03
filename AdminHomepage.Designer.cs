@@ -166,7 +166,6 @@
             this.tabControlAdd.SelectedIndex = 0;
             this.tabControlAdd.Size = new System.Drawing.Size(644, 526);
             this.tabControlAdd.TabIndex = 0;
-            this.tabControlAdd.SelectedIndexChanged += new System.EventHandler(this.tabControlAdd_SelectedIndexChanged);
             // 
             // tabAddCompany
             // 

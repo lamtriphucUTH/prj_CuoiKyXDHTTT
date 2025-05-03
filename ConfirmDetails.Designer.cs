@@ -206,7 +206,7 @@
             // 
             this.lblCompanyName.AutoSize = true;
             this.lblCompanyName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyName.Location = new System.Drawing.Point(554, 57);
+            this.lblCompanyName.Location = new System.Drawing.Point(569, 57);
             this.lblCompanyName.Name = "lblCompanyName";
             this.lblCompanyName.Size = new System.Drawing.Size(51, 20);
             this.lblCompanyName.TabIndex = 0;
@@ -216,7 +216,7 @@
             // 
             this.lblModelNumber.AutoSize = true;
             this.lblModelNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelNumber.Location = new System.Drawing.Point(554, 118);
+            this.lblModelNumber.Location = new System.Drawing.Point(569, 118);
             this.lblModelNumber.Name = "lblModelNumber";
             this.lblModelNumber.Size = new System.Drawing.Size(51, 20);
             this.lblModelNumber.TabIndex = 0;
@@ -226,7 +226,7 @@
             // 
             this.lblIMEI.AutoSize = true;
             this.lblIMEI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIMEI.Location = new System.Drawing.Point(554, 177);
+            this.lblIMEI.Location = new System.Drawing.Point(569, 177);
             this.lblIMEI.Name = "lblIMEI";
             this.lblIMEI.Size = new System.Drawing.Size(51, 20);
             this.lblIMEI.TabIndex = 0;
@@ -236,7 +236,7 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(554, 233);
+            this.lblPrice.Location = new System.Drawing.Point(569, 233);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(51, 20);
             this.lblPrice.TabIndex = 0;
@@ -246,7 +246,7 @@
             // 
             this.lblWarranty.AutoSize = true;
             this.lblWarranty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarranty.Location = new System.Drawing.Point(554, 294);
+            this.lblWarranty.Location = new System.Drawing.Point(569, 294);
             this.lblWarranty.Name = "lblWarranty";
             this.lblWarranty.Size = new System.Drawing.Size(51, 20);
             this.lblWarranty.TabIndex = 0;
