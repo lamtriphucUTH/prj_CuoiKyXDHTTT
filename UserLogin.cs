@@ -98,11 +98,13 @@ namespace prj_CuoiKyXDHTTT
 
             if (!isHiden)
             {
-                picShowHide.Image = Image.FromFile("eye_closed.png");
+                //picShowHide.Image = Image.FromFile("eye_closed.png");
+                picShowHide.Image = Properties.Resources.eye_closed;
             }
             else
             {
-                picShowHide.Image = Image.FromFile("eye_open.png");
+                //picShowHide.Image = Image.FromFile("eye_open.png");
+                picShowHide.Image = Properties.Resources.eye_open;
             }
         }
     }

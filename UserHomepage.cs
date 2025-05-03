@@ -29,8 +29,26 @@ namespace prj_CuoiKyXDHTTT
             LoadViewStock();
             LoadSales();
         }
+        private void tabCtrl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabCtrl.SelectedTab == tabViewStock)
+            {
+                LoadViewStock();
+            }
+            else if (tabCtrl.SelectedTab == tabSales)
+            {
+                LoadSales();
+            }
+            else if (tabCtrl.SelectedTab == tabSearchCustomer)
+            {
+                LoadSearchIMEI();
+            }
+        }
         private void LoadViewStock()
         {
+            cbCompanyName_ViewStock.Text = string.Empty;
+            cbCompanyName_ViewStock.Items.Clear();
+            cbModelNumber_ViewStock.Text = string.Empty;
             GetCompanyNames(cbCompanyName_ViewStock);
             cbModelNumber_ViewStock.Enabled = false;
             txtStockAvailable.ReadOnly = true;
@@ -151,6 +169,13 @@ namespace prj_CuoiKyXDHTTT
             }
         }
         #region Search IMEI Number
+        private void LoadSearchIMEI()
+        {
+            txtIMEINumber.Clear();
+            txtIMEINumber.Enabled = true;
+            dtgvSearchResult.DataSource = null;
+            dtgvSearchResult.Rows.Clear();
+        }
         private void txtIMEINumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -194,6 +219,12 @@ namespace prj_CuoiKyXDHTTT
         #region Sale
         public void LoadSales()
         {
+            cbCompanyName.Items.Clear();
+            cbCompanyName.Text = string.Empty;
+            cbModelNumber.Items.Clear();
+            cbModelNumber.Text = string.Empty;
+            cbIMEINumber.Items.Clear();
+            cbIMEINumber.Text = string.Empty;
             GetCompanyNames(cbCompanyName);
             cbModelNumber.Enabled = false;
             cbIMEINumber.Enabled = false;
@@ -325,5 +356,6 @@ namespace prj_CuoiKyXDHTTT
         }
         #endregion
 
+        
     }
 }
