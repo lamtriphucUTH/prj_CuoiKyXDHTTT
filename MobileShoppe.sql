@@ -70,11 +70,11 @@ CREATE TABLE tbl_Sales (
 
 
 INSERT INTO tbl_User VALUES
-('admin', '1', 'Le Van C', '789 Cach Mang Thang 8, Q3', '0933123456', 'Truong cap 1'),
-('user1', '1', 'Nguyen Van A', '123 Le Loi, Q1', '0909123456', 'Ten thu cung'),
-('user2', '1', 'Tran Thi B', '456 Tran Hung Dao, Q5', '0911123456', 'Mon an yeu thich'),
-('user3', '1', 'Pham Duy D', '321 Nguyen Thi Minh Khai, Q10', '0944123456', 'So yeu thich'),
-('user4', '1', 'Doan Thi E', '654 Hai Ba Trung, Q1', '0955123456', 'Dong vat yeu thich');
+('admin', 'admin', 'Le Van C', '789 Cach Mang Thang 8, Q3', '0933123456', 'Truong cap 1'),
+('lamtriphuc00', 'P@ssw0rd', 'Lam Tri Phuc', '123 Le Loi, Q1', '0909123456', 'Ten thu cung'),
+('nguyenhongminh00', 'P@ssw0rd', 'Nguyen Hong Minh', '456 Tran Hung Dao, Q5', '0911123456', 'Mon an yeu thich'),
+('nguyenhongton00', 'P@ssw0rd', 'Nguyen Hong Ton', '321 Nguyen Thi Minh Khai, Q10', '0944123456', 'So yeu thich'),
+('user8386', 'P@ssw0rd', 'May Thi Man', '654 Hai Ba Trung, Q1', '0955123456', 'Dong vat yeu thich');
 GO
 
 INSERT INTO tbl_Company VALUES
@@ -86,108 +86,120 @@ INSERT INTO tbl_Company VALUES
 GO
 
 INSERT INTO tbl_Model VALUES
-('1', '1', 'iPhone 13', 10),
-('2', '2', 'Galaxy S22', 15),
-('3', '3', 'Redmi Note 11', 20),
-('4', '4', 'OPPO Reno 8', 12),
-('5', '5', 'Nokia G20', 8);
+-- Apple
+('1', '1', 'iPhone 13', 2),
+('6', '1', 'iPhone 14', 1),
+('7', '1', 'iPhone SE 2022', 0),
+
+-- Samsung
+('2', '2', 'Galaxy S22', 1),
+('8', '2', 'Galaxy A54', 1),
+('9', '2', 'Galaxy Z Flip4', 0),
+
+-- Xiaomi
+('3', '3', 'Redmi Note 11', 1),
+('10', '3', 'Poco X5 Pro', 1),
+
+-- OPPO
+('4', '4', 'OPPO Reno 8', 1),
+('11', '4', 'OPPO A78', 0),
+
+-- Nokia
+('5', '5', 'Nokia G20', 1),
+('12', '5', 'Nokia X30', 0);
 GO
 
-INSERT INTO tbl_Transaction VALUES
-('1', '1', 2, '2025-04-01', 30000000),
-('2', '2', 3, '2025-04-02', 45000000),
-('3', '3', 5, '2025-04-03', 25000000),
-('4', '4', 4, '2025-04-04', 28000000),
-('5', '5', 1, '2025-04-05', 6000000);
-GO
+--INSERT INTO tbl_Transaction VALUES
+--('1', '1', 2, '2025-04-01', 30000000),
+--('2', '2', 3, '2025-04-02', 45000000),
+--('3', '3', 5, '2025-04-03', 25000000),
+--('4', '4', 4, '2025-04-04', 28000000),
+--('5', '5', 1, '2025-04-05', 6000000);
+--GO
 
 INSERT INTO tbl_Mobile VALUES
+-- iPhone 13
 ('1', '00000001', 'Not Sold', '2026-04-01', 15000000),
+('1', '99999991', 'Sold', '2026-04-01', 15000000),
+
+-- Galaxy S22
 ('2', '00000002', 'Not Sold', '2026-04-01', 15000000),
-('3', '00000003', 'Sold', '2026-04-01', 10000000),
-('4', '00000004', 'Sold', '2026-04-01', 7000000),
-('5', '00000005', 'Not Sold', '2026-04-01', 6000000);
+('2', '99999992', 'Sold', '2026-04-01', 15000000),
+
+-- Redmi Note 11
+('3', '00000003', 'Not Sold', '2026-04-01', 10000000),
+('3', '99999993', 'Sold', '2026-04-01', 10000000),
+
+-- OPPO Reno 8
+('4', '00000004', 'Not Sold', '2026-04-01', 7000000),
+('4', '99999994', 'Sold', '2026-04-01', 7000000),
+
+-- Nokia G20
+('5', '00000005', 'Not Sold', '2026-04-01', 7000000),
+('5', '99999995', 'Sold', '2026-04-01', 7000000),
+
+-- iPhone 14
+('6', '11110001', 'Not Sold', '2026-04-01', 21000000),
+('6', '11110002', 'Sold', '2026-04-02', 21000000),
+
+-- iPhone SE 2022
+('7', '11110003', 'Sold', '2026-04-02', 12000000),
+
+-- Galaxy A54
+('8', '22220001', 'Not Sold', '2026-04-01', 11000000),
+('8', '22220002', 'Sold', '2026-04-03', 11000000),
+
+-- Galaxy Z Flip4
+('9', '22220003', 'Sold', '2026-04-03', 28000000),
+
+-- Poco X5 Pro
+('10', '33330001', 'Not Sold', '2026-04-01', 8500000),
+('10', '33330002', 'Sold', '2026-04-04', 8500000),
+
+-- OPPO A78
+('11', '44440001', 'Sold', '2026-04-01', 7800000),
+
+-- Nokia X30
+('12', '55550001', 'Sold', '2026-04-01', 9200000);
 GO
 
 INSERT INTO tbl_Customer VALUES
-('1', 'Nguyen Thanh', '0981123456', 'thanh@example.com', '123 D1, Binh Thanh'),
-('2', 'Le Mai', '0982123456', 'mai@example.com', '456 D2, Go Vap'),
-('3', 'Tran Hieu', '0983123456', 'hieu@example.com', '789 D3, Tan Binh'),
-('4', 'Pham Linh', '0984123456', 'linh@example.com', '321 D4, Q10'),
-('5', 'Do Quang', '0985123456', 'quang@example.com', '654 D5, Thu Duc');
+('1', 'Nguyen Thanh', '0981123456', 'thanh@gmail.com', '123 D1, Binh Thanh'),
+('2', 'Le Mai', '0982123456', 'mai@gmail.com', '456 D2, Go Vap'),
+('3', 'Tran Hieu', '0983123456', 'hieu@gmail.com', '789 D3, Tan Binh'),
+('4', 'Pham Linh', '0984123456', 'linh@gmail.com', '321 D4, Q10'),
+('5', 'Do Quang', '0985123456', 'quang@gmail.com', '654 D5, Thu Duc'),
+('6', 'Nguyen Thi Hoa', '0909000111', 'hoa@gmail.com', '12 Nguyen Van Troi, Phu Nhuan'),
+('7', 'Pham Van Duc', '0909000222', 'duc@gmail.com', '34 Dinh Tien Hoang, Q1'),
+('8', 'Le Thi Trang', '0909000333', 'trang@gmail.com', '56 Hoang Sa, Q3');
+
 GO
 
 INSERT INTO tbl_Sales VALUES
-('1', '00000003', '2025-04-10', 10000000, '1'),
-('2', '00000004', '2025-04-11', 7000000, '2'),
-('3', '00000005', '2025-04-12', 6000000, '3'),
-('4', '00000001', '2025-04-13', 15000000, '4'),
-('5', '00000002', '2025-04-14', 15000000, '5');
+('1', '99999991', '2025-04-10', 15000000, '1'),
+('2', '99999992', '2025-04-11', 15000000, '2'),
+('3', '99999993', '2025-04-12', 10000000, '3'),
+('4', '99999994', '2025-04-13', 7000000, '4'),
+('5', '99999995', '2025-04-14', 7000000, '5'),
+('6', '11110002', '2025-04-15', 21000000, '6'),
+('7', '22220002', '2025-04-16', 11000000, '7'),
+('8', '33330002', '2025-04-17', 8500000, '8'),
+('9', '44440001', '2025-04-18', 7800000, '2'),
+('10', '55550001', '2025-04-19', 9200000, '4'),
+('11', '11110003', '2025-04-20', 12000000, '6'),
+('12', '22220003', '2025-04-21', 28000000, '7');
 GO
 
- --drop database mobileshoppe;
+-- Tự động cập nhật lại số lượng tồn kho từ tbl_Mobile
+UPDATE tbl_Model
+SET AvailableQty = (
+    SELECT COUNT(*) 
+    FROM tbl_Mobile m 
+    WHERE m.ModelId = tbl_Model.ModelId AND m.Status = 'Not Sold'
+);
 
--- Disable all foreign key constraints
--- EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT ALL";
 
--- Enable all foreign key constraints
--- EXEC sp_msforeachtable "ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL";
-
--- PROCEDURES
 CREATE PROCEDURE sp_ProcessSale
-	@SaleId VARCHAR(20),
-	@CusId VARCHAR(20),
-    @CustName VARCHAR(20),
-    @MobileNumber VARCHAR(20),
-    @Email VARCHAR(20),
-    @Address VARCHAR(MAX),
-    @IMEI VARCHAR(50),
-    @Price MONEY,
-    @PurchaseDate DATE
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    BEGIN TRY
-        BEGIN TRANSACTION;
-
-        DECLARE @CustomerId VARCHAR(20);
-        DECLARE @ModelId VARCHAR(20);
-
-        -- 1. Kiểm tra khách hàng
-        SELECT @CustomerId = CusId FROM tbl_Customer WHERE MobileNumber = @MobileNumber;
-
-        IF @CustomerId IS NULL
-        BEGIN
-            SET @CusId = CAST(NEWID() AS VARCHAR(20)); -- Tạo ID tự động
-            INSERT INTO tbl_Customer (CusId, CustName, MobileNumber, EmailId, Address)
-            VALUES (@CusId, @CustName, @MobileNumber, @Email, @Address);
-        END
-
-        -- 2. Lấy ModelId từ IMEI
-        SELECT @ModelId = ModelId FROM tbl_Mobile WHERE IMEINO = @IMEI;
-
-        -- 3. Thêm vào bảng Sales
-        DECLARE @SlsId VARCHAR(20) = CAST(NEWID() AS VARCHAR(20));
-        INSERT INTO tbl_Sales (SlsId, IMEINO, PurchageDate, Price, CusId)
-        VALUES (@SlsId, @IMEI, @PurchaseDate, @Price, @CusId);
-
-        -- 4. Cập nhật trạng thái Mobile
-        UPDATE tbl_Mobile SET Status = 'Sold' WHERE IMEINO = @IMEI;
-
-        -- 5. Trừ AvailableQty
-        UPDATE tbl_Model SET AvailableQty = AvailableQty - 1 WHERE ModelId = @ModelId;
-
-        COMMIT;
-    END TRY
-    BEGIN CATCH
-        ROLLBACK;
-        THROW;
-    END CATCH
-END;
-GO
-
-ALTER PROCEDURE sp_ProcessSale
 	@SaleId VARCHAR(20),
 	@CusId VARCHAR(20),
     @CustName VARCHAR(20),

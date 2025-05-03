@@ -54,6 +54,7 @@ namespace prj_CuoiKyXDHTTT
                 MessageBox.Show("Sai mật khẩu hoặc tài khoản không tồn tại.",
                                 "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            conn.Close();
         }
 
         private void lnkToAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -69,21 +70,20 @@ namespace prj_CuoiKyXDHTTT
             objForgotPass.Show();
             this.Hide();
         }
-        private bool isPasswordShown = false;
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private void picShowHide_Click(object sender, EventArgs e)
         {
-            if (isPasswordShown)
+            bool isHiden = txtPwd.UseSystemPasswordChar;
+            txtPwd.UseSystemPasswordChar = !isHiden;
+
+            if (!isHiden)
             {
-                txtPwd.UseSystemPasswordChar = true;
-                btnShowHide.Text = "Hiện";
-                isPasswordShown = false;
+                picShowHide.Image = Image.FromFile("eye_closed.png");
             }
             else
             {
-                txtPwd.UseSystemPasswordChar = false;
-                btnShowHide.Text = "Ẩn";
-                isPasswordShown = true;
+                picShowHide.Image = Image.FromFile("eye_open.png");
             }
         }
     }

@@ -108,6 +108,8 @@ namespace prj_CuoiKyXDHTTT
         private void cbCompanyName_ViewStock_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbModelNumber_ViewStock.Items.Clear();
+            cbModelNumber_ViewStock.SelectedIndex = -1;
+            cbModelNumber_ViewStock.Text = string.Empty;
 
             if (cbCompanyName_ViewStock.SelectedItem == null)
             {
@@ -149,6 +151,11 @@ namespace prj_CuoiKyXDHTTT
             }
         }
         #region Search IMEI Number
+        private void txtIMEINumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
         private void lnkSearch_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string imei = txtIMEINumber.Text.Trim();
@@ -160,10 +167,10 @@ namespace prj_CuoiKyXDHTTT
             using (SqlConnection conn = GetConnection())
             {
                 string query = @"
-            SELECT c.CustName, c.MobileNumber, c.EmailId, c.Address
-            FROM tbl_Customer c
-            JOIN tbl_Sales s ON c.CusId = s.CusId
-            WHERE s.IMEINO = @imei";
+                    SELECT c.CustName, c.MobileNumber, c.EmailId, c.Address
+                    FROM tbl_Customer c
+                    JOIN tbl_Sales s ON c.CusId = s.CusId
+                    WHERE s.IMEINO = @imei";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -185,12 +192,20 @@ namespace prj_CuoiKyXDHTTT
         }
         #endregion
         #region Sale
-        private void LoadSales()
+        public void LoadSales()
         {
             GetCompanyNames(cbCompanyName);
             cbModelNumber.Enabled = false;
             cbIMEINumber.Enabled = false;
-            txtPricePerPiece.ReadOnly = true;
+
+            txtCustomerName.Clear();
+            txtMobileNumber.Clear();
+            txtAddress.Clear();
+            txtEmail.Clear();
+            txtPricePerPiece.Clear();
+            cbCompanyName.SelectedIndex = -1;
+            cbModelNumber.SelectedIndex = -1;
+            cbIMEINumber.SelectedIndex = -1;
         }
         private void cbCompanyName_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -259,9 +274,6 @@ namespace prj_CuoiKyXDHTTT
             }
         }
 
-        #endregion
-
-        // Check Customer and view confirm details
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (!ValidateCustomerInfo()) return;
@@ -277,8 +289,14 @@ namespace prj_CuoiKyXDHTTT
                 txtPricePerPiece.Text
             );
 
-            confirmForm.ShowDialog();
+            var result = confirmForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadSales();
+            }
         }
+
+        // Check Customer and view confirm details
         private bool ValidateCustomerInfo()
         {
             // Validate Tên
@@ -305,6 +323,7 @@ namespace prj_CuoiKyXDHTTT
 
             return true;
         }
+        #endregion
 
     }
 }

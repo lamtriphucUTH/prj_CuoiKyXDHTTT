@@ -7,6 +7,7 @@ namespace prj_CuoiKyXDHTTT
 {
     public partial class ConfirmDetails : Form
     {
+
         private string connStr = "Data Source=.;Initial Catalog=MobileShoppe;Integrated Security=True";
 
         private string customerName, mobileNumber, address, email;
@@ -60,9 +61,9 @@ namespace prj_CuoiKyXDHTTT
             using (SqlCommand cmd = new SqlCommand("sp_ProcessSale", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add(new SqlParameter("@SaleId", SqlDbType.NVarChar, 50) { Value = newSaleId });
-                cmd.Parameters.Add(new SqlParameter("@CusId", SqlDbType.NVarChar, 50) { Value = newCusId });
+                
+                cmd.Parameters.AddWithValue("SaleId", newSaleId);
+                cmd.Parameters.AddWithValue("CusId", newCusId);
                 cmd.Parameters.AddWithValue("@CustName", lblCustomerName.Text.Trim());
                 cmd.Parameters.AddWithValue("@MobileNumber", lblMobileNumber.Text.Trim());
                 cmd.Parameters.AddWithValue("@Email", lblEmail.Text.Trim());
@@ -76,9 +77,9 @@ namespace prj_CuoiKyXDHTTT
                     conn.Open();
                     cmd.ExecuteNonQuery();
 
-                    UpdateStockAndStatus(lblModelNumber.Text.Trim(), lblIMEI.Text.Trim());
-
                     MessageBox.Show("Giao dịch thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 catch (Exception ex)
@@ -88,44 +89,9 @@ namespace prj_CuoiKyXDHTTT
             }
         }
 
-        private void UpdateStockAndStatus(string modelNum, string imei)
-        {
-            using (SqlConnection conn = GetConnection())
-            {
-                conn.Open();
-                using (SqlTransaction tran = conn.BeginTransaction())
-                {
-                    try
-                    {
-                        // Trừ số lượng tồn kho
-                        using (SqlCommand cmd1 = new SqlCommand(
-                            "UPDATE tbl_Model SET AvailableQty = AvailableQty - 1 WHERE ModelNum = @modelNum", conn, tran))
-                        {
-                            cmd1.Parameters.AddWithValue("@modelNum", modelNum);
-                            cmd1.ExecuteNonQuery();
-                        }
-
-                        // Cập nhật status điện thoại
-                        using (SqlCommand cmd2 = new SqlCommand(
-                            "UPDATE tbl_Mobile SET Status = 'Sold' WHERE IMEINO = @imei", conn, tran))
-                        {
-                            cmd2.Parameters.AddWithValue("@imei", imei);
-                            cmd2.ExecuteNonQuery();
-                        }
-
-                        tran.Commit();
-                    }
-                    catch
-                    {
-                        tran.Rollback();
-                        throw;
-                    }
-                }
-            }
-        }
-
         private void txtCancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }
