@@ -30,6 +30,41 @@ namespace prj_CuoiKyXDHTTT
             InitUpdateStock();
             dtpSelectDay.Value = DateTime.Today;
         }
+        private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabMain.SelectedTab == tabUpdateStock)
+            {
+                InitUpdateStock();
+            }
+            else if (tabMain.SelectedTab == tabReportByDay)
+            {
+                dtpSelectDay.Value = DateTime.Today;
+            }
+            else if (tabMain.SelectedTab == tabPeportDtoD)
+            {
+                dtpStart.Value = DateTime.Today;
+                dtpEnd.Value = DateTime.Today;
+            }
+            else if (tabMain.SelectedTab == tabEmployee)
+            {
+                InitAddEmployee();
+            }
+        }
+        private void tabControlAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlAdd.SelectedTab == tabAddCompany)
+            {
+                InitCompanyTab();
+            }
+            else if (tabControlAdd.SelectedTab == tabAddModel)
+            {
+                InitModelTab();
+            }
+            else if (tabControlAdd.SelectedTab == tabAddMobile)
+            {
+                InitMobileTab();
+            }
+        }
         #region COMMON
         private SqlConnection GetConnection()
         {
@@ -113,6 +148,7 @@ namespace prj_CuoiKyXDHTTT
         {
             // load combobox công ty
             cbComName_Model.Items.Clear();
+            cbComName_Model.Text = string.Empty;
             foreach (string c in GetCompanyNames()) cbComName_Model.Items.Add(c);
 
             txtModelId.Text = GetNextId("tbl_Model", "ModelId");
@@ -373,6 +409,17 @@ namespace prj_CuoiKyXDHTTT
 
         #endregion
         #region ADD EMPLOYEE
+        void InitAddEmployee()
+        {
+            txtEployeeName.Clear();
+            txtAddress.Clear();
+            txtMobile.Clear();
+            txtUsername.Clear();
+            txtPass.Clear();
+            txtRetypePass.Clear();
+            txtHint.Clear();
+            txtEployeeName.Focus();
+        }
         private void txtMobile_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -895,6 +942,9 @@ namespace prj_CuoiKyXDHTTT
                 }
             }
         }
+
         #endregion
+
+       
     }
 }

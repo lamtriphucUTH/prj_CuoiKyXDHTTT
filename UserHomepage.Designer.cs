@@ -83,6 +83,7 @@
             this.tabCtrl.SelectedIndex = 0;
             this.tabCtrl.Size = new System.Drawing.Size(718, 673);
             this.tabCtrl.TabIndex = 0;
+            this.tabCtrl.SelectedIndexChanged += new System.EventHandler(this.tabCtrl_SelectedIndexChanged);
             // 
             // tabSales
             // 
