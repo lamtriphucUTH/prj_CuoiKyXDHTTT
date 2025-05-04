@@ -197,7 +197,7 @@ SET AvailableQty = (
     FROM tbl_Mobile m 
     WHERE m.ModelId = tbl_Model.ModelId AND m.Status = 'Not Sold'
 );
-
+GO
 
 CREATE PROCEDURE sp_ProcessSale
 	@SaleId VARCHAR(20),
