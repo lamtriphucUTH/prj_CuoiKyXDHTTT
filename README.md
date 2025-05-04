@@ -32,7 +32,24 @@
 - Quản lý kho hàng điện thoại (IMEI, trạng thái bán, giá)
 - Thống kê doanh thu theo khoảng thời gian
 - Báo cáo tồn kho theo hãng và model
-
+- Admin
+  + 👤 Quản lý người dùng: Thêm, sửa, xóa tài khoản người dùng (nhân viên bán hàng).
+  + 🏢 Quản lý hãng điện thoại: Thêm/sửa hãng điện thoại (Apple, Samsung,...).
+  + 📱 Quản lý model điện thoại: Thêm/sửa các model tương ứng với hãng.
+  + 📦 Quản lý kho hàng (Mobile):
+     Nhập điện thoại mới vào kho (IMEI, model, giá).
+     Cập nhật trạng thái điện thoại: Not Sold hoặc Sold.
+  + 📊 Thống kê bán hàng:
+  + Xem tổng doanh thu theo khoảng thời gian.
+  + Lọc doanh thu theo model, hãng.
+- User (Nhân viên bán hàng)
+  + 🛒 Bán hàng:
+      📇 Nhập thông tin khách hàng: Ghi nhận tên, SĐT, email, địa chỉ khi bán hàng.
+      Chọn hãng, model, IMEI tương ứng.
+      Xác nhận thông tin đơn hàng (qua form xác nhận).
+      Thực hiện giao dịch và ghi nhận doanh số.
+  + 🔍 Tìm kiếm và lọc thông tin: Xem thông tin các sản phẩm đã bán theo IMEINO
+  + 🗃️ Xem thông tin tồn kho: Kiểm tra số lượng điện thoại chưa bán theo model/hãng.
 ## 📌 Lưu ý
 
 - Trước khi chạy chương trình, bạn **bắt buộc** phải thực thi file `MobileShoppe.sql` trong SQL Server.
@@ -40,5 +57,6 @@
 
 ## 👨‍💻 Tác giả
 
-- Lam Tri Phuc
-- [Liên hệ hỗ trợ qua GitHub Issues hoặc email nếu cần]
+- Lâm Trí Phúc
+- Nguyễn Hồng Minh
+- Nguyễn Hồng Tồn
