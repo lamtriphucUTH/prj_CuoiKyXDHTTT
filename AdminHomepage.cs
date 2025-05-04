@@ -312,6 +312,11 @@ namespace prj_CuoiKyXDHTTT
                 MessageBox.Show("Giá phải là số!");
                 return;
             }
+            if (price <= 0)
+            {
+                MessageBox.Show("Đơn giá phải lớn hơn 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DateTime expiry;
             try { 
                 expiry = CalculateWarrantyExpiry(cbWarranty.SelectedItem.ToString()); 
@@ -608,6 +613,11 @@ namespace prj_CuoiKyXDHTTT
                 (!decimal.TryParse(txtQuantity.Text.Trim(), out decimal quantity)))
             {
                 MessageBox.Show("Giá và số lượng phải là số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (amount <= 0 || quantity <= 0)
+            {
+                MessageBox.Show("Số lượng và đơn giá phải lớn hơn 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             int? modelId = GetModelIdByNum(cbModelNum.SelectedItem.ToString());
